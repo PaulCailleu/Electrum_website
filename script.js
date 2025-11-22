@@ -98,7 +98,13 @@ const translations = {
     "footer-disclaimer-1":
       "No information on this website constitutes investment advice, an offer, or a solicitation to subscribe to any financial product.",
     "footer-disclaimer-2":
-      "Any investment in Electrum Fund would be subject to specific documentation, risk factors and regulatory eligibility criteria."
+      "Any investment in Electrum Fund would be subject to specific documentation, risk factors and regulatory eligibility criteria.",
+
+    "tooltip-cagr": "Compound annual growth rate of the strategy over the full backtest period.",
+    "tooltip-vol": "Annualized volatility of returns, based on the daily series of total returns.",
+    "tooltip-sharpe": "Net Sharpe ratio: excess return per unit of risk, after fees.",
+    "tooltip-dd": "Maximum peak-to-trough drawdown of the strategy over the backtest period.",
+    "tooltip-calmar": "Net Calmar ratio: excess return per unit of risk, after fees."
   },
 
   fr: {
@@ -199,7 +205,13 @@ const translations = {
     "footer-disclaimer-1":
       "Les informations présentées sur ce site ne constituent ni un conseil en investissement, ni une offre, ni une sollicitation au public.",
     "footer-disclaimer-2":
-      "Tout investissement dans Electrum Fund serait soumis à une documentation spécifique, à des facteurs de risque détaillés et à des critères d’éligibilité réglementaire."
+      "Tout investissement dans Electrum Fund serait soumis à une documentation spécifique, à des facteurs de risque détaillés et à des critères d’éligibilité réglementaire.",
+    
+    "tooltip-cagr": "Taux de croissance annualisé de la stratégie sur l’ensemble de la période de backtest.",
+    "tooltip-vol": "Volatilité annualisée des rendements, calculée à partir de la série quotidienne des retours.",
+    "tooltip-sharpe": "Ratio de Sharpe net : rendement excédentaire par unité de risque, après frais.",
+    "tooltip-dd": "Perte maximale observée entre un plus haut et un plus bas (max drawdown) sur la période de backtest.",
+    "tooltip-calmar": "Ratio de Calmar net: à noter."
   }
 };
 
@@ -214,6 +226,14 @@ function applyTranslations(lang) {
     }
   });
   currentLang = lang;
+  // Tooltips pour les icônes info
+  document.querySelectorAll("[data-tooltip-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-tooltip-i18n");
+    if (dict[key]) {
+      el.setAttribute("data-tooltip", dict[key]);
+    }
+  });
+
 }
 
 // Language buttons
