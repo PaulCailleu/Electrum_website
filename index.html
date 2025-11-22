@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Electrum Fund – The Future of Tokenized Investment</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="top-bar">
+    <div class="logo-block">
+      <img src="assets/Logo_electrum.png" alt="Electrum Fund logo" class="logo-img" />
+      <div class="logo-text">
+        <span class="brand-main">Electrum</span>
+        <span class="brand-sub">Fund</span>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <a href="#hero" data-i18n="nav-home"></a>
+      <a href="#strategy" data-i18n="nav-strategy"></a>
+      <a href="#tokenization" data-i18n="nav-tokenization"></a>
+      <a href="#team" data-i18n="nav-team"></a>
+      <a href="#whitepaper" data-i18n="nav-whitepaper"></a>
+      <a href="#contact" data-i18n="nav-contact"></a>
+    </nav>
+    <div class="lang-switch">
+      <button data-lang="en" class="lang-btn active">EN</button>
+      <button data-lang="fr" class="lang-btn">FR</button>
+    </div>
+    <button class="menu-toggle" aria-label="Toggle navigation">
+      <span class="menu-icon"></span>
+    </button>
+  </header>
+  <!--div class="menu-overlay"></div>
+
+  <!-- HERO -->
+  <section id="hero" class="section hero">
+    <div class="hero-content">
+      <h1 data-i18n="hero-title"></h1>
+      <p class="hero-subtitle" data-i18n="hero-subtitle"></p>
+      <div class="hero-cta">
+        <a href="#whitepaper" class="btn primary" data-i18n="btn-whitepaper"></a>
+        <a href="#contact" class="btn ghost" data-i18n="btn-contact"></a>
+      </div>
+      <p class="hero-disclaimer" data-i18n="hero-disclaimer"></p>
+    </div>
+  </section>
+
+  <!-- STRATEGY & PERFORMANCE -->
+  <section id="strategy" class="section">
+    <div class="section-header">
+      <h2 data-i18n="strategy-title"></h2>
+      <p data-i18n="strategy-intro"></p>
+    </div>
+
+    <div class="card">
+      <h3 data-i18n="chart-title"></h3>
+      <div class="chart-container">
+        <canvas id="performanceChart"></canvas>
+      </div>
+      <p class="small mt-8" data-i18n="chart-caption"></p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Rendements annuels</h3>
+        <canvas id="yearlyBarChart"></canvas>
+      </div>
+
+      <div class="card">
+          <h3 data-i18n="metrics-title"></h3>
+          <div class="metrics-grid">
+            <div class="metric">
+              <span class="metric-label" data-i18n="metric-cagr"></span>
+              <span class="metric-value" id="metric-cagr">12.4%</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label" data-i18n="metric-vol"></span>
+              <span class="metric-value" id="metric-vol">7.8%</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label" data-i18n="metric-sharpe"></span>
+              <span class="metric-value" id="metric-sharpe">1.45</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label" data-i18n="metric-dd"></span>
+              <span class="metric-value" id="metric-dd">-9.6%</span>
+            </div>
+          </div>
+          <p class="small" data-i18n="metrics-note"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOKENIZATION -->
+  <section id="tokenization" class="section alt">
+    <div class="section-header">
+      <h2 data-i18n="token-title"></h2>
+      <p data-i18n="token-intro"></p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card soft">
+        <h3 data-i18n="token-1-title"></h3>
+        <p data-i18n="token-1-text"></p>
+      </div>
+      <div class="card soft">
+        <h3 data-i18n="token-2-title"></h3>
+        <p data-i18n="token-2-text"></p>
+      </div>
+      <div class="card soft">
+        <h3 data-i18n="token-3-title"></h3>
+        <p data-i18n="token-3-text"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM / ABOUT -->
+  <section id="team" class="section">
+    <div class="section-header">
+      <h2 data-i18n="team-title"></h2>
+      <p data-i18n="team-intro"></p>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3 data-i18n="story-title"></h3>
+        <p data-i18n="story-text-1"></p>
+        <p data-i18n="story-text-2"></p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="governance-title"></h3>
+        <p data-i18n="governance-text-1"></p>
+        <p data-i18n="governance-text-2"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHITEPAPER -->
+  <section id="whitepaper" class="section alt">
+    <div class="section-header">
+      <h2 data-i18n="wp-title"></h2>
+      <p data-i18n="wp-intro"></p>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3 data-i18n="wp-download-title"></h3>
+        <p data-i18n="wp-download-text"></p>
+        <form class="form" id="wp-form">
+          <div class="form-group">
+            <label for="wp-email" data-i18n="label-email"></label>
+            <input type="email" id="wp-email" name="email" required placeholder="you@example.com" />
+          </div>
+          <button type="submit" class="btn primary" data-i18n="btn-request-wp"></button>
+          <p class="small" data-i18n="wp-privacy"></p>
+        </form>
+        <p class="small notice" data-i18n="wp-form-note"></p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="wp-content-title"></h3>
+        <ul class="bullet-list">
+          <li data-i18n="wp-point-1"></li>
+          <li data-i18n="wp-point-2"></li>
+          <li data-i18n="wp-point-3"></li>
+          <li data-i18n="wp-point-4"></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="section-header">
+      <h2 data-i18n="contact-title"></h2>
+      <p data-i18n="contact-intro"></p>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <form class="form" id="contact-form">
+          <div class="form-group">
+            <label for="name" data-i18n="label-name"></label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email" data-i18n="label-email"></label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="message" data-i18n="label-message"></label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn primary" data-i18n="btn-send"></button>
+          <p class="small" data-i18n="contact-note"></p>
+        </form>
+      </div>
+      <div class="card">
+        <h3 data-i18n="contact-direct-title"></h3>
+        <p>
+          <span data-i18n="contact-email-label"></span>
+          <a href="mailto:info@electrum-fund.com">info@electrum-fund.com</a>
+        </p>
+        <p>
+          <span data-i18n="contact-linkedin-label"></span>
+          <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+        </p>
+        <p data-i18n="contact-location"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p data-i18n="footer-disclaimer-1"></p>
+    <p data-i18n="footer-disclaimer-2"></p>
+    <p class="small">&copy; <span id="year"></span> Electrum Fund. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
