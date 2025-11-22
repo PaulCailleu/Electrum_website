@@ -20,13 +20,20 @@ const translations = {
     "strategy-intro":
       "Electrum Fund implements a systematic strategy focused on risk-controlled exposure to digital assets and traditional markets. The chart below illustrates an example of backtested net asset value over time.",
     "chart-title": "Fund Value (Backtest)",
+    "benchmark-label": "S&P 500 total return",
+    "nav-label": "Electrum",
+    "metrics-yearly-title": "Annual Returns",
+    "axis-nav": "Performance (without fees)",
+    "axis-years": "Years",
+    "legend-returns": "Returns (%)",
     "chart-caption":
       "Illustrative backtest based on historical data and assumptions. Backtested performance is not indicative of future results.",
     "metrics-title": "Key Risk & Performance Metrics",
-    "metric-cagr": "Annualized return (CAGR)",
-    "metric-vol": "Volatility",
-    "metric-sharpe": "Sharpe ratio (net)",
-    "metric-dd": "Max drawdown",
+    "metric-cagr": "Annualized return (CAGR) :",
+    "metric-vol": "Volatility :",
+    "metric-sharpe": "Sharpe ratio (net) :",
+    "metric-dd": "Max drawdown :",
+    "metric-calmar": "Calmar ratio (net) :",
     "metrics-note":
       "Figures are for illustration only. Final statistics will depend on the live implementation, fees and market conditions.",
 
@@ -114,13 +121,20 @@ const translations = {
     "strategy-intro":
       "Electrum Fund met en œuvre une stratégie systématique avec un contrôle strict du risque et une exposition maîtrisée aux actifs numériques et traditionnels. Le graphique ci-dessous illustre une valeur liquidative théorique sur la base d’un backtest.",
     "chart-title": "Valeur du fonds (backtest)",
+    "benchmark-label": "S&P 500 dividendes réinvestis",
+    "nav-label": "Electrum",
+    "metrics-yearly-title": "Rendements annuels",
+    "axis-nav": "Performance (sans frais)",
+    "axis-years": "Années",
+    "legend-returns": "Rendement (%)",
     "chart-caption":
       "Backtest illustratif fondé sur des données historiques et des hypothèses. Les performances passées, réelles ou simulées, ne préjugent pas des performances futures.",
     "metrics-title": "Indicateurs de risque & performance",
-    "metric-cagr": "Performance annualisée (CAGR)",
-    "metric-vol": "Volatilité",
-    "metric-sharpe": "Ratio de Sharpe (net)",
-    "metric-dd": "Max drawdown",
+    "metric-cagr": "Performance annualisée (CAGR) :",
+    "metric-vol": "Volatilité :",
+    "metric-sharpe": "Ratio de Sharpe (net) :",
+    "metric-dd": "Baisse maximale :",
+    "metric-calmar": "Ratio de Calmar (net) :",
     "metrics-note":
       "Les chiffres ci-dessus sont donnés à titre purement indicatif. Les statistiques finales dépendront de la mise en œuvre réelle, des frais et des conditions de marché.",
 
@@ -216,6 +230,8 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelectorAll(".lang-btn").forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
       applyTranslations(lang);
+      updateChartsLanguage();
+    updateMetricsLanguage();
     });
   });
 
@@ -240,12 +256,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Init chart
   initPerformanceChart();
+  loadMetrics();
 });
+
+let performanceChart;
+let yearlyBarChart;
 
 async function initPerformanceChart() {
   const ctx = document.getElementById("performanceChart");
   const barCtx = document.getElementById("yearlyBarChart");
-  if (!ctx || !barCtx) return;
 
   const response = await fetch("./performance_data.json");
   const data = await response.json();
@@ -257,14 +276,14 @@ async function initPerformanceChart() {
   const years = data.annual_years;
   const annualReturns = data.annual_returns;
 
-  // === COURBE LOG SCALE ===
-  new Chart(ctx, {
+  // === Chart NAV logarithmique ===
+  performanceChart = new Chart(ctx, {
     type: "line",
     data: {
       labels,
       datasets: [
         {
-          label: "Electrum NAV (Backtest)",
+          label: translations[currentLang]["nav-label"],
           data: nav,
           borderColor: "#D6A84E",
           borderWidth: 1,
@@ -272,7 +291,7 @@ async function initPerformanceChart() {
           pointRadius: 0
         },
         {
-          label: "Benchmark",
+          label: translations[currentLang]["benchmark-label"],
           data: benchmark,
           borderColor: "#C8C9CF",
           borderWidth: 1,
@@ -289,7 +308,7 @@ async function initPerformanceChart() {
           type: "logarithmic",
           title: {
             display: true,
-            text: "NAV (log scale)",
+            text: translations[currentLang]["axis-nav"],
             color: "#e6e2d6"
           },
           ticks: { color: "#a0a7b8" },
@@ -298,7 +317,7 @@ async function initPerformanceChart() {
         x: {
           title: {
             display: false,
-            text: "Années",
+            text: translations[currentLang]["axis-years"],
             color: "#e6e2d6"
           },
           ticks: { color: "#a0a7b8" }
@@ -307,26 +326,19 @@ async function initPerformanceChart() {
       plugins: {
         legend: {
           labels: { color: "#e6e2d6" }
-        },
-        tooltip: {
-          callbacks: {
-            label: (context) => {
-              return `${context.dataset.label}: ${context.parsed.y.toFixed(2)}`;
-            }
-          }
         }
       }
     }
   });
 
-  // === BARRES RETURNS ANNUELS ===
-  new Chart(barCtx, {
+  // === Barplot rendements annuels ===
+  yearlyBarChart = new Chart(barCtx, {
     type: "bar",
     data: {
       labels: years,
       datasets: [
         {
-          label: "Rendement Annuel (%)",
+          label: translations[currentLang]["legend-returns"],
           data: annualReturns,
           backgroundColor: annualReturns.map(v =>
             v >= 0 ? "#D6A84E" : "#FF4D4D"
@@ -341,7 +353,7 @@ async function initPerformanceChart() {
         y: {
           title: {
             display: true,
-            text: "Rendement %",
+            text: translations[currentLang]["axis-returns"],
             color: "#e6e2d6"
           },
           ticks: {
@@ -361,16 +373,85 @@ async function initPerformanceChart() {
   });
 }
 
+// Formatage internationalisé
+function formatPercent(value) {
+  return currentLang === "fr"
+    ? (value.toFixed(3) * 100).toLocaleString("fr-FR", { minimumFractionDigits: 1 }) + " %"
+    : (value.toFixed(3) * 100).toLocaleString("en-US", { minimumFractionDigits: 1 }) + "%";
+}
+
+function formatNumber(value) {
+  return currentLang === "fr"
+    ? value.toFixed(2).toLocaleString("fr-FR", { minimumFractionDigits: 2 })
+    : value.toFixed(2).toLocaleString("en-US", { minimumFractionDigits: 2 });
+}
+
+
+async function loadMetrics() {
+  const response = await fetch("./metrics.json");
+  const metrics = await response.json();
+
+
+  document.getElementById("metric-cagr").textContent = formatPercent(metrics.Return);
+  document.getElementById("metric-vol").textContent = formatPercent(metrics.Volatility);
+  document.getElementById("metric-sharpe").textContent = formatNumber(metrics.Sharpe);
+  document.getElementById("metric-dd").textContent = formatPercent(metrics.Max_dd);
+  document.getElementById("metric-calmar").textContent = formatNumber(metrics.Calmar);
+
+  // Tu peux ajouter Calmar si tu veux une 5ᵉ metric
+}
+
+function updateMetricsLanguage() {
+  loadMetrics(); // reformatage auto
+}
+
+
+function updateChartsLanguage() {
+  if (!performanceChart || !yearlyBarChart) return;
+
+  performanceChart.options.scales.y.title.text = translations[currentLang]["axis-nav"];
+  performanceChart.options.scales.x.title.text = translations[currentLang]["axis-years"];
+  performanceChart.data.datasets[0].label = translations[currentLang]["nav-label"];
+  performanceChart.data.datasets[1].label = translations[currentLang]["benchmark-label"];
+  performanceChart.update();
+
+  yearlyBarChart.options.scales.y.title.text = translations[currentLang]["axis-returns"];
+  yearlyBarChart.options.scales.x.title.text = translations[currentLang]["axis-years"];
+  yearlyBarChart.data.datasets[0].label = translations[currentLang]["legend-returns"];
+  yearlyBarChart.update();
+}
+
 
 const menuBtn = document.querySelector(".menu-toggle");
 const navMenu = document.querySelector(".main-nav");
-//const overlay = document.querySelector(".menu-overlay");
 
+// Fonction d'ouverture/fermeture
 function toggleMenu() {
   const isOpen = navMenu.classList.toggle("open");
   menuBtn.classList.toggle("active", isOpen);
-  //overlay.classList.toggle("visible", isOpen);
 }
 
-menuBtn.addEventListener("click", toggleMenu);
-//overlay.addEventListener("click", toggleMenu);
+// Clic sur le bouton menu
+menuBtn.addEventListener("click", (e) => {
+  e.stopPropagation(); // Empêche la fermeture directe à cause du document listener
+  toggleMenu();
+});
+
+// Fermer le menu si clic en dehors
+document.addEventListener("click", (e) => {
+  const isClickInsideMenu = navMenu.contains(e.target);
+  const isClickOnButton = menuBtn.contains(e.target);
+
+  if (!isClickInsideMenu && !isClickOnButton) {
+    navMenu.classList.remove("open");
+    menuBtn.classList.remove("active");
+  }
+});
+
+// Fermer le menu lorsqu'on clique sur un lien du menu
+document.querySelectorAll(".main-nav a").forEach(link => {
+  link.addEventListener("click", () => {
+    navMenu.classList.remove("open");
+    menuBtn.classList.remove("active");
+  });
+});

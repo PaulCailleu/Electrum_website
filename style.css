@@ -27,6 +27,9 @@ body {
   color: var(--text-main);
   min-height: 100vh;
   line-height: 1.5;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* Top bar */
@@ -415,8 +418,8 @@ textarea:focus {
 /* MOBILE MENU */
 .menu-toggle {
   display: none;
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -435,6 +438,7 @@ textarea:focus {
   left: 50%;
   transform: translateX(-50%);
   transition: 0.3s;
+  box-shadow: 0 0 8px rgba(214,168,78,0.25);
 }
 
 .menu-icon {
@@ -486,7 +490,7 @@ textarea:focus {
   .main-nav {
     position: fixed;
     top: 0;
-    right: -270px;
+    right: -260px;
     height: 100vh;
     width: 230px;
     background: rgba(10, 22, 36, 0.95);
@@ -535,3 +539,11 @@ textarea:focus {
   width: 100% !important;
   height: 100% !important;
 }
+
+/* @media (min-width: 900px) {
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+} */
