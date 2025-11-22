@@ -251,7 +251,7 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.classList.add("active");
       applyTranslations(lang);
       updateChartsLanguage();
-    updateMetricsLanguage();
+      updateMetricsLanguage();
     });
   });
 
@@ -393,18 +393,19 @@ async function initPerformanceChart() {
   });
 }
 
-// Formatage internationalisé
 function formatPercent(value) {
+  const val = value * 100;
   return currentLang === "fr"
-    ? (value.toFixed(3) * 100).toLocaleString("fr-FR", { minimumFractionDigits: 1 }) + " %"
-    : (value.toFixed(3) * 100).toLocaleString("en-US", { minimumFractionDigits: 1 }) + "%";
+    ? val.toLocaleString("fr-FR", { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + " %"
+    : val.toLocaleString("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + "%";
 }
 
 function formatNumber(value) {
   return currentLang === "fr"
-    ? value.toFixed(2).toLocaleString("fr-FR", { minimumFractionDigits: 2 })
-    : value.toFixed(2).toLocaleString("en-US", { minimumFractionDigits: 2 });
+    ? value.toLocaleString("fr-FR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+    : value.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
+
 
 
 async function loadMetrics() {
@@ -417,12 +418,10 @@ async function loadMetrics() {
   document.getElementById("metric-sharpe").textContent = formatNumber(metrics.Sharpe);
   document.getElementById("metric-dd").textContent = formatPercent(metrics.Max_dd);
   document.getElementById("metric-calmar").textContent = formatNumber(metrics.Calmar);
-
-  // Tu peux ajouter Calmar si tu veux une 5ᵉ metric
 }
 
 function updateMetricsLanguage() {
-  loadMetrics(); // reformatage auto
+  loadMetrics();
 }
 
 
