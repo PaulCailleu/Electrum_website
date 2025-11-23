@@ -1,24 +1,23 @@
-from PIL import Image
+from PIL import Image, ImageOps
+import numpy as np
 
-# Load the logo image (adjust path if needed)
-img_path = "/Users/paulcailleu/Documents/Investissements/Electrum_website/assets/logo_electrum.png"
-img = Image.open(img_path)
+# Load original logo
+img = Image.open("/Users/paulcailleu/Documents/Investissements/Electrum_website/assets/electrum_ring_master_1024.png").convert("RGBA")
 
-# Create different favicon sizes
-sizes = [("favicon-32.png", 32), ("favicon-180.png", 180), ("favicon-192.png", 192)]
 
-output_paths = []
+# Output dictionary of generated assets
+outputs = {}
 
-for name, size in sizes:
-    resized = img.resize((size, size), Image.LANCZOS)
-    out_path = f"/Users/paulcailleu/Documents/Investissements/Electrum_website/assets/{name}"
-    resized.save(out_path, format="PNG")
-    output_paths.append(out_path)
+sizes = [32, 180, 192]
+for s in sizes:
+    icon = img.resize((s, s), Image.LANCZOS)
+    path = f"/Users/paulcailleu/Documents/Investissements/Electrum_website/assets/favicon-{s}.png"
+    icon.save(path, format="PNG")
+    outputs[f"favicon-{s}.png"] = path
 
-# Also create a .ico file containing multiple resolutions
+# Multi-size ICO
 ico_path = "/Users/paulcailleu/Documents/Investissements/Electrum_website/assets/favicon.ico"
-img.save(ico_path, sizes=[(16,16), (32,32), (48,48)])
+img.save(ico_path, sizes=[(16,16), (32,32), (48,48)], format="ICO")
+outputs["favicon.ico"] = ico_path
 
-output_paths.append(ico_path)
-
-output_paths
+outputs
