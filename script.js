@@ -101,10 +101,10 @@ const translations = {
       "Any investment in Electrum Fund would be subject to specific documentation, risk factors and regulatory eligibility criteria.",
 
     "tooltip-cagr": "Compound annual growth rate of the strategy over the full backtest period.",
-    "tooltip-vol": "Annualized volatility of returns, based on the daily series of total returns.",
-    "tooltip-sharpe": "Net Sharpe ratio: excess return per unit of risk, after fees.",
+    "tooltip-vol": "Annualized volatility, standard deviation of the daily returns serie.",
+    "tooltip-sharpe": "Net Sharpe ratio: excess return per unit of risk, before fees.",
     "tooltip-dd": "Maximum peak-to-trough drawdown of the strategy over the backtest period.",
-    "tooltip-calmar": "Net Calmar ratio: excess return per unit of risk, after fees."
+    "tooltip-calmar": "Net Calmar ratio: excess return per maximum drawdown, before fees."
   },
 
   fr: {
@@ -208,10 +208,10 @@ const translations = {
       "Tout investissement dans Electrum Fund serait soumis à une documentation spécifique, à des facteurs de risque détaillés et à des critères d’éligibilité réglementaire.",
     
     "tooltip-cagr": "Taux de croissance annualisé de la stratégie sur l’ensemble de la période de backtest.",
-    "tooltip-vol": "Volatilité annualisée des rendements, calculée à partir de la série quotidienne des retours.",
-    "tooltip-sharpe": "Ratio de Sharpe net : rendement excédentaire par unité de risque, après frais.",
-    "tooltip-dd": "Perte maximale observée entre un plus haut et un plus bas (max drawdown) sur la période de backtest.",
-    "tooltip-calmar": "Ratio de Calmar net: à noter."
+    "tooltip-vol": "Volatilité annualisée, écart-type de la série des rendements journaliers",
+    "tooltip-sharpe": "Ratio de Sharpe net : rendements corrigés du taux sans risque, divisés par la volatilité, avant frais.",
+    "tooltip-dd": "Perte maximale observée entre un plus haut et un plus bas sur la période de backtest.",
+    "tooltip-calmar": "Ratio de Calmar net: rendements corrigés du taux sans risque, divisés par la baisse maximale, avant frais."
   }
 };
 
