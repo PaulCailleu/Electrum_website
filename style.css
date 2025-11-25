@@ -58,6 +58,12 @@ body {
 .logo-link {
   text-decoration: none;
   color: inherit;
+  display: inline-flex;
+}
+
+.logo-link:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 4px;
 }
 
 .logo-img {
