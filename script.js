@@ -353,7 +353,13 @@ const translations = {
   }
 };
 
-let currentLang = "en";
+let currentLang = (() => {
+  try {
+    return localStorage.getItem("lang") || "en";
+  } catch (e) {
+    return "en";
+  }
+})();
 
 function applyTranslations(lang) {
   const dict = translations[lang];
@@ -364,6 +370,11 @@ function applyTranslations(lang) {
     }
   });
   currentLang = lang;
+  try {
+    localStorage.setItem("lang", lang);
+  } catch (e) {
+    // ignore persistence issues
+  }
   // Tooltips pour les icônes info
   document.querySelectorAll("[data-tooltip-i18n]").forEach((el) => {
     const key = el.getAttribute("data-tooltip-i18n");
@@ -371,7 +382,6 @@ function applyTranslations(lang) {
       el.setAttribute("data-tooltip", dict[key]);
     }
   });
-
 }
 
 // Language buttons
@@ -383,6 +393,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   applyTranslations(currentLang);
+  document.querySelectorAll(".lang-btn").forEach((b) => {
+    const lang = b.getAttribute("data-lang");
+    b.classList.toggle("active", lang === currentLang);
+  });
 
   document.querySelectorAll(".lang-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
