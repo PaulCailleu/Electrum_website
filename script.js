@@ -423,6 +423,13 @@ document.addEventListener("DOMContentLoaded", () => {
   if (hasMap) {
     initMap();
   }
+
+  document.querySelectorAll(".logo-link").forEach(link => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.location.href = `${window.location.origin}/`;
+    });
+  });
 });
 
 const wpForm = document.getElementById("wp-form");
