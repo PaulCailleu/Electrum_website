@@ -131,7 +131,7 @@ body {
 
 .section {
   padding: 70px 6vw;
-  max-width: 1150px;
+  max-width: 1240px;
   margin: 0 auto;
 }
 
@@ -270,6 +270,40 @@ body {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   gap: 20px;
+}
+
+.solution-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.link-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  min-height: 240px;
+}
+
+.pill {
+  align-self: flex-start;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--accent-gold);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: rgba(214,168,78,0.08);
+}
+
+.link-card .link-cta {
+  font-size: 0.85rem;
+  color: var(--accent-gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .grid-3 {
@@ -619,6 +653,26 @@ textarea:focus {
 .info-icon:hover::after,
 .info-icon:hover::before {
   opacity: 1;
+}
+
+.roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.milestone {
+  position: relative;
+  border-left: 2px solid rgba(214,168,78,0.25);
+  padding-left: 16px;
+}
+
+.milestone h3 {
+  margin-top: 6px;
+}
+
+.milestone p {
+  color: var(--text-muted);
 }
 
 html {

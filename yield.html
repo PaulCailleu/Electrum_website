@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow">
+  <title>Electrum Yield – Electrum Fund</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
+  <link rel="shortcut icon" href="assets/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Source+Sans+Pro:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="top-bar">
+    <div class="logo-block">
+      <img src="assets/logo_electrum.png" alt="Electrum Fund logo" class="logo-img" />
+      <div class="logo-text">
+        <span class="brand-main">Electrum</span>
+        <span class="brand-sub">Fund</span>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <a href="index.html#hero" data-i18n="nav-home"></a>
+      <a href="index.html#solutions" data-i18n="nav-solutions"></a>
+      <a href="index.html#tokenization" data-i18n="nav-tokenization"></a>
+      <a href="index.html#team" data-i18n="nav-team"></a>
+      <a href="index.html#whitepaper" data-i18n="nav-whitepaper"></a>
+      <a href="index.html#contact" data-i18n="nav-contact"></a>
+    </nav>
+    <div class="lang-switch">
+      <button data-lang="en" class="lang-btn active">EN</button>
+      <button data-lang="fr" class="lang-btn">FR</button>
+    </div>
+    <button class="menu-toggle" aria-label="Toggle navigation">
+      <span class="menu-icon"></span>
+    </button>
+  </header>
+
+  <section id="hero" class="section hero">
+    <div class="hero-content">
+      <h1 data-i18n="yield-hero-title"></h1>
+      <p class="hero-subtitle" data-i18n="yield-hero-subtitle"></p>
+      <div class="hero-cta">
+        <a href="index.html#contact" class="btn primary" data-i18n="solution-contact"></a>
+        <a href="index.html#solutions" class="btn ghost" data-i18n="solution-back"></a>
+      </div>
+      <p class="hero-disclaimer" data-i18n="yield-hero-note"></p>
+    </div>
+  </section>
+
+  <section id="performance" class="section">
+    <div class="section-header">
+      <h2 data-i18n="yield-performance-title"></h2>
+      <p data-i18n="yield-performance-intro"></p>
+    </div>
+
+    <div class="card">
+      <h3 data-i18n="chart-title"></h3>
+      <div class="chart-container">
+        <canvas id="performanceChart"></canvas>
+      </div>
+      <p class="small mt-8" data-i18n="chart-caption"></p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3 data-i18n="metrics-yearly-title"></h3>
+        <canvas id="yearlyBarChart"></canvas>
+      </div>
+
+      <div class="card">
+        <h3 data-i18n="metrics-title"></h3>
+        <div class="metrics-grid">
+          <div class="metric">
+            <div class="metric-header">
+              <span class="metric-label" data-i18n="metric-cagr"></span>
+              <span class="info-icon" data-tooltip-i18n="tooltip-cagr">!</span>
+            </div>
+            <span class="metric-value" id="metric-cagr">12.4%</span>
+          </div>
+
+          <div class="metric">
+            <div class="metric-header">
+              <span class="metric-label" data-i18n="metric-vol"></span>
+              <span class="info-icon" data-tooltip-i18n="tooltip-vol">!</span>
+            </div>
+            <span class="metric-value" id="metric-vol">7.8%</span>
+          </div>
+
+          <div class="metric">
+            <div class="metric-header">
+              <span class="metric-label" data-i18n="metric-sharpe"></span>
+              <span class="info-icon" data-tooltip-i18n="tooltip-sharpe">!</span>
+            </div>
+            <span class="metric-value" id="metric-sharpe">1.45</span>
+          </div>
+
+          <div class="metric">
+            <div class="metric-header">
+              <span class="metric-label" data-i18n="metric-dd"></span>
+              <span class="info-icon" data-tooltip-i18n="tooltip-dd">!</span>
+            </div>
+            <span class="metric-value" id="metric-dd">-9.6%</span>
+          </div>
+
+          <div class="metric">
+            <div class="metric-header">
+              <span class="metric-label" data-i18n="metric-calmar"></span>
+              <span class="info-icon" data-tooltip-i18n="tooltip-calmar">!</span>
+            </div>
+            <span class="metric-value" id="metric-calmar">1.45</span>
+          </div>
+
+        </div>
+        <p class="small" data-i18n="metrics-note"></p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p data-i18n="footer-disclaimer-1"></p>
+    <p data-i18n="footer-disclaimer-2"></p>
+    <p class="small">&copy; <span id="year"></span> Electrum Fund. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

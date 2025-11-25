@@ -22,15 +22,16 @@
   <header class="top-bar">
     <div class="logo-block">
       <img src="assets/logo_electrum.png" alt="Electrum Fund logo" class="logo-img" />
-      <div class="logo-text">
-        <span class="brand-main">Electrum</span>
-        <span class="brand-sub">Fund</span>
-      </div>
+    <div class="logo-text">
+      <span class="brand-main">Electrum</span>
+      <span class="brand-sub">Fund</span>
+    </div>
     </div>
     <nav class="main-nav">
       <a href="#hero" data-i18n="nav-home"></a>
-      <a href="#strategy" data-i18n="nav-strategy"></a>
+      <a href="#solutions" data-i18n="nav-solutions"></a>
       <a href="#tokenization" data-i18n="nav-tokenization"></a>
+      <a href="#roadmap" data-i18n="nav-roadmap"></a>
       <a href="#team" data-i18n="nav-team"></a>
       <a href="#whitepaper" data-i18n="nav-whitepaper"></a>
       <a href="#contact" data-i18n="nav-contact"></a>
@@ -58,73 +59,26 @@
     </div>
   </section>
 
-  <!-- STRATEGY & PERFORMANCE -->
-  <section id="strategy" class="section">
+  <!-- SOLUTIONS -->
+  <section id="solutions" class="section">
     <div class="section-header">
-      <h2 data-i18n="strategy-title"></h2>
-      <p data-i18n="strategy-intro"></p>
+      <h2 data-i18n="solutions-title"></h2>
+      <p data-i18n="solutions-intro"></p>
     </div>
 
-    <div class="card">
-      <h3 data-i18n="chart-title"></h3>
-      <div class="chart-container">
-        <canvas id="performanceChart"></canvas>
-      </div>
-      <p class="small mt-8" data-i18n="chart-caption"></p>
-    </div>
-
-    <div class="grid-2">
-      <div class="card">
-        <h3 data-i18n="metrics-yearly-title"></h3>
-        <canvas id="yearlyBarChart"></canvas>
-      </div>
-
-      <div class="card">
-          <h3 data-i18n="metrics-title"></h3>
-          <div class="metrics-grid">
-            <div class="metric">
-              <div class="metric-header">
-                <span class="metric-label" data-i18n="metric-cagr"></span>
-                <span class="info-icon" data-tooltip-i18n="tooltip-cagr">!</span>
-              </div>
-              <span class="metric-value" id="metric-cagr">12.4%</span>
-            </div>
-
-            <div class="metric">
-              <div class="metric-header">
-                <span class="metric-label" data-i18n="metric-vol"></span>
-                <span class="info-icon" data-tooltip-i18n="tooltip-vol">!</span>
-              </div>
-              <span class="metric-value" id="metric-vol">7.8%</span>
-            </div>
-
-            <div class="metric">
-              <div class="metric-header">
-                <span class="metric-label" data-i18n="metric-sharpe"></span>
-                <span class="info-icon" data-tooltip-i18n="tooltip-sharpe">!</span>
-              </div>
-              <span class="metric-value" id="metric-sharpe">1.45</span>
-            </div>
-
-            <div class="metric">
-              <div class="metric-header">
-                <span class="metric-label" data-i18n="metric-dd"></span>
-                <span class="info-icon" data-tooltip-i18n="tooltip-dd">!</span>
-              </div>
-              <span class="metric-value" id="metric-dd">-9.6%</span>
-            </div>
-
-            <div class="metric">
-              <div class="metric-header">
-                <span class="metric-label" data-i18n="metric-calmar"></span>
-                <span class="info-icon" data-tooltip-i18n="tooltip-calmar">!</span>
-              </div>
-              <span class="metric-value" id="metric-calmar">1.45</span>
-            </div>
-
-          </div>
-          <p class="small" data-i18n="metrics-note"></p>
-      </div>
+    <div class="grid-2 solution-grid">
+      <a class="card link-card" href="growth.html">
+        <div class="pill" data-i18n="solution-growth-pill"></div>
+        <h3 data-i18n="solution-growth-title"></h3>
+        <p data-i18n="solution-growth-desc"></p>
+        <span class="link-cta" data-i18n="solution-cta"></span>
+      </a>
+      <a class="card link-card" href="yield.html">
+        <div class="pill" data-i18n="solution-yield-pill"></div>
+        <h3 data-i18n="solution-yield-title"></h3>
+        <p data-i18n="solution-yield-desc"></p>
+        <span class="link-cta" data-i18n="solution-cta"></span>
+      </a>
     </div>
   </section>
 
@@ -147,6 +101,36 @@
       <div class="card soft">
         <h3 data-i18n="token-3-title"></h3>
         <p data-i18n="token-3-text"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section id="roadmap" class="section">
+    <div class="section-header">
+      <h2 data-i18n="roadmap-title"></h2>
+      <p data-i18n="roadmap-intro"></p>
+    </div>
+    <div class="roadmap-grid">
+      <div class="card milestone">
+        <div class="pill" data-i18n="roadmap-1-pill"></div>
+        <h3 data-i18n="roadmap-1-title"></h3>
+        <p data-i18n="roadmap-1-desc"></p>
+      </div>
+      <div class="card milestone">
+        <div class="pill" data-i18n="roadmap-2-pill"></div>
+        <h3 data-i18n="roadmap-2-title"></h3>
+        <p data-i18n="roadmap-2-desc"></p>
+      </div>
+      <div class="card milestone">
+        <div class="pill" data-i18n="roadmap-3-pill"></div>
+        <h3 data-i18n="roadmap-3-title"></h3>
+        <p data-i18n="roadmap-3-desc"></p>
+      </div>
+      <div class="card milestone">
+        <div class="pill" data-i18n="roadmap-4-pill"></div>
+        <h3 data-i18n="roadmap-4-title"></h3>
+        <p data-i18n="roadmap-4-desc"></p>
       </div>
     </div>
   </section>

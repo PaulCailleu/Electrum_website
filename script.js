@@ -2,7 +2,8 @@
 const translations = {
   en: {
     "nav-home": "Home",
-    "nav-strategy": "Strategy",
+    "nav-solutions": "Solutions",
+    "nav-roadmap": "Roadmap",
     "nav-tokenization": "Tokenization",
     "nav-team": "About",
     "nav-whitepaper": "Whitepaper",
@@ -16,6 +17,17 @@ const translations = {
     "hero-disclaimer":
       "Electrum Fund is an investment product with risk of capital loss. This website does not constitute investment advice or an offer to the public.",
 
+    "solutions-title": "Our Two Solutions",
+    "solutions-intro":
+      "Choose between two complementary vehicles depending on your objectives. Growth focuses on opportunistic upside with risk overlays, while Yield prioritizes stable carry and capital protection.",
+    "solution-growth-pill": "Dynamic Upside",
+    "solution-growth-title": "Electrum Growth",
+    "solution-growth-desc": "Systematic exposure to digital assets with macro overlays and strict drawdown controls to capture asymmetric upside.",
+    "solution-yield-pill": "Income",
+    "solution-yield-title": "Electrum Yield",
+    "solution-yield-desc": "A defensive allocation targeting recurring cash flows from curated yield opportunities and conservative hedging.",
+    "solution-cta": "View details",
+
     "strategy-title": "Strategy & Backtested Performance",
     "strategy-intro":
       "Electrum Fund implements a systematic strategy focused on risk-controlled exposure to digital assets and traditional markets. The chart below illustrates an example of backtested net asset value over time.",
@@ -25,17 +37,51 @@ const translations = {
     "metrics-yearly-title": "Annual Returns",
     "axis-nav": "Performance (without fees)",
     "axis-years": "Years",
+    "axis-returns": "Returns",
     "legend-returns": "Returns (%)",
     "chart-caption":
       "Illustrative backtest based on historical data and assumptions. Backtested performance is not indicative of future results.",
     "metrics-title": "Key Risk & Performance Metrics",
-    "metric-cagr": "Annualized return (CAGR) :",
-    "metric-vol": "Volatility :",
-    "metric-sharpe": "Sharpe ratio (net) :",
-    "metric-dd": "Max drawdown :",
-    "metric-calmar": "Calmar ratio (net) :",
+    "metric-cagr": "Annualized return (CAGR):",
+    "metric-vol": "Volatility:",
+    "metric-sharpe": "Sharpe ratio (net):",
+    "metric-dd": "Max drawdown:",
+    "metric-calmar": "Calmar ratio (net):",
     "metrics-note":
       "Figures are for illustration only. Final statistics will depend on the live implementation, fees and market conditions.",
+
+    "growth-hero-title": "Electrum Growth",
+    "growth-hero-subtitle":
+      "Dynamic strategy seeking asymmetric upside from digital assets with disciplined risk overlays.",
+    "growth-hero-note": "Access detailed backtests, risk metrics, and portfolio construction below.",
+    "growth-performance-title": "Growth – Performance & Metrics",
+    "growth-performance-intro":
+      "Illustrative simulation combining systematic signals, macro filters, and drawdown protection rules.",
+
+    "yield-hero-title": "Electrum Yield",
+    "yield-hero-subtitle":
+      "Income-focused allocation aiming for resilient carry and capital preservation.",
+    "yield-hero-note": "Below you will find sample performance, stress tests, and risk statistics.",
+    "yield-performance-title": "Yield – Performance & Metrics",
+    "yield-performance-intro":
+      "Illustrative simulation of a diversified yield sleeve with conservative hedging and liquidity controls.",
+    "solution-back": "Back to solutions",
+    "solution-contact": "Discuss with the team",
+
+    "roadmap-title": "Roadmap",
+    "roadmap-intro": "Illustrative milestones you can adjust later. Replace with your own quarters, deliverables, and owners.",
+    "roadmap-1-pill": "Q1",
+    "roadmap-1-title": "Strategy pilots & data",
+    "roadmap-1-desc": "Finalize data pipelines, stress tests, and governance docs for Growth/Yield hypotheses.",
+    "roadmap-2-pill": "Q2",
+    "roadmap-2-title": "Provider onboarding",
+    "roadmap-2-desc": "Select custody/admin partners, complete KYC/AML framework, dry-run token issuance.",
+    "roadmap-3-pill": "Q3",
+    "roadmap-3-title": "Launch & reporting",
+    "roadmap-3-desc": "Go live with initial investors, publish monthly factsheets and on-chain transparency dashboard.",
+    "roadmap-4-pill": "Q4",
+    "roadmap-4-title": "Scale & iterate",
+    "roadmap-4-desc": "Expand allocations, add hedging overlays, and broaden distribution with compliant channels.",
 
     "token-title": "Tokenization & Investor Access",
     "token-intro":
@@ -109,7 +155,8 @@ const translations = {
 
   fr: {
     "nav-home": "Accueil",
-    "nav-strategy": "Stratégie",
+    "nav-solutions": "Solutions",
+    "nav-roadmap": "Feuille de route",
     "nav-tokenization": "Tokenisation",
     "nav-team": "À propos",
     "nav-whitepaper": "Livre blanc",
@@ -123,6 +170,17 @@ const translations = {
     "hero-disclaimer":
       "Electrum Fund est un produit d’investissement comportant un risque de perte en capital. Ce site ne constitue ni un conseil en investissement ni une offre au public.",
 
+    "solutions-title": "Nos deux solutions",
+    "solutions-intro":
+      "Deux véhicules complémentaires selon vos objectifs. Growth vise une performance opportuniste avec contrôle du risque, Yield privilégie la génération de revenus et la protection du capital.",
+    "solution-growth-pill": "Dynamique",
+    "solution-growth-title": "Electrum Growth",
+    "solution-growth-desc": "Exposition systématique aux actifs digitaux avec filtres macro et règles de protection pour capter des profils asymétriques.",
+    "solution-yield-pill": "Revenus",
+    "solution-yield-title": "Electrum Yield",
+    "solution-yield-desc": "Allocation défensive ciblant des cash-flows récurrents via des opportunités de rendement sélectionnées et des couvertures prudentes.",
+    "solution-cta": "Voir le détail",
+
     "strategy-title": "Stratégie & performance backtestée",
     "strategy-intro":
       "Electrum Fund met en œuvre une stratégie systématique avec un contrôle strict du risque et une exposition maîtrisée aux actifs numériques et traditionnels. Le graphique ci-dessous illustre une valeur liquidative théorique sur la base d’un backtest.",
@@ -132,6 +190,7 @@ const translations = {
     "metrics-yearly-title": "Rendements annuels",
     "axis-nav": "Performance (sans frais)",
     "axis-years": "Années",
+    "axis-returns": "Rendements",
     "legend-returns": "Rendement (%)",
     "chart-caption":
       "Backtest illustratif fondé sur des données historiques et des hypothèses. Les performances passées, réelles ou simulées, ne préjugent pas des performances futures.",
@@ -143,6 +202,39 @@ const translations = {
     "metric-calmar": "Ratio de Calmar (net) :",
     "metrics-note":
       "Les chiffres ci-dessus sont donnés à titre purement indicatif. Les statistiques finales dépendront de la mise en œuvre réelle, des frais et des conditions de marché.",
+
+    "growth-hero-title": "Electrum Growth",
+    "growth-hero-subtitle":
+      "Stratégie dynamique cherchant une performance asymétrique sur les actifs digitaux avec des garde-fous stricts.",
+    "growth-hero-note": "Retrouvez ci-dessous les backtests, métriques de risque et principes d’allocation.",
+    "growth-performance-title": "Growth – Performance & indicateurs",
+    "growth-performance-intro":
+      "Simulation indicative combinant signaux systématiques, filtres macro et règles de protection contre les drawdowns.",
+
+    "yield-hero-title": "Electrum Yield",
+    "yield-hero-subtitle":
+      "Allocation orientée revenus visant une portance résiliente et la préservation du capital.",
+    "yield-hero-note": "Visualisez ci-dessous la performance simulée, les stress tests et les statistiques de risque.",
+    "yield-performance-title": "Yield – Performance & indicateurs",
+    "yield-performance-intro":
+      "Simulation indicative d’un panier de rendement diversifié avec couvertures prudentes et contrôles de liquidité.",
+    "solution-back": "Retour aux solutions",
+    "solution-contact": "Echanger avec l’équipe",
+
+    "roadmap-title": "Feuille de route",
+    "roadmap-intro": "Jalons indicatifs à compléter. Remplacez par vos trimestres, livrables et responsables.",
+    "roadmap-1-pill": "T1",
+    "roadmap-1-title": "Pilotes stratégiques & données",
+    "roadmap-1-desc": "Finaliser les pipelines de données, stress tests et documents de gouvernance pour Growth/Yield.",
+    "roadmap-2-pill": "T2",
+    "roadmap-2-title": "Onboarding prestataires",
+    "roadmap-2-desc": "Choisir les partenaires (custody/admin), valider le cadre KYC/AML, simuler l’émission tokenisée.",
+    "roadmap-3-pill": "T3",
+    "roadmap-3-title": "Lancement & reporting",
+    "roadmap-3-desc": "Go-live avec les premiers investisseurs, publication de factsheets mensuelles et dashboard on-chain.",
+    "roadmap-4-pill": "T4",
+    "roadmap-4-title": "Montée en puissance",
+    "roadmap-4-desc": "Augmenter les allocations, ajouter des overlays de couverture, élargir la distribution en conformité.",
 
     "token-title": "Tokenisation & accès investisseur",
     "token-intro":
@@ -239,7 +331,10 @@ function applyTranslations(lang) {
 // Language buttons
 document.addEventListener("DOMContentLoaded", () => {
   // Year in footer
-  document.getElementById("year").textContent = new Date().getFullYear();
+  const yearEl = document.getElementById("year");
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
 
   applyTranslations(currentLang);
 
@@ -255,8 +350,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Dummy handlers for forms
-  document.getElementById("wp-form").addEventListener("submit", (e) => {
+  const contactForm = document.getElementById("contact-form");
+  if (contactForm) {
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert(
+        currentLang === "en"
+          ? "Demo contact form: in production, this should send an email or create a ticket."
+          : "Formulaire de contact de démonstration : en production, il devra envoyer un email ou créer un ticket."
+      );
+    });
+  }
+
+  const hasPerformanceSection = document.getElementById("performanceChart");
+  const hasMetrics = document.getElementById("metric-cagr");
+
+  if (hasPerformanceSection) {
+    initPerformanceChart();
+  }
+
+  if (hasMetrics) {
+    loadMetrics();
+  }
+});
+
+const wpForm = document.getElementById("wp-form");
+if (wpForm) {
+  wpForm.addEventListener("submit", (e) => {
     e.preventDefault();
     alert(
       currentLang === "en"
@@ -264,20 +384,7 @@ document.addEventListener("DOMContentLoaded", () => {
         : "Démonstration uniquement : connectez ce formulaire à un service d’email avant la mise en production."
     );
   });
-
-  document.getElementById("contact-form").addEventListener("submit", (e) => {
-    e.preventDefault();
-    alert(
-      currentLang === "en"
-        ? "Demo contact form: in production, this should send an email or create a ticket."
-        : "Formulaire de contact de démonstration : en production, il devra envoyer un email ou créer un ticket."
-    );
-  });
-
-  // Init chart
-  initPerformanceChart();
-  loadMetrics();
-});
+}
 
 let performanceChart;
 let yearlyBarChart;
@@ -285,6 +392,7 @@ let yearlyBarChart;
 async function initPerformanceChart() {
   const ctx = document.getElementById("performanceChart");
   const barCtx = document.getElementById("yearlyBarChart");
+  if (!ctx || !barCtx) return;
 
   const response = await fetch("./performance_data.json");
   const data = await response.json();
@@ -412,12 +520,19 @@ async function loadMetrics() {
   const response = await fetch("./metrics.json");
   const metrics = await response.json();
 
+  const cagrEl = document.getElementById("metric-cagr");
+  const volEl = document.getElementById("metric-vol");
+  const sharpeEl = document.getElementById("metric-sharpe");
+  const ddEl = document.getElementById("metric-dd");
+  const calmarEl = document.getElementById("metric-calmar");
 
-  document.getElementById("metric-cagr").textContent = formatPercent(metrics.Return);
-  document.getElementById("metric-vol").textContent = formatPercent(metrics.Volatility);
-  document.getElementById("metric-sharpe").textContent = formatNumber(metrics.Sharpe);
-  document.getElementById("metric-dd").textContent = formatPercent(metrics.Max_dd);
-  document.getElementById("metric-calmar").textContent = formatNumber(metrics.Calmar);
+  if (!cagrEl || !volEl || !sharpeEl || !ddEl || !calmarEl) return;
+
+  cagrEl.textContent = formatPercent(metrics.Return);
+  volEl.textContent = formatPercent(metrics.Volatility);
+  sharpeEl.textContent = formatNumber(metrics.Sharpe);
+  ddEl.textContent = formatPercent(metrics.Max_dd);
+  calmarEl.textContent = formatNumber(metrics.Calmar);
 }
 
 function updateMetricsLanguage() {
