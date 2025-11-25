@@ -17,6 +17,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Source+Sans+Pro:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- svgMap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/svgmap@2.10.1/dist/svgMap.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/svgmap@2.10.1/dist/svgMap.min.js"></script>
 </head>
 <body>
   <header class="top-bar">
@@ -132,6 +135,23 @@
         <h3 data-i18n="roadmap-4-title"></h3>
         <p data-i18n="roadmap-4-desc"></p>
       </div>
+    </div>
+  </section>
+
+  <!-- COVERAGE MAP -->
+  <section id="coverage" class="section alt">
+    <div class="section-header">
+      <h2 data-i18n="map-title"></h2>
+      <p data-i18n="map-intro"></p>
+    </div>
+    <div class="card world-card">
+      <div class="map-legend">
+        <span class="legend-dot eligible"></span><span data-i18n="map-legend-eligible"></span>
+        <span class="legend-dot review"></span><span data-i18n="map-legend-review"></span>
+        <span class="legend-dot restricted"></span><span data-i18n="map-legend-restricted"></span>
+      </div>
+      <div id="world-map"></div>
+      <p class="small" data-i18n="map-note"></p>
     </div>
   </section>
 

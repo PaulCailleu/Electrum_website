@@ -83,6 +83,13 @@ const translations = {
     "roadmap-4-title": "Scale & iterate",
     "roadmap-4-desc": "Expand allocations, add hedging overlays, and broaden distribution with compliant channels.",
 
+    "map-title": "Market coverage (illustrative)",
+    "map-intro": "Hover over the map to see the current status by country. Colors are placeholders you can adjust later.",
+    "map-legend-eligible": "Eligible / target markets",
+    "map-legend-review": "Under review",
+    "map-legend-restricted": "Restricted / excluded",
+    "map-note": "Indicative only: update according to your legal and distribution rules.",
+
     "token-title": "Tokenization & Investor Access",
     "token-intro":
       "By issuing fund shares as tokens on a regulated infrastructure, Electrum aims to improve investor access, liquidity, and transparency while maintaining robust governance and compliance.",
@@ -236,6 +243,13 @@ const translations = {
     "roadmap-4-title": "Montée en puissance",
     "roadmap-4-desc": "Augmenter les allocations, ajouter des overlays de couverture, élargir la distribution en conformité.",
 
+    "map-title": "Couverture marchés (indicatif)",
+    "map-intro": "Survolez la carte pour voir le statut par pays. Les couleurs sont provisoires et à ajuster.",
+    "map-legend-eligible": "Eligibles / marchés cibles",
+    "map-legend-review": "En cours d’étude",
+    "map-legend-restricted": "Restreints / exclus",
+    "map-note": "A titre indicatif : à mettre à jour selon vos règles juridiques et commerciales.",
+
     "token-title": "Tokenisation & accès investisseur",
     "token-intro":
       "En émettant les parts du fonds sous forme de tokens sur une infrastructure réglementée, Electrum vise à améliorer l’accès, la liquidité et la transparence pour les investisseurs, tout en maintenant un cadre de gouvernance robuste.",
@@ -364,6 +378,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const hasPerformanceSection = document.getElementById("performanceChart");
   const hasMetrics = document.getElementById("metric-cagr");
+  const hasMap = document.getElementById("world-map");
 
   if (hasPerformanceSection) {
     initPerformanceChart();
@@ -371,6 +386,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (hasMetrics) {
     loadMetrics();
+  }
+
+  if (hasMap) {
+    initMap();
   }
 });
 
@@ -553,6 +572,83 @@ function updateChartsLanguage() {
   yearlyBarChart.options.scales.x.title.text = translations[currentLang]["axis-years"];
   yearlyBarChart.data.datasets[0].label = translations[currentLang]["legend-returns"];
   yearlyBarChart.update();
+}
+
+function initMap() {
+  if (typeof svgMap === "undefined") return;
+
+  const statusColors = {
+    eligible: "#5bc596",
+    review: "#d6a84e",
+    restricted: "#ff6b6b"
+  };
+
+  const values = {};
+
+  const eligibleCountries = [
+    "AL", "AT", "BA", "BE", "BG", "CH", "CY", "CZ", "DE", "DK", "EE", "ES", "FI", "FR", "GB", "GR", "HR",
+    "HU", "IE", "IS", "IT", "LT", "LU", "LV", "ME", "MK", "MT", "NL", "NO", "PL", "PT", "RO", "RS", "SE",
+    "SI", "SK", "TR", "UA",
+    "AU"
+  ];
+  eligibleCountries.forEach(code => { values[code] = { status: "eligible" }; });
+
+  const reviewCountries = ["CA", "AE", "SG", "HK", "NZ", "ZA"];
+  reviewCountries.forEach(code => { values[code] = { status: "review" }; });
+
+  const restrictedCountries = ["US", "BR", "RU", "CN", "IN"];
+  restrictedCountries.forEach(code => { values[code] = { status: "restricted" }; });
+
+  const labels = {
+    eligible: translations[currentLang]["map-legend-eligible"],
+    review: translations[currentLang]["map-legend-review"],
+    restricted: translations[currentLang]["map-legend-restricted"]
+  };
+
+  const mapInstance = new svgMap({
+    targetElementID: "world-map",
+    colorMin: statusColors.eligible,
+    colorMax: statusColors.restricted,
+    initialZoom: 1.2,
+    initialPan: { x: 0, y: 20 },
+    data: {
+      data: {
+        status: {
+          name: "Status",
+          format: "{0}"
+        }
+      },
+      applyData: "status",
+      values
+    },
+    mouseWheelZoomEnabled: true,
+    mouseWheelZoomWithKey: false,
+    mousePanEnabled: true,
+    mouseWheelPanEnabled: true,
+    mouseWheelPanWithKey: false,
+    onGetTooltip: (code, country, data) => {
+      const status = data?.status || "review";
+      const label = labels[status] || status;
+      return `<div class="svgMap-tooltip-title">${country}</div><div class="svgMap-tooltip-content">${label}</div>`;
+    }
+  });
+
+  // Apply discrete colors per status after render
+  const applyColors = () => {
+    Object.entries(values).forEach(([code, { status }]) => {
+      const el = document.querySelector(`.svgMap-country[data-id="${code}"]`);
+      if (el && statusColors[status]) {
+        el.style.fill = statusColors[status];
+        el.classList.add(`svgMap-country--${status}`);
+      }
+    });
+  };
+
+  if (mapInstance && mapInstance.options && mapInstance.options.targetElementID) {
+    requestAnimationFrame(applyColors);
+  } else {
+    applyColors();
+  }
 }
 
 

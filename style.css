@@ -678,3 +678,58 @@ textarea:focus {
 html {
   scroll-behavior: smooth;
 }
+
+.world-card {
+  overflow: hidden;
+  min-height: 520px;
+}
+
+#world-map {
+  width: 100%;
+  height: 520px;
+}
+
+.map-legend {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  color: var(--text-muted);
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.legend-dot.eligible { background: #5bc596; }
+.legend-dot.review { background: #d6a84e; }
+.legend-dot.restricted { background: #ff6b6b; }
+
+.svgMap-country {
+  fill: #0f1b2b;
+  stroke: rgba(255, 255, 255, 0.08);
+}
+
+.svgMap-country:hover {
+  stroke: #d6a84e;
+  stroke-width: 1;
+}
+
+.svgMap-svg {
+  background: transparent;
+}
+
+@media (max-width: 700px) {
+  #world-map {
+    height: 360px;
+  }
+  .world-card {
+    min-height: 360px;
+  }
+}
