@@ -407,6 +407,9 @@ document.addEventListener("DOMContentLoaded", () => {
       applyTranslations(lang);
       updateChartsLanguage();
       updateMetricsLanguage();
+      if (document.getElementById("world-map")) {
+        initMap();
+      }
     });
   });
 
@@ -424,7 +427,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const hasPerformanceSection = document.getElementById("performanceChart");
   const hasMetrics = document.getElementById("metric-cagr");
-  // const hasMap = document.getElementById("world-map"); // disabled
+  const hasMap = document.getElementById("world-map");
 
   if (hasPerformanceSection) {
     initPerformanceChart();
@@ -434,9 +437,9 @@ document.addEventListener("DOMContentLoaded", () => {
     loadMetrics();
   }
 
-  // if (hasMap) {
-  //   initMap();
-  // }
+  if (hasMap) {
+    initMap();
+  }
 
   document.querySelectorAll(".logo-link").forEach(link => {
     link.addEventListener("click", (e) => {
@@ -460,6 +463,7 @@ if (wpForm) {
 
 let performanceChart;
 let yearlyBarChart;
+let mapTooltip;
 
 async function initPerformanceChart() {
   const ctx = document.getElementById("performanceChart");
@@ -628,8 +632,8 @@ function updateChartsLanguage() {
 }
 
 function initMap() {
-  /* Map disabled
-  if (typeof svgMap === "undefined") return;
+  const container = document.getElementById("world-map");
+  if (!container) return;
 
   const statusColors = {
     eligible: "#5bc596",
@@ -637,21 +641,13 @@ function initMap() {
     restricted: "#ff6b6b"
   };
 
-  const values = {};
-
   const eligibleCountries = [
     "AL", "AT", "BA", "BE", "BG", "CH", "CY", "CZ", "DE", "DK", "EE", "ES", "FI", "FR", "GB", "GR", "HR",
     "HU", "IE", "IS", "IT", "LT", "LU", "LV", "ME", "MK", "MT", "NL", "NO", "PL", "PT", "RO", "RS", "SE",
-    "SI", "SK", "TR", "UA",
-    "AU"
+    "SI", "SK", "TR", "UA", "AU"
   ];
-  eligibleCountries.forEach(code => { values[code] = { status: "eligible" }; });
-
   const reviewCountries = ["CA", "AE", "SG", "HK", "NZ", "ZA"];
-  reviewCountries.forEach(code => { values[code] = { status: "review" }; });
-
   const restrictedCountries = ["US", "BR", "RU", "CN", "IN"];
-  restrictedCountries.forEach(code => { values[code] = { status: "restricted" }; });
 
   const labels = {
     eligible: translations[currentLang]["map-legend-eligible"],
@@ -659,51 +655,49 @@ function initMap() {
     restricted: translations[currentLang]["map-legend-restricted"]
   };
 
-  const mapInstance = new svgMap({
-    targetElementID: "world-map",
-    colorMin: statusColors.eligible,
-    colorMax: statusColors.restricted,
-    initialZoom: 1.2,
-    initialPan: { x: 0, y: 20 },
-    data: {
-      data: {
-        status: {
-          name: "Status",
-          format: "{0}"
-        }
-      },
-      applyData: "status",
-      values
-    },
-    mouseWheelZoomEnabled: true,
-    mouseWheelZoomWithKey: false,
-    mousePanEnabled: true,
-    mouseWheelPanEnabled: true,
-    mouseWheelPanWithKey: false,
-    onGetTooltip: (code, country, data) => {
-      const status = data?.status || "review";
-      const label = labels[status] || status;
-      return `<div class="svgMap-tooltip-title">${country}</div><div class="svgMap-tooltip-content">${label}</div>`;
-    }
-  });
-
-  // Apply discrete colors per status after render
-  const applyColors = () => {
-    Object.entries(values).forEach(([code, { status }]) => {
-      const el = document.querySelector(`.svgMap-country[data-id="${code}"]`);
-      if (el && statusColors[status]) {
-        el.style.fill = statusColors[status];
-        el.classList.add(`svgMap-country--${status}`);
-      }
-    });
-  };
-
-  if (mapInstance && mapInstance.options && mapInstance.options.targetElementID) {
-    requestAnimationFrame(applyColors);
-  } else {
-    applyColors();
+  if (mapTooltip && mapTooltip.parentElement) {
+    mapTooltip.remove();
   }
-  */
+  mapTooltip = document.createElement("div");
+  mapTooltip.className = "worldmap-tooltip";
+  document.body.appendChild(mapTooltip);
+
+  fetch("worldmap_adp/assets/world-map.svg")
+    .then((res) => res.text())
+    .then((svgText) => {
+      container.innerHTML = svgText;
+      const paths = container.querySelectorAll("path[data-id]");
+
+      paths.forEach((path) => {
+        const code = path.getAttribute("data-id");
+        let status = "review";
+        if (eligibleCountries.includes(code)) status = "eligible";
+        if (reviewCountries.includes(code)) status = "review";
+        if (restrictedCountries.includes(code)) status = "restricted";
+
+        const fill = statusColors[status];
+        if (fill) path.style.fill = fill;
+        path.dataset.status = status;
+
+        path.addEventListener("mouseenter", () => {
+          const countryName = path.getAttribute("data-name") || path.getAttribute("data-country") || code;
+          mapTooltip.innerHTML = `${countryName}<br>${labels[status] || status}`;
+          mapTooltip.style.display = "block";
+        });
+
+        path.addEventListener("mousemove", (event) => {
+          mapTooltip.style.left = `${event.pageX + 10}px`;
+          mapTooltip.style.top = `${event.pageY + 10}px`;
+        });
+
+        path.addEventListener("mouseleave", () => {
+          mapTooltip.style.display = "none";
+        });
+      });
+    })
+    .catch((err) => {
+      console.error("Map loading error:", err);
+    });
 }
 
 
