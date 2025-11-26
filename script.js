@@ -424,7 +424,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const hasPerformanceSection = document.getElementById("performanceChart");
   const hasMetrics = document.getElementById("metric-cagr");
-  const hasMap = document.getElementById("world-map");
+  // const hasMap = document.getElementById("world-map"); // disabled
 
   if (hasPerformanceSection) {
     initPerformanceChart();
@@ -434,9 +434,9 @@ document.addEventListener("DOMContentLoaded", () => {
     loadMetrics();
   }
 
-  if (hasMap) {
-    initMap();
-  }
+  // if (hasMap) {
+  //   initMap();
+  // }
 
   document.querySelectorAll(".logo-link").forEach(link => {
     link.addEventListener("click", (e) => {
@@ -628,6 +628,7 @@ function updateChartsLanguage() {
 }
 
 function initMap() {
+  /* Map disabled
   if (typeof svgMap === "undefined") return;
 
   const statusColors = {
@@ -702,6 +703,7 @@ function initMap() {
   } else {
     applyColors();
   }
+  */
 }
 
 

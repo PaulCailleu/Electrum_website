@@ -776,6 +776,7 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Map styles disabled
 .world-card {
   overflow: hidden;
   min-height: 520px;
@@ -830,3 +831,4 @@ html {
     min-height: 360px;
   }
 }
+*/
