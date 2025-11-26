@@ -109,6 +109,7 @@ const translations = {
     "pipeline-4-pill": "Controls & reporting",
     "pipeline-4-title": "Risk, compliance, audit trail",
     "pipeline-4-desc": "Role-based controls, custody segregation, on-chain proofs, and investor reporting (factsheet + dashboard).",
+    "pipeline-mermaid-note": "Custom SVG view of the same 7 entities and flows — cleaner layout without changing the background.",
 
     "token-title": "Tokenization & Investor Access",
     "token-intro":
@@ -292,6 +293,7 @@ const translations = {
     "pipeline-4-pill": "Contrôles & reporting",
     "pipeline-4-title": "Risque, conformité, audit",
     "pipeline-4-desc": "Contrôles par rôles, ségrégation en conservation, preuves on-chain, reporting investisseur (factsheet + dashboard).",
+    "pipeline-mermaid-note": "Vue SVG personnalisée des mêmes 7 entités et flux — mise en page plus lisible sans changer le fond.",
 
     "token-title": "Tokenisation & accès investisseur",
     "token-intro":

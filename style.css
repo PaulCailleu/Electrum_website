@@ -27,8 +27,8 @@ body {
   color: var(--text-main);
   min-height: 100vh;
   font-weight: 400;
-  line-height: 1.6;
-  font-size: 18px;
+  line-height: 1.65;
+  font-size: clamp(16px, 1.6vw, 18px);
   letter-spacing: 0.15px;
   width: 100%;
   max-width: 100%;
@@ -141,8 +141,8 @@ body {
 /* Sections */
 
 .section {
-  padding: 70px 6vw;
-  max-width: 1240px;
+  padding: clamp(56px, 8vw, 80px) clamp(18px, 6vw, 72px);
+  max-width: 1280px;
   margin: 0 auto;
 }
 
@@ -159,7 +159,7 @@ body {
 
 .section-header h2 {
   font-family: "Cinzel", serif;
-  font-size: 1.6rem;
+  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 8px;
@@ -167,6 +167,7 @@ body {
 
 .section-header p {
   color: var(--text-muted);
+  max-width: 70ch;
 }
 
 /* Hero */
@@ -195,7 +196,7 @@ body {
 
 .hero-subtitle {
   color: var(--text-muted);
-  max-width: 540px;
+  max-width: 70ch;
 }
 
 .hero-cta {
@@ -251,7 +252,7 @@ body {
   background: radial-gradient(circle at top, rgba(214, 168, 78, 0.1), transparent 55%), var(--bg-card);
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-soft);
-  padding: 20px 22px;
+  padding: 22px 24px;
   box-shadow: var(--shadow-soft);
 }
 
@@ -279,7 +280,7 @@ body {
 
 .grid-2 {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 20px;
 }
 
@@ -319,7 +320,7 @@ body {
 
 .grid-3 {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 18px;
 }
 
@@ -802,6 +803,60 @@ textarea:focus {
     left: 12px;
   }
 }
+
+.pipeline-diagram {
+  padding: 14px;
+  background: rgba(5, 9, 20, 0.7);
+  overflow: auto;
+}
+
+.pipeline-diagram-note {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.pipeline-visual {
+  background: rgba(15, 27, 43, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.pipeline-graph {
+  width: 100%;
+  height: auto;
+  min-height: 640px;
+}
+
+.pipeline-edges path {
+  fill: none;
+  stroke: url(#edgeGradient);
+  stroke-width: 2.6px;
+  opacity: 0.82;
+}
+
+.pipeline-edges text {
+  fill: var(--text-muted);
+  font-size: 13px;
+  letter-spacing: 0.35px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.pipeline-nodes text {
+  fill: #e6e2d6;
+  font-size: 15px;
+  letter-spacing: 0.25px;
+}
+
+.pipeline-nodes rect {
+  stroke-width: 1.4px;
+}
+
+.node.primary rect { fill: #0f1b2b; stroke: #d6a84e; }
+.node.secondary rect { fill: #0a1525; stroke: #c8c9cf; }
+.node.accent rect { fill: #12263c; stroke: #d6a84e; }
+.node.muted rect { fill: #0b1322; stroke: #546078; }
 
 html {
   scroll-behavior: smooth;

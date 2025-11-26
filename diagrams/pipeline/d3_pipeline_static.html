@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Electrum Pipeline (Static D3)</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <style>
+        body {
+            background: #0a0f2f;
+            margin: 0;
+        }
+        svg {
+            width: 100vw;
+            height: 100vh;
+        }
+        .node circle {
+            fill: #0f1a40;
+            stroke: #d4af37;
+            stroke-width: 3px;
+        }
+        .node text {
+            fill: white;
+            font-size: 16px;
+            font-family: Arial;
+            text-anchor: middle;
+            pointer-events: none;
+        }
+        .link {
+            stroke: url(#goldToSilver);
+            stroke-width: 3px;
+            marker-end: url(#arrow);
+        }
+        .label {
+            fill: #d4af37;
+            font-size: 13px;
+            font-family: Arial;
+            text-anchor: middle;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+<svg id="svg"></svg>
+
+<script>
+
+// --- Pipeline with fixed coordinates ---
+const data = {
+    nodes: [
+        { id: "Brokers", x: 250, y: 200 },
+        { id: "Deposit Bank", x: 500, y: 200 },
+        { id: "NAV Calculation", x: 750, y: 200 },
+        { id: "Onboarding Platform", x: 500, y: 450 },
+        { id: "Pro Investors", x: 250, y: 450 },
+        { id: "CEX", x: 750, y: 450 },
+        { id: "Retail Investors", x: 1000, y: 450 },
+        { id: "W", x: 250, y: 650 },
+        { id: "X", x: 450, y: 650 },
+        { id: "Y", x: 650, y: 650 },
+        { id: "Z", x: 850, y: 650 }
+    ],
+    links: [
+        { source: "Brokers", target: "Deposit Bank", label: "Assets" },
+        { source: "Deposit Bank", target: "Brokers", label: "Orders" },
+        { source: "Deposit Bank", target: "NAV Calculation", label: "Exposure" },
+        { source: "Brokers", target: "NAV Calculation", label: "Prices" },
+        { source: "Onboarding Platform", target: "Deposit Bank", label: "Stablecoins" },
+        { source: "Onboarding Platform", target: "Pro Investors", label: "Stablecoins" },
+        { source: "W", target: "Pro Investors", label: "Token" },
+        { source: "W", target: "Onboarding Platform", label: "Token" },
+        { source: "Onboarding Platform", target: "CEX", label: "Stablecoins" },
+        { source: "X", target: "CEX", label: "Token" },
+        { source: "X", target: "Onboarding Platform", label: "Token" },
+        { source: "Retail Investors", target: "CEX", label: "Stablecoins" },
+        { source: "Y", target: "Retail Investors", label: "Token" },
+        { source: "Y", target: "CEX", label: "Token" },
+        { source: "Pro Investors", target: "CEX", label: "Stablecoins" },
+        { source: "Z", target: "Pro Investors", label: "Token" },
+        { source: "Z", target: "CEX", label: "Token" },
+        { source: "NAV Calculation", target: "W", label: "Oracle" },
+        { source: "NAV Calculation", target: "X", label: "Oracle" },
+        { source: "NAV Calculation", target: "Y", label: "Oracle" },
+        { source: "NAV Calculation", target: "Z", label: "Oracle" }
+    ]
+};
+
+// ---- DRAW STATIC DIAGRAM ----
+
+const svg = d3.select("#svg");
+
+// Gradient + Arrow
+const defs = svg.append("defs");
+
+const gradient = defs.append("linearGradient")
+    .attr("id", "goldToSilver")
+    .attr("x1", "0%").attr("x2", "100%");
+
+gradient.append("stop").attr("offset", "0%").attr("stop-color", "#d4af37");
+gradient.append("stop").attr("offset", "100%").attr("stop-color", "#c0c0c0");
+
+defs.append("marker")
+    .attr("id", "arrow")
+    .attr("markerWidth", 12)
+    .attr("markerHeight", 12)
+    .attr("refX", 10)
+    .attr("refY", 6)
+    .attr("orient", "auto")
+    .append("polygon")
+    .attr("points", "0,0 12,6 0,12")
+    .attr("fill", "url(#goldToSilver)");
+
+
+// Draw links
+data.links.forEach(l => {
+    const s = data.nodes.find(n => n.id === l.source);
+    const t = data.nodes.find(n => n.id === l.target);
+
+    svg.append("line")
+        .attr("class", "link")
+        .attr("x1", s.x).attr("y1", s.y)
+        .attr("x2", t.x).attr("y2", t.y);
+
+    svg.append("text")
+        .attr("class", "label")
+        .attr("x", (s.x + t.x) / 2)
+        .attr("y", (s.y + t.y) / 2 - 10)
+        .text(l.label);
+});
+
+// Draw nodes
+const g = svg.selectAll(".node")
+    .data(data.nodes)
+    .enter()
+    .append("g")
+    .attr("class", "node")
+    .attr("transform", d => `translate(${d.x},${d.y})`);
+
+g.append("circle")
+    .attr("r", 45);
+
+g.append("text")
+    .attr("dy", 6)
+    .text(d => d.id);
+
+</script>
+
+</body>
+</html>
