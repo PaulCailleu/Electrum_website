@@ -115,7 +115,7 @@ const translations = {
       "By issuing fund shares as tokens on a regulated infrastructure, Electrum aims to improve investor access, liquidity, and transparency while maintaining robust governance and compliance.",
     "token-what-title": "What is tokenization?",
     "token-what-text":
-      "It is the process of representing fund shares as digital tokens on a secure network, while keeping the same rights and protections as traditional units.",
+      "Tokenization is the process of transforming a real-world asset (financial or otherwise) into a digital “token” recorded on a blockchain. This token represents ownership, a right, or a share of that asset, and can be exchanged, transferred, or held in a secure and transparent way.",
     "token-1-title": "Fractional access",
     "token-1-text":
       "Tokenized shares allow minimum tickets to be significantly reduced compared to traditional fund structures, while keeping a professional-level framework.",
@@ -298,7 +298,7 @@ const translations = {
       "En émettant les parts du fonds sous forme de tokens sur une infrastructure réglementée, Electrum vise à améliorer l’accès, la liquidité et la transparence pour les investisseurs, tout en maintenant un cadre de gouvernance robuste.",
     "token-what-title": "Qu’est-ce que la tokenisation ?",
     "token-what-text":
-      "C’est le fait de représenter des parts du fonds par des tokens sur une infrastructure sécurisée, tout en conservant les mêmes droits et protections que des parts classiques.",
+      "La tokenisation est le processus qui consiste à transformer un actif réel (financier ou non) en un “token” numérique inscrit sur une blockchain. Ce token représente une propriété, un droit, ou une part de cet actif, et peut être échangé, transféré ou détenu de manière sécurisée et transparente.",
     "token-1-title": "Accès fractionné",
     "token-1-text":
       "La tokenisation permet de réduire significativement le ticket d’entrée par rapport à un fonds traditionnel, tout en conservant un cadre de type professionnel.",
