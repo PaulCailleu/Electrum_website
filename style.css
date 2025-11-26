@@ -582,6 +582,33 @@ textarea:focus {
   margin-bottom: 24px;
 }
 
+.token-definition {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 18px 20px;
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(214,168,78,0.12), rgba(200,201,207,0.05)),
+    rgba(5,9,20,0.7);
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow:
+    0 20px 50px rgba(0,0,0,0.38),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.token-definition h3 {
+  margin-bottom: 8px;
+}
+
+@media (max-width: 800px) {
+  .token-definition {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 #performanceChart,
 #yearlyBarChart {
@@ -794,9 +821,9 @@ html {
   margin-right: 6px;
 }
 
-.legend-dot.eligible { background: #5bc596; }
-.legend-dot.review { background: #d6a84e; }
-.legend-dot.restricted { background: #ff6b6b; }
+.legend-dot.full { background: #38d996; }
+.legend-dot.partial { background: #d6a84e; }
+.legend-dot.none { background: #ff6b6b; }
 
 .map-toggle {
   display: flex;
@@ -867,9 +894,9 @@ html {
   border: 1px solid rgba(255,255,255,0.1);
 }
 
-.status-eligible { color: #5bc596; border-color: rgba(91,197,150,0.5); }
-.status-review { color: #d6a84e; border-color: rgba(214,168,78,0.5); }
-.status-restricted { color: #ff6b6b; border-color: rgba(255,107,107,0.5); }
+.status-full { color: #38d996; border-color: rgba(56,217,150,0.5); }
+.status-partial { color: #d6a84e; border-color: rgba(214,168,78,0.5); }
+.status-none { color: #ff6b6b; border-color: rgba(255,107,107,0.5); }
 
 .hidden {
   display: none;

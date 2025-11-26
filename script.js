@@ -86,11 +86,11 @@ const translations = {
 
     "map-title": "Market coverage (illustrative)",
     "map-intro": "Hover over the map to see the current status by country. Colors are placeholders you can adjust later.",
-    "map-legend-eligible": "Eligible / target markets",
-    "map-legend-review": "Under review",
-    "map-legend-restricted": "Restricted / excluded",
-    "map-view-map": "Map view",
-    "map-view-list": "List view",
+    "map-legend-full": "Allowed (full)",
+    "map-legend-partial": "Allowed (partial)",
+    "map-legend-none": "Not allowed",
+    "map-view-map": "Map",
+    "map-view-list": "List",
     "map-list-country": "Country",
     "map-list-status": "Status",
     "map-note": "Indicative only: update according to your legal and distribution rules.",
@@ -113,6 +113,9 @@ const translations = {
     "token-title": "Tokenization & Investor Access",
     "token-intro":
       "By issuing fund shares as tokens on a regulated infrastructure, Electrum aims to improve investor access, liquidity, and transparency while maintaining robust governance and compliance.",
+    "token-what-title": "What is tokenization?",
+    "token-what-text":
+      "It is the process of representing fund shares as digital tokens on a secure network, while keeping the same rights and protections as traditional units.",
     "token-1-title": "Fractional access",
     "token-1-text":
       "Tokenized shares allow minimum tickets to be significantly reduced compared to traditional fund structures, while keeping a professional-level framework.",
@@ -121,7 +124,7 @@ const translations = {
       "Under the chosen setup, investors can benefit from more frequent liquidity windows and streamlined subscription / redemption processes.",
     "token-3-title": "On-chain transparency",
     "token-3-text":
-      "Holdings and flows can be audited on-chain, providing an additional layer of transparency versus traditional off-chain registries.",
+      "Holdings and flows can be audited on-chain, providing an additional layer of transparency versus traditional off-chain registries. Assets and positions are visible all the time thanks to an oracle.",
 
     "team-title": "Origin & Governance",
     "team-intro":
@@ -266,11 +269,11 @@ const translations = {
 
     "map-title": "Couverture marchés (indicatif)",
     "map-intro": "Survolez la carte pour voir le statut par pays. Les couleurs sont provisoires et à ajuster.",
-    "map-legend-eligible": "Eligibles / marchés cibles",
-    "map-legend-review": "En cours d’étude",
-    "map-legend-restricted": "Restreints / exclus",
-    "map-view-map": "Vue carte",
-    "map-view-list": "Vue liste",
+    "map-legend-full": "Autorisé (complet)",
+    "map-legend-partial": "Autorisé (partiel)",
+    "map-legend-none": "Non autorisé",
+    "map-view-map": "Carte",
+    "map-view-list": "Liste",
     "map-list-country": "Pays",
     "map-list-status": "Statut",
     "map-note": "A titre indicatif : à mettre à jour selon vos règles juridiques et commerciales.",
@@ -293,6 +296,9 @@ const translations = {
     "token-title": "Tokenisation & accès investisseur",
     "token-intro":
       "En émettant les parts du fonds sous forme de tokens sur une infrastructure réglementée, Electrum vise à améliorer l’accès, la liquidité et la transparence pour les investisseurs, tout en maintenant un cadre de gouvernance robuste.",
+    "token-what-title": "Qu’est-ce que la tokenisation ?",
+    "token-what-text":
+      "C’est le fait de représenter des parts du fonds par des tokens sur une infrastructure sécurisée, tout en conservant les mêmes droits et protections que des parts classiques.",
     "token-1-title": "Accès fractionné",
     "token-1-text":
       "La tokenisation permet de réduire significativement le ticket d’entrée par rapport à un fonds traditionnel, tout en conservant un cadre de type professionnel.",
@@ -301,7 +307,7 @@ const translations = {
       "Selon la structure retenue, les investisseurs peuvent bénéficier de fenêtres de liquidité plus fréquentes et de processus de souscription / rachat simplifiés.",
     "token-3-title": "Transparence on-chain",
     "token-3-text":
-      "Une partie des flux et des positions peut être auditée on-chain, offrant un niveau supplémentaire de transparence par rapport aux registres purement off-chain.",
+      "Une partie des flux et des positions peut être auditée on-chain, offrant un niveau supplémentaire de transparence par rapport aux registres purement off-chain. Les actifs et les positions sont visibles à tout instant grâce à un oracle.",
 
     "team-title": "Origine & gouvernance",
     "team-intro":
@@ -477,13 +483,67 @@ if (wpForm) {
 let performanceChart;
 let yearlyBarChart;
 let mapTooltip;
-const eligibleCountries = [
-  "AL", "AT", "BA", "BE", "BG", "CH", "CY", "CZ", "DE", "DK", "EE", "ES", "FI", "FR", "GB", "GR", "HR",
-  "HU", "IE", "IS", "IT", "LT", "LU", "LV", "ME", "MK", "MT", "NL", "NO", "PL", "PT", "RO", "RS", "SE",
-  "SI", "SK", "TR", "UA", "AU"
+
+const countryMatrix = [
+  ["DE", "Germany", "Allemagne", "Oui", "Non"],
+  ["AT", "Austria", "Autriche", "Oui", "Non"],
+  ["BE", "Belgium", "Belgique", "Oui", "Non"],
+  ["BG", "Bulgaria", "Bulgarie", "Oui", "Non"],
+  ["CY", "Cyprus", "Chypre", "Oui", "Non"],
+  ["HR", "Croatia", "Croatie", "Oui", "Non"],
+  ["DK", "Denmark", "Danemark", "Oui", "Non"],
+  ["ES", "Spain", "Espagne", "Oui", "Non"],
+  ["EE", "Estonia", "Estonie", "Oui", "Non"],
+  ["FI", "Finland", "Finlande", "Oui", "Non"],
+  ["FR", "France", "France", "Oui", "Non"],
+  ["GR", "Greece", "Grèce", "Oui", "Non"],
+  ["HU", "Hungary", "Hongrie", "Oui", "Non"],
+  ["IE", "Ireland", "Irlande", "Oui", "Non"],
+  ["IT", "Italy", "Italie", "Oui", "Non"],
+  ["LV", "Latvia", "Lettonie", "Oui", "Non"],
+  ["LT", "Lithuania", "Lituanie", "Oui", "Non"],
+  ["LU", "Luxembourg", "Luxembourg", "Oui", "Non"],
+  ["MT", "Malta", "Malte", "Oui", "Non"],
+  ["NL", "Netherlands", "Pays-Bas", "Oui", "Non"],
+  ["PL", "Poland", "Pologne", "Non", "Non"],
+  ["PT", "Portugal", "Portugal", "Oui", "Non"],
+  ["CZ", "Czech Republic", "République Tchèque", "Oui", "Non"],
+  ["RO", "Romania", "Roumanie", "Oui", "Non"],
+  ["GB", "United Kingdom", "Royaume-Uni", "Oui", "Non"],
+  ["SK", "Slovakia", "Slovaquie", "Oui", "Non"],
+  ["SI", "Slovenia", "Slovénie", "Oui", "Non"],
+  ["SE", "Sweden", "Suède", "Oui", "Non"],
+  ["US", "United States", "États-Unis", "Oui", "Non"],
+  ["CA", "Canada", "Canada", "Oui", "Non"],
+  ["BR", "Brazil", "Brésil", "Oui", "Non"],
+  ["MX", "Mexico", "Mexique", "Oui", "Non"],
+  ["AR", "Argentina", "Argentine", "Oui", "Non"],
+  ["SV", "El Salvador", "El Salvador", "Oui", "Oui"],
+  ["BO", "Bolivia", "Bolivie", "Non", "Non"],
+  ["CN", "China", "Chine", "Non", "Non"],
+  ["IN", "India", "Inde", "Oui", "Non"],
+  ["JP", "Japan", "Japon", "Oui", "Non"],
+  ["HK", "Hong Kong", "Hong Kong", "Oui", "Oui"],
+  ["SG", "Singapore", "Singapour", "Oui", "Non"],
+  ["AU", "Australia", "Australie", "Oui", "Oui"],
+  ["KR", "South Korea", "Corée du Sud", "Non", "Non"],
+  ["ID", "Indonesia", "Indonésie", "Non", "Non"],
+  ["MY", "Malaysia", "Malaisie", "Non", "Non"],
+  ["TH", "Thailand", "Thaïlande", "Non", "Non"],
+  ["AE", "United Arab Emirates", "Émirats Arabes Unis", "Oui", "Oui"],
+  ["SA", "Saudi Arabia", "Arabie Saoudite", "Non", "Non"],
+  ["QA", "Qatar", "Qatar", "Non", "Non"],
+  ["KW", "Kuwait", "Koweït", "Non", "Non"],
+  ["BH", "Bahrain", "Bahreïn", "Oui", "Non"],
+  ["IL", "Israel", "Israël", "Oui", "Non"],
+  ["TR", "Turkey", "Turquie", "Oui", "Oui"],
+  ["EG", "Egypt", "Égypte", "Non", "Non"],
+  ["MA", "Morocco", "Maroc", "Non", "Non"],
+  ["DZ", "Algeria", "Algérie", "Non", "Non"],
+  ["TN", "Tunisia", "Tunisie", "Non", "Non"],
+  ["NG", "Nigeria", "Nigéria", "Non", "Non"],
+  ["ZA", "South Africa", "Afrique du Sud", "Oui", "Oui"]
 ];
-const reviewCountries = ["CA", "AE", "SG", "HK", "NZ", "ZA"];
-const restrictedCountries = ["US", "BR", "RU", "CN", "IN"];
 
 async function initPerformanceChart() {
   const ctx = document.getElementById("performanceChart");
@@ -656,23 +716,15 @@ function initMap() {
   if (!container) return;
 
   const statusColors = {
-    eligible: "#5bc596",
-    review: "#d6a84e",
-    restricted: "#ff6b6b"
+    full: "#38d996",
+    partial: "#d6a84e",
+    none: "#ff6b6b"
   };
 
-  const eligibleCountries = [
-    "AL", "AT", "BA", "BE", "BG", "CH", "CY", "CZ", "DE", "DK", "EE", "ES", "FI", "FR", "GB", "GR", "HR",
-    "HU", "IE", "IS", "IT", "LT", "LU", "LV", "ME", "MK", "MT", "NL", "NO", "PL", "PT", "RO", "RS", "SE",
-    "SI", "SK", "TR", "UA", "AU"
-  ];
-  const reviewCountries = ["CA", "AE", "SG", "HK", "NZ", "ZA"];
-  const restrictedCountries = ["US", "BR", "RU", "CN", "IN"];
-
   const labels = {
-    eligible: translations[currentLang]["map-legend-eligible"],
-    review: translations[currentLang]["map-legend-review"],
-    restricted: translations[currentLang]["map-legend-restricted"]
+    full: translations[currentLang]["map-legend-full"],
+    partial: translations[currentLang]["map-legend-partial"],
+    none: translations[currentLang]["map-legend-none"]
   };
 
   if (mapTooltip && mapTooltip.parentElement) {
@@ -700,10 +752,13 @@ function initMap() {
 
       paths.forEach((path) => {
         const code = path.getAttribute("data-id");
-        let status = "review";
-        if (eligibleCountries.includes(code)) status = "eligible";
-        if (reviewCountries.includes(code)) status = "review";
-        if (restrictedCountries.includes(code)) status = "restricted";
+        const entry = countryMatrix.find((c) => c[0] === code);
+        const status =
+          entry && entry[3] === "Oui" && entry[4] === "Oui"
+            ? "full"
+            : entry && entry[3] === "Oui"
+            ? "partial"
+            : "none";
 
         const fill = statusColors[status];
         if (fill) path.style.fill = fill;
@@ -711,6 +766,7 @@ function initMap() {
 
         path.addEventListener("mouseenter", () => {
           const localizedName =
+            (entry && currentLang === "fr" ? entry[2] : entry ? entry[1] : null) ||
             (regionNames && regionNames.of(code)) ||
             path.getAttribute("data-name") ||
             path.getAttribute("data-country") ||
@@ -748,17 +804,15 @@ function renderCountryList() {
     regionNames = null;
   }
 
-  const rows = [];
-  const addRows = (codes, status) => {
-    codes.forEach((code) => {
-      const name = (regionNames && regionNames.of(code)) || code;
-      rows.push({ code, name, status });
-    });
-  };
-
-  addRows(eligibleCountries, "eligible");
-  addRows(reviewCountries, "review");
-  addRows(restrictedCountries, "restricted");
+  const rows = countryMatrix.map(([code, nameEn, nameFr, allow, extra]) => {
+    const status =
+      allow === "Oui" && extra === "Oui" ? "full" : allow === "Oui" ? "partial" : "none";
+    const name =
+      currentLang === "fr"
+        ? nameFr || (regionNames && regionNames.of(code)) || code
+        : nameEn || (regionNames && regionNames.of(code)) || code;
+    return { code, name, status };
+  });
 
   rows.sort((a, b) => a.name.localeCompare(b.name, currentLang === "fr" ? "fr" : "en"));
 
