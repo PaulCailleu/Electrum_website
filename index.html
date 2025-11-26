@@ -187,12 +187,25 @@
       <h2 data-i18n="map-title"></h2>
       <p data-i18n="map-intro"></p>
     </div>
+    <div class="map-toggle">
+      <button class="btn small-btn view-toggle active" data-view="map" data-i18n="map-view-map"></button>
+      <button class="btn small-btn view-toggle" data-view="list" data-i18n="map-view-list"></button>
+    </div>
     <div class="map-legend">
       <span class="legend-dot eligible"></span><span data-i18n="map-legend-eligible"></span>
       <span class="legend-dot review"></span><span data-i18n="map-legend-review"></span>
       <span class="legend-dot restricted"></span><span data-i18n="map-legend-restricted"></span>
     </div>
     <div id="world-map" class="worldmap-container"></div>
+    <div id="world-list" class="worldmap-list hidden">
+      <div class="country-table">
+        <div class="country-table-head">
+          <span data-i18n="map-list-country"></span>
+          <span data-i18n="map-list-status"></span>
+        </div>
+        <div class="country-table-body" id="country-table-body"></div>
+      </div>
+    </div>
     <p class="small" data-i18n="map-note"></p>
   </section>
 

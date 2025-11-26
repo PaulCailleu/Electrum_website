@@ -89,6 +89,10 @@ const translations = {
     "map-legend-eligible": "Eligible / target markets",
     "map-legend-review": "Under review",
     "map-legend-restricted": "Restricted / excluded",
+    "map-view-map": "Map view",
+    "map-view-list": "List view",
+    "map-list-country": "Country",
+    "map-list-status": "Status",
     "map-note": "Indicative only: update according to your legal and distribution rules.",
 
     "pipeline-title": "Tokenization tech pipeline",
@@ -265,6 +269,10 @@ const translations = {
     "map-legend-eligible": "Eligibles / marchés cibles",
     "map-legend-review": "En cours d’étude",
     "map-legend-restricted": "Restreints / exclus",
+    "map-view-map": "Vue carte",
+    "map-view-list": "Vue liste",
+    "map-list-country": "Pays",
+    "map-list-status": "Statut",
     "map-note": "A titre indicatif : à mettre à jour selon vos règles juridiques et commerciales.",
 
     "pipeline-title": "Pipeline technique de tokenisation",
@@ -409,6 +417,7 @@ document.addEventListener("DOMContentLoaded", () => {
       updateMetricsLanguage();
       if (document.getElementById("world-map")) {
         initMap();
+        renderCountryList();
       }
     });
   });
@@ -428,6 +437,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const hasPerformanceSection = document.getElementById("performanceChart");
   const hasMetrics = document.getElementById("metric-cagr");
   const hasMap = document.getElementById("world-map");
+  const hasList = document.getElementById("world-list");
 
   if (hasPerformanceSection) {
     initPerformanceChart();
@@ -439,7 +449,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (hasMap) {
     initMap();
+    renderCountryList();
   }
+
+  setupMapToggle();
 
   document.querySelectorAll(".logo-link").forEach(link => {
     link.addEventListener("click", (e) => {
@@ -464,6 +477,13 @@ if (wpForm) {
 let performanceChart;
 let yearlyBarChart;
 let mapTooltip;
+const eligibleCountries = [
+  "AL", "AT", "BA", "BE", "BG", "CH", "CY", "CZ", "DE", "DK", "EE", "ES", "FI", "FR", "GB", "GR", "HR",
+  "HU", "IE", "IS", "IT", "LT", "LU", "LV", "ME", "MK", "MT", "NL", "NO", "PL", "PT", "RO", "RS", "SE",
+  "SI", "SK", "TR", "UA", "AU"
+];
+const reviewCountries = ["CA", "AE", "SG", "HK", "NZ", "ZA"];
+const restrictedCountries = ["US", "BR", "RU", "CN", "IN"];
 
 async function initPerformanceChart() {
   const ctx = document.getElementById("performanceChart");
@@ -662,6 +682,16 @@ function initMap() {
   mapTooltip.className = "worldmap-tooltip";
   document.body.appendChild(mapTooltip);
 
+  let regionNames;
+  try {
+    regionNames = new Intl.DisplayNames(
+      [currentLang === "fr" ? "fr" : "en"],
+      { type: "region" }
+    );
+  } catch (e) {
+    regionNames = null;
+  }
+
   fetch("worldmap_adp/assets/world-map.svg")
     .then((res) => res.text())
     .then((svgText) => {
@@ -680,8 +710,12 @@ function initMap() {
         path.dataset.status = status;
 
         path.addEventListener("mouseenter", () => {
-          const countryName = path.getAttribute("data-name") || path.getAttribute("data-country") || code;
-          mapTooltip.innerHTML = `${countryName}<br>${labels[status] || status}`;
+          const localizedName =
+            (regionNames && regionNames.of(code)) ||
+            path.getAttribute("data-name") ||
+            path.getAttribute("data-country") ||
+            code;
+          mapTooltip.innerHTML = `${localizedName}<br>${labels[status] || status}`;
           mapTooltip.style.display = "block";
         });
 
@@ -698,6 +732,71 @@ function initMap() {
     .catch((err) => {
       console.error("Map loading error:", err);
     });
+}
+
+function renderCountryList() {
+  const body = document.getElementById("country-table-body");
+  if (!body) return;
+
+  let regionNames;
+  try {
+    regionNames = new Intl.DisplayNames(
+      [currentLang === "fr" ? "fr" : "en"],
+      { type: "region" }
+    );
+  } catch (e) {
+    regionNames = null;
+  }
+
+  const rows = [];
+  const addRows = (codes, status) => {
+    codes.forEach((code) => {
+      const name = (regionNames && regionNames.of(code)) || code;
+      rows.push({ code, name, status });
+    });
+  };
+
+  addRows(eligibleCountries, "eligible");
+  addRows(reviewCountries, "review");
+  addRows(restrictedCountries, "restricted");
+
+  rows.sort((a, b) => a.name.localeCompare(b.name, currentLang === "fr" ? "fr" : "en"));
+
+  body.innerHTML = rows
+    .map(
+      ({ name, status }) => `
+        <div class="country-row">
+          <span>${name}</span>
+          <span class="status-pill status-${status}">${translations[currentLang][`map-legend-${status}`]}</span>
+        </div>
+      `
+    )
+    .join("");
+}
+
+function setupMapToggle() {
+  const toggles = document.querySelectorAll(".view-toggle");
+  const mapEl = document.getElementById("world-map");
+  const listEl = document.getElementById("world-list");
+  if (!toggles.length || !mapEl || !listEl) return;
+
+  toggles.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const view = btn.getAttribute("data-view");
+      toggles.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      if (view === "list") {
+        mapEl.classList.add("hidden");
+        listEl.classList.remove("hidden");
+        renderCountryList();
+      } else {
+        listEl.classList.add("hidden");
+        mapEl.classList.remove("hidden");
+        initMap();
+      }
+    });
+  });
 }
 
 
