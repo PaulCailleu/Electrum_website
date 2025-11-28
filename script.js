@@ -68,7 +68,7 @@ const translations = {
     "bm-chart-scenario-high": "Scenario: high",
 
     "growth-radar-title": "Strategy vs benchmark (radar)",
-    "growth-radar-note": "Normalized vs benchmark = 1. Replace placeholder benchmark values with your own to compare CAGR, risk and drawdown at a glance.",
+    "growth-radar-note": "Normalized vs benchmark = 1 using live metrics; compare CAGR, risk, and drawdown at a glance.",
     "growth-radar-strategy": "Electrum Growth",
     "growth-radar-benchmark": "Benchmark",
     "growth-radar-target": "Target",
@@ -333,7 +333,7 @@ const translations = {
     "bm-chart-scenario-high": "Scénario : haut",
 
     "growth-radar-title": "Stratégie vs benchmark (radar)",
-    "growth-radar-note": "Normalisé vs benchmark = 1. Remplacez les valeurs fictives du benchmark par vos chiffres pour comparer CAGR, risque et drawdown.",
+    "growth-radar-note": "Normalisé vs benchmark = 1 avec les métriques réelles ; comparez CAGR, risque et drawdown en un coup d’œil.",
     "growth-radar-strategy": "Electrum Growth",
     "growth-radar-benchmark": "Benchmark",
     "growth-radar-target": "Cible",
@@ -780,10 +780,8 @@ async function initGrowthRadar() {
 
   const response = await fetch("./metrics.json");
   const metrics = await response.json();
-
-  const dict = translations[currentLang];
-  // Placeholder benchmark values to be replaced with real benchmark metrics later.
-  const benchmark = {
+  const strategyMetrics = metrics.nav || metrics;
+  const benchmarkMetrics = metrics.benchmark || {
     Return: 0.075,
     Volatility: 0.15,
     Sharpe: 0.65,
@@ -791,12 +789,13 @@ async function initGrowthRadar() {
     Calmar: 0.35
   };
 
+  const dict = translations[currentLang];
   const ascendingMetrics = ["Return", "Sharpe", "Calmar"];
   const descendingMetrics = ["Volatility", "Max_dd"];
-  const metricsToPlot = Object.keys(benchmark);
+  const metricsToPlot = Object.keys(benchmarkMetrics);
 
   const normalizeVsBenchmark = (value, metric) => {
-    const base = benchmark[metric];
+    const base = benchmarkMetrics[metric];
     if (ascendingMetrics.includes(metric)) return value / base;
     if (descendingMetrics.includes(metric)) return base / value;
     return value / base;
@@ -819,7 +818,7 @@ async function initGrowthRadar() {
     }
   });
 
-  const strategyData = metricsToPlot.map((key) => normalizeVsBenchmark(metrics[key], key));
+  const strategyData = metricsToPlot.map((key) => normalizeVsBenchmark(strategyMetrics[key], key));
   const benchmarkData = metricsToPlot.map(() => 1);
 
   growthRadarChart = new Chart(el, {
@@ -835,7 +834,7 @@ async function initGrowthRadar() {
           borderWidth: 1.5,
           pointRadius: 2,
           pointBackgroundColor: "#D6A84E",
-          customData: metricsToPlot.map((key) => ({ raw: metrics[key], base: benchmark[key], metric: key }))
+          customData: metricsToPlot.map((key) => ({ raw: strategyMetrics[key], base: benchmarkMetrics[key], metric: key }))
         },
         {
           label: dict["growth-radar-benchmark"],
@@ -845,7 +844,7 @@ async function initGrowthRadar() {
           borderWidth: 1.5,
           pointRadius: 2,
           pointBackgroundColor: "#C8C9CF",
-          customData: metricsToPlot.map((key) => ({ raw: benchmark[key], base: benchmark[key], metric: key }))
+          customData: metricsToPlot.map((key) => ({ raw: benchmarkMetrics[key], base: benchmarkMetrics[key], metric: key }))
         }
       ]
     },
@@ -1080,6 +1079,7 @@ function formatNumber(value) {
 async function loadMetrics() {
   const response = await fetch("./metrics.json");
   const metrics = await response.json();
+  const navMetrics = metrics.nav || metrics;
 
   const cagrEl = document.getElementById("metric-cagr");
   const volEl = document.getElementById("metric-vol");
@@ -1089,11 +1089,11 @@ async function loadMetrics() {
 
   if (!cagrEl || !volEl || !sharpeEl || !ddEl || !calmarEl) return;
 
-  cagrEl.textContent = formatPercent(metrics.Return);
-  volEl.textContent = formatPercent(metrics.Volatility);
-  sharpeEl.textContent = formatNumber(metrics.Sharpe);
-  ddEl.textContent = formatPercent(metrics.Max_dd);
-  calmarEl.textContent = formatNumber(metrics.Calmar);
+  cagrEl.textContent = formatPercent(navMetrics.Return);
+  volEl.textContent = formatPercent(navMetrics.Volatility);
+  sharpeEl.textContent = formatNumber(navMetrics.Sharpe);
+  ddEl.textContent = formatPercent(navMetrics.Max_dd);
+  calmarEl.textContent = formatNumber(navMetrics.Calmar);
 }
 
 function updateMetricsLanguage() {
