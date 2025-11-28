@@ -221,6 +221,11 @@ const translations = {
       "The fund is intended to operate within a Swiss legal framework, working with regulated providers for custody, administration and audit.",
     "governance-text-2":
       "Compliance and investor protection are central pillars of the project, including KYC/AML procedures and clear risk disclosures.",
+    "name-title": "Why “Electrum”?",
+    "name-text-1":
+      "Electrum is a naturally occurring alloy of gold and silver. The name reflects the blend of traditional finance rigor (gold) with the agility and transparency of digital assets (silver).",
+    "name-text-2":
+      "The dual-metal idea also nods to diversification: combining different strengths to build a resilient, balanced investment approach.",
 
     "wp-title": "Whitepaper & Documentation",
     "wp-intro":
@@ -486,6 +491,11 @@ const translations = {
       "Le fonds a vocation à opérer dans un cadre juridique suisse, en s’appuyant sur des prestataires réglementés pour la conservation, l’administration et l’audit.",
     "governance-text-2":
       "La conformité et la protection des investisseurs sont au cœur du projet, incluant des procédures KYC/AML et une présentation claire des risques.",
+    "name-title": "Pourquoi “Electrum” ?",
+    "name-text-1":
+      "L’électrum est un alliage naturel d’or et d’argent. Le nom symbolise la rencontre entre la rigueur de la finance traditionnelle (l’or) et l’agilité/transparence des actifs digitaux (l’argent).",
+    "name-text-2":
+      "Cette dualité évoque aussi la diversification : combiner des forces différentes pour bâtir une approche d’investissement résiliente et équilibrée.",
 
     "wp-title": "White paper & documentation",
     "wp-intro":

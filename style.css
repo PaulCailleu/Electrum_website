@@ -807,7 +807,6 @@ textarea:focus {
 .pipeline-diagram {
   padding: 14px;
   background: rgba(5, 9, 20, 0.7);
-  overflow: auto;
 }
 
 .pipeline-diagram-note {
@@ -820,43 +819,24 @@ textarea:focus {
   background: rgba(15, 27, 43, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 14px;
-  padding: 16px;
-}
-
-.pipeline-graph {
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  height: auto;
-  min-height: 640px;
+  aspect-ratio: 16 / 9;
+  min-height: 260px;
+  max-height: 70vh;
 }
 
-.pipeline-edges path {
-  fill: none;
-  stroke: url(#edgeGradient);
-  stroke-width: 2.6px;
-  opacity: 0.82;
+.pipeline-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(214, 168, 78, 0.12), rgba(200, 201, 207, 0.12));
 }
-
-.pipeline-edges text {
-  fill: var(--text-muted);
-  font-size: 13px;
-  letter-spacing: 0.35px;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
-}
-
-.pipeline-nodes text {
-  fill: #e6e2d6;
-  font-size: 15px;
-  letter-spacing: 0.25px;
-}
-
-.pipeline-nodes rect {
-  stroke-width: 1.4px;
-}
-
-.node.primary rect { fill: #0f1b2b; stroke: #d6a84e; }
-.node.secondary rect { fill: #0a1525; stroke: #c8c9cf; }
-.node.accent rect { fill: #12263c; stroke: #d6a84e; }
-.node.muted rect { fill: #0b1322; stroke: #546078; }
 
 html {
   scroll-behavior: smooth;
