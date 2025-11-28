@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow">
+  <title>Business Model – Electrum Fund</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
+  <link rel="shortcut icon" href="assets/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Source+Sans+Pro:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="top-bar">
+    <a href="/" class="logo-block logo-link">
+      <img src="assets/logo_electrum.png" alt="Electrum Fund logo" class="logo-img" />
+      <div class="logo-text">
+        <span class="brand-main">Electrum</span>
+        <span class="brand-sub">Fund</span>
+      </div>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html#hero" data-i18n="nav-home"></a>
+      <a href="index.html#solutions" data-i18n="nav-solutions"></a>
+      <a href="index.html#business-model" data-i18n="nav-business"></a>
+      <a href="index.html#tokenization" data-i18n="nav-tokenization"></a>
+      <a href="index.html#team" data-i18n="nav-team"></a>
+      <a href="index.html#whitepaper" data-i18n="nav-whitepaper"></a>
+      <a href="index.html#contact" data-i18n="nav-contact"></a>
+    </nav>
+    <div class="lang-switch">
+      <button data-lang="en" class="lang-btn active">EN</button>
+      <button data-lang="fr" class="lang-btn">FR</button>
+    </div>
+    <button class="menu-toggle" aria-label="Toggle navigation">
+      <span class="menu-icon"></span>
+    </button>
+  </header>
+
+  <section id="hero" class="section hero">
+    <div class="hero-content">
+      <h1 data-i18n="bm-page-hero-title"></h1>
+      <p class="hero-subtitle" data-i18n="bm-page-hero-subtitle"></p>
+      <div class="hero-cta">
+        <a href="index.html#contact" class="btn primary" data-i18n="btn-contact"></a>
+        <a href="index.html#business-model" class="btn ghost" data-i18n="bm-page-back"></a>
+      </div>
+      <p class="hero-disclaimer" data-i18n="bm-page-hero-note"></p>
+    </div>
+  </section>
+
+  <section id="revenue" class="section">
+    <div class="section-header">
+      <h2 data-i18n="bm-page-revenue-title"></h2>
+      <p data-i18n="bm-page-revenue-intro"></p>
+    </div>
+    <div class="grid-3">
+      <div class="card soft">
+        <div class="pill" data-i18n="bm-page-revenue-1-title"></div>
+        <h3 data-i18n="bm-page-revenue-1-title"></h3>
+        <ul class="bullet-list">
+          <li data-i18n="bm-page-revenue-1-item-1"></li>
+          <li data-i18n="bm-page-revenue-1-item-2"></li>
+          <li data-i18n="bm-page-revenue-1-item-3"></li>
+        </ul>
+      </div>
+      <div class="card soft">
+        <div class="pill" data-i18n="bm-page-revenue-2-title"></div>
+        <h3 data-i18n="bm-page-revenue-2-title"></h3>
+        <ul class="bullet-list">
+          <li data-i18n="bm-page-revenue-2-item-1"></li>
+          <li data-i18n="bm-page-revenue-2-item-2"></li>
+          <li data-i18n="bm-page-revenue-2-item-3"></li>
+        </ul>
+      </div>
+      <div class="card soft">
+        <div class="pill" data-i18n="bm-page-revenue-3-title"></div>
+        <h3 data-i18n="bm-page-revenue-3-title"></h3>
+        <ul class="bullet-list">
+          <li data-i18n="bm-page-revenue-3-item-1"></li>
+          <li data-i18n="bm-page-revenue-3-item-2"></li>
+          <li data-i18n="bm-page-revenue-3-item-3"></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="bm-charts" class="section">
+    <div class="section-header">
+      <h2 data-i18n="bm-chart-title"></h2>
+      <p data-i18n="bm-chart-intro"></p>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3 data-i18n="bm-chart-rev-cost-title"></h3>
+        <canvas id="bmRevCostChart"></canvas>
+        <p class="small" data-i18n="bm-chart-rev-cost-note"></p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="bm-chart-mix-title"></h3>
+        <canvas id="bmMixChart"></canvas>
+        <p class="small" data-i18n="bm-chart-mix-note"></p>
+      </div>
+    </div>
+    <div class="card mt-24">
+      <h3 data-i18n="bm-chart-breakeven-title"></h3>
+      <canvas id="bmBreakevenChart"></canvas>
+      <p class="small" data-i18n="bm-chart-breakeven-note"></p>
+    </div>
+  </section>
+
+  <section id="costs" class="section alt">
+    <div class="section-header">
+      <h2 data-i18n="bm-page-costs-title"></h2>
+      <p data-i18n="bm-page-costs-intro"></p>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="pill" data-i18n="bm-page-costs-1-title"></div>
+        <h3 data-i18n="bm-page-costs-1-title"></h3>
+        <ul class="bullet-list">
+          <li data-i18n="bm-page-costs-1-item-1"></li>
+          <li data-i18n="bm-page-costs-1-item-2"></li>
+          <li data-i18n="bm-page-costs-1-item-3"></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="pill" data-i18n="bm-page-costs-2-title"></div>
+        <h3 data-i18n="bm-page-costs-2-title"></h3>
+        <ul class="bullet-list">
+          <li data-i18n="bm-page-costs-2-item-1"></li>
+          <li data-i18n="bm-page-costs-2-item-2"></li>
+          <li data-i18n="bm-page-costs-2-item-3"></li>
+        </ul>
+      </div>
+    </div>
+    <p class="small mt-8" data-i18n="bm-page-breakeven-note"></p>
+  </section>
+
+  <section id="alignment" class="section">
+    <div class="section-header">
+      <h2 data-i18n="bm-page-alignment-title"></h2>
+      <p data-i18n="bm-page-alignment-intro"></p>
+    </div>
+    <div class="card soft">
+      <ul class="bullet-list">
+        <li data-i18n="bm-page-alignment-item-1"></li>
+        <li data-i18n="bm-page-alignment-item-2"></li>
+        <li data-i18n="bm-page-alignment-item-3"></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="cta" class="section alt">
+    <div class="card">
+      <h3 data-i18n="bm-page-cta-title"></h3>
+      <p data-i18n="bm-page-cta-desc"></p>
+      <div class="hero-cta">
+        <a href="index.html#contact" class="btn primary" data-i18n="btn-contact"></a>
+        <a href="index.html#business-model" class="btn ghost" data-i18n="bm-page-back"></a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p data-i18n="footer-disclaimer-1"></p>
+    <p data-i18n="footer-disclaimer-2"></p>
+    <p class="small">&copy; <span id="year"></span> Electrum Fund. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

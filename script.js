@@ -3,6 +3,7 @@ const translations = {
   en: {
     "nav-home": "Home",
     "nav-solutions": "Solutions",
+    "nav-business": "Business model",
     "nav-roadmap": "Roadmap",
     "nav-tokenization": "Tokenization",
     "nav-pipeline": "Architecture",
@@ -28,6 +29,49 @@ const translations = {
     "solution-yield-title": "Electrum Yield",
     "solution-yield-desc": "A defensive allocation targeting recurring cash flows from curated yield opportunities and conservative hedging.",
     "solution-cta": "View details",
+
+    "bm-title": "Business model snapshot",
+    "bm-intro": "Quick economics you can edit: how Electrum earns, what the fixed base looks like, and how token rails contribute.",
+    "bm-revenues-pill": "Revenues",
+    "bm-revenues-title": "Where cash comes from",
+    "bm-revenues-item-1": "Management & performance fees aligned with traditional ranges (e.g., 1–1.5% mgmt, 10–20% perf with a high-water mark).",
+    "bm-revenues-item-2": "On-chain mint/burn fees and a small spread on secondary liquidity windows.",
+    "bm-revenues-item-3": "Ancillary services: onboarding fee per investor, data/API access or co-branded vehicles for partners.",
+    "bm-costs-pill": "Costs",
+    "bm-costs-title": "Fixed + variable base",
+    "bm-costs-item-1": "Core team (investment, risk, tech), compliance/legal, audit, admin/custody retainers.",
+    "bm-costs-item-2": "Data, cloud, security stack sized for institutional reporting and monitoring.",
+    "bm-costs-item-3": "Variable costs: on-chain gas, distribution commissions, investor success/support as AUM scales.",
+    "bm-deepdive-pill": "Detail",
+    "bm-deepdive-title": "Detailed business model",
+    "bm-deepdive-desc": "See fee ladders, cost buckets, and breakeven scenarios you can adjust.",
+    "bm-deepdive-cta": "View details",
+
+    "bm-chart-title": "Visuals (illustrative data)",
+    "bm-chart-intro": "Quick views to explain the economics: revenues vs costs, mix, and margin sensitivity.",
+    "bm-chart-rev-cost-title": "Revenues vs costs per quarter",
+    "bm-chart-rev-cost-note": "Placeholder values in kUSD; adjust to your pipeline and provider quotes.",
+    "bm-chart-mix-title": "Revenue mix (example)",
+    "bm-chart-mix-note": "Sample split between management, performance, and token rails.",
+    "bm-chart-breakeven-title": "Margin sensitivity vs AUM",
+    "bm-chart-breakeven-note": "Illustrative scenarios; breakeven around 50–60m AUM in this placeholder.",
+    "bm-chart-rev-mgmt": "Mgmt fees",
+    "bm-chart-rev-perf": "Perf fees",
+    "bm-chart-rev-token": "Token rails",
+    "bm-chart-cost-fixed": "Fixed costs",
+    "bm-chart-cost-var": "Variable costs",
+    "bm-chart-axis-k": "kUSD per quarter (illustrative)",
+    "bm-chart-axis-aum": "AUM (USD millions)",
+    "bm-chart-axis-margin": "Net margin (kUSD)",
+    "bm-chart-scenario-low": "Scenario: low AUM",
+    "bm-chart-scenario-base": "Scenario: base",
+    "bm-chart-scenario-high": "Scenario: high",
+
+    "growth-radar-title": "Strategy vs benchmark (radar)",
+    "growth-radar-note": "Normalized vs benchmark = 1. Replace placeholder benchmark values with your own to compare CAGR, risk and drawdown at a glance.",
+    "growth-radar-strategy": "Electrum Growth",
+    "growth-radar-benchmark": "Benchmark",
+    "growth-radar-target": "Target",
 
     "strategy-title": "Strategy & Backtested Performance",
     "strategy-intro":
@@ -68,6 +112,43 @@ const translations = {
       "Illustrative simulation of a diversified yield sleeve with conservative hedging and liquidity controls.",
     "solution-back": "Back to solutions",
     "solution-contact": "Discuss with the team",
+
+    "bm-page-hero-title": "Business model & unit economics",
+    "bm-page-hero-subtitle": "Illustrative economics that mix fund fees, token rails, and a scalable cost base. Replace the placeholders with your own pricing and provider quotes.",
+    "bm-page-hero-note": "Draft content for discussion purposes only. Adapt to your legal framework, target AUM and investor profiles.",
+    "bm-page-revenue-title": "Revenue mix",
+    "bm-page-revenue-intro": "Blend traditional fund fees with token-native rails to align incentives and unlock new channels.",
+    "bm-page-revenue-1-title": "Fund fees (core)",
+    "bm-page-revenue-1-item-1": "Management fee placeholder 1.0–1.5% AUM depending on share class and custody setup.",
+    "bm-page-revenue-1-item-2": "Performance fee placeholder 10–20% with high-water mark and quarterly crystallization; optional hurdle rate.",
+    "bm-page-revenue-1-item-3": "Share class flexibility: discounted fee for early AUM, premium for liquidity or structured overlays.",
+    "bm-page-revenue-2-title": "Token rails",
+    "bm-page-revenue-2-item-1": "Mint/burn fee on subscriptions and redemptions to cover on-chain operations and oracle updates.",
+    "bm-page-revenue-2-item-2": "Secondary liquidity windows with small spread/market-making rebate to compensate inventory risk.",
+    "bm-page-revenue-2-item-3": "Programmable perks: staking/loyalty rewards or fee rebates for long-term holders.",
+    "bm-page-revenue-3-title": "Distribution & services",
+    "bm-page-revenue-3-item-1": "One-off onboarding/eligibility fee per professional investor or per distributor channel.",
+    "bm-page-revenue-3-item-2": "Data/API or dashboard licensing for partners needing portfolio transparency feeds.",
+    "bm-page-revenue-3-item-3": "Co-branded sleeves or SMA pricing for institutions wanting custom mandates.",
+    "bm-page-costs-title": "Cost structure & breakeven",
+    "bm-page-costs-intro": "Illustrative cost base combining fixed provider retainers with variable growth levers.",
+    "bm-page-costs-1-title": "Fixed base",
+    "bm-page-costs-1-item-1": "Team: portfolio management, risk/ops, tech & data engineering (lean, cross-functional).",
+    "bm-page-costs-1-item-2": "Providers: admin + custody, legal/compliance, audit, insurance; mostly fixed retainers.",
+    "bm-page-costs-1-item-3": "Infrastructure: data vendors, cloud, monitoring, security/testing budget.",
+    "bm-page-costs-2-title": "Variable & scaling",
+    "bm-page-costs-2-item-1": "On-chain gas, bridging, and oracle updates proportional to activity.",
+    "bm-page-costs-2-item-2": "Distribution: platform fees, referral/placement commissions within regulated limits.",
+    "bm-page-costs-2-item-3": "Investor success & reporting: support hours, custom exports, translations as jurisdictions expand.",
+    "bm-page-breakeven-note": "Example: breakeven around $50–70m AUM at 1% mgmt + modest token fees; sensitivity depends on headcount and provider terms.",
+    "bm-page-alignment-title": "Alignment & incentives",
+    "bm-page-alignment-intro": "Align economics between the fund, token holders, and service providers.",
+    "bm-page-alignment-item-1": "Fee waterfalls and on-chain flows are transparent; performance fee paid only above HWM/hurdle.",
+    "bm-page-alignment-item-2": "Treasury/retained earnings earmarked for audits, security reviews, and liquidity support.",
+    "bm-page-alignment-item-3": "Roadmap: migrate more reporting on-chain, automate proofs of reserves/exposure, and offer fee rebates for verified long-term holders.",
+    "bm-page-cta-title": "Want to adapt this model?",
+    "bm-page-cta-desc": "We can tailor the ladders, currencies, and liquidity windows to your distribution plan.",
+    "bm-page-back": "Back to homepage",
 
     "roadmap-title": "Roadmap",
     "roadmap-intro": "Illustrative milestones you can adjust later. Replace with your own quarters, deliverables, and owners.",
@@ -187,6 +268,7 @@ const translations = {
   fr: {
     "nav-home": "Accueil",
     "nav-solutions": "Solutions",
+    "nav-business": "Modèle économique",
     "nav-roadmap": "Feuille de route",
     "nav-tokenization": "Tokenisation",
     "nav-pipeline": "Architecture",
@@ -212,6 +294,49 @@ const translations = {
     "solution-yield-title": "Electrum Yield",
     "solution-yield-desc": "Allocation défensive ciblant des cash-flows récurrents via des opportunités de rendement sélectionnées et des couvertures prudentes.",
     "solution-cta": "Voir le détail",
+
+    "bm-title": "Modèle économique en bref",
+    "bm-intro": "Vue rapide et modifiable : sources de revenus, base de coûts et rôle des briques on-chain dans l’économie du fonds.",
+    "bm-revenues-pill": "Revenus",
+    "bm-revenues-title": "D’où vient le cash",
+    "bm-revenues-item-1": "Frais de gestion et de performance dans les fourchettes usuelles (ex. 1–1,5% de gestion, 10–20% de performance avec high-water mark).",
+    "bm-revenues-item-2": "Frais de mint/burn on-chain et léger spread lors des fenêtres de liquidité secondaires.",
+    "bm-revenues-item-3": "Services additionnels : frais d’onboarding par investisseur, accès data/API ou véhicules co-marqués pour partenaires.",
+    "bm-costs-pill": "Coûts",
+    "bm-costs-title": "Base fixe + variable",
+    "bm-costs-item-1": "Équipe cœur (investissement, risque, tech), conformité/juridique, audit, administrateur/conservation (retainers).",
+    "bm-costs-item-2": "Stack data, cloud et sécurité dimensionnée pour du reporting institutionnel.",
+    "bm-costs-item-3": "Variable : gas on-chain, commissions de distribution, support investisseurs à mesure que l’AUM croît.",
+    "bm-deepdive-pill": "Détail",
+    "bm-deepdive-title": "Modèle économique détaillé",
+    "bm-deepdive-desc": "Ladders de frais, poches de coûts et scénarios de break-even à ajuster.",
+    "bm-deepdive-cta": "Voir le détail",
+
+    "bm-chart-title": "Visuels (données illustratives)",
+    "bm-chart-intro": "Vues rapides pour expliquer l’économie : revenus vs coûts, mix et sensibilité de marge.",
+    "bm-chart-rev-cost-title": "Revenus vs coûts par trimestre",
+    "bm-chart-rev-cost-note": "Valeurs fictives en kUSD ; à adapter selon votre pipeline et vos devis.",
+    "bm-chart-mix-title": "Mix de revenus (exemple)",
+    "bm-chart-mix-note": "Répartition indicative entre gestion, performance et rails tokenisés.",
+    "bm-chart-breakeven-title": "Sensibilité de marge vs AUM",
+    "bm-chart-breakeven-note": "Scénarios illustratifs ; break-even autour de 50–60 M$ d’AUM dans ce placeholder.",
+    "bm-chart-rev-mgmt": "Frais de gestion",
+    "bm-chart-rev-perf": "Frais de performance",
+    "bm-chart-rev-token": "Rails token",
+    "bm-chart-cost-fixed": "Coûts fixes",
+    "bm-chart-cost-var": "Coûts variables",
+    "bm-chart-axis-k": "kUSD par trimestre (indicatif)",
+    "bm-chart-axis-aum": "AUM (millions USD)",
+    "bm-chart-axis-margin": "Marge nette (kUSD)",
+    "bm-chart-scenario-low": "Scénario : bas",
+    "bm-chart-scenario-base": "Scénario : central",
+    "bm-chart-scenario-high": "Scénario : haut",
+
+    "growth-radar-title": "Stratégie vs benchmark (radar)",
+    "growth-radar-note": "Normalisé vs benchmark = 1. Remplacez les valeurs fictives du benchmark par vos chiffres pour comparer CAGR, risque et drawdown.",
+    "growth-radar-strategy": "Electrum Growth",
+    "growth-radar-benchmark": "Benchmark",
+    "growth-radar-target": "Cible",
 
     "strategy-title": "Stratégie & performance backtestée",
     "strategy-intro":
@@ -252,6 +377,43 @@ const translations = {
       "Simulation indicative d’un panier de rendement diversifié avec couvertures prudentes et contrôles de liquidité.",
     "solution-back": "Retour aux solutions",
     "solution-contact": "Echanger avec l’équipe",
+
+    "bm-page-hero-title": "Modèle économique & unit economics",
+    "bm-page-hero-subtitle": "Economie illustrée combinant frais de fonds, rails tokenisés et base de coûts scalable. Remplacez les placeholders par vos tarifs et devis fournisseurs.",
+    "bm-page-hero-note": "Contenu de travail uniquement. A adapter à votre cadre juridique, à votre AUM cible et à vos profils d’investisseurs.",
+    "bm-page-revenue-title": "Mix de revenus",
+    "bm-page-revenue-intro": "Mélangez les frais traditionnels du fonds avec des briques on-chain pour aligner les intérêts et ouvrir de nouveaux canaux.",
+    "bm-page-revenue-1-title": "Frais du fonds (core)",
+    "bm-page-revenue-1-item-1": "Frais de gestion indicatifs 1,0–1,5% de l’AUM selon la classe de parts et la conservation.",
+    "bm-page-revenue-1-item-2": "Frais de performance indicatifs 10–20% avec high-water mark et crystallisation trimestrielle ; hurdle optionnel.",
+    "bm-page-revenue-1-item-3": "Flexibilité par classe : remise pour early AUM, premium pour davantage de liquidité ou d’overlays structurés.",
+    "bm-page-revenue-2-title": "Rails tokenisés",
+    "bm-page-revenue-2-item-1": "Frais de mint/burn sur souscriptions et rachats pour couvrir opérations on-chain et mises à jour d’oracle.",
+    "bm-page-revenue-2-item-2": "Fenêtres de liquidité secondaire avec léger spread / rebate de market-making pour compenser le risque d’inventaire.",
+    "bm-page-revenue-2-item-3": "Avantages programmables : récompenses de staking/fidélité ou remises de frais pour les détenteurs long terme.",
+    "bm-page-revenue-3-title": "Distribution & services",
+    "bm-page-revenue-3-item-1": "Frais d’onboarding/éligibilité par investisseur professionnel ou par canal distributeur.",
+    "bm-page-revenue-3-item-2": "Licence data/API ou dashboard pour les partenaires ayant besoin de flux de transparence portefeuille.",
+    "bm-page-revenue-3-item-3": "Mandats co-marqués ou SMA pour les institutions souhaitant des allocations sur mesure.",
+    "bm-page-costs-title": "Structure de coûts & break-even",
+    "bm-page-costs-intro": "Base de coûts indicative mêlant retainers fixes prestataires et leviers variables de croissance.",
+    "bm-page-costs-1-title": "Base fixe",
+    "bm-page-costs-1-item-1": "Équipe : gestion de portefeuille, risque/ops, ingénierie tech & data (organisation légère et transverse).",
+    "bm-page-costs-1-item-2": "Prestataires : admin + custodie, juridique/conformité, audit, assurance ; majoritairement en retainers.",
+    "bm-page-costs-1-item-3": "Infrastructure : fournisseurs data, cloud, monitoring, budget sécurité/tests.",
+    "bm-page-costs-2-title": "Variable & scale",
+    "bm-page-costs-2-item-1": "Gas on-chain, bridging et mises à jour d’oracle proportionnels à l’activité.",
+    "bm-page-costs-2-item-2": "Distribution : frais plateformes, commissions de placement ou de recommandation dans les limites réglementaires.",
+    "bm-page-costs-2-item-3": "Success & reporting : support, exports custom, traductions à mesure que les juridictions s’élargissent.",
+    "bm-page-breakeven-note": "Exemple : break-even autour de 50–70 M$ d’AUM avec 1% de gestion + faibles frais token ; sensibilité selon staffing et termes fournisseurs.",
+    "bm-page-alignment-title": "Alignement & incitations",
+    "bm-page-alignment-intro": "Aligner les intérêts entre le fonds, les porteurs de tokens et les prestataires.",
+    "bm-page-alignment-item-1": "Waterfall de frais et flux on-chain transparents ; frais de performance uniquement au-dessus du HWM/hurdle.",
+    "bm-page-alignment-item-2": "Trésorerie/résultat réinvesti prioritairement dans les audits, revues de sécurité et soutien de la liquidité.",
+    "bm-page-alignment-item-3": "Feuille de route : plus de reporting on-chain, preuves automatisées de réserves/exposition et remises de frais pour les détenteurs long terme vérifiés.",
+    "bm-page-cta-title": "Envie d’adapter le modèle ?",
+    "bm-page-cta-desc": "Nous pouvons ajuster les grilles, devises et fenêtres de liquidité selon votre plan de distribution.",
+    "bm-page-back": "Retour à l’accueil",
 
     "roadmap-title": "Feuille de route",
     "roadmap-intro": "Jalons indicatifs à compléter. Remplacez par vos trimestres, livrables et responsables.",
@@ -400,6 +562,20 @@ function applyTranslations(lang) {
   });
 }
 
+function updateBusinessChartsLanguage() {
+  if (!document.getElementById("bmRevCostChart")) return;
+  if (bmRevCostChart) bmRevCostChart.destroy();
+  if (bmMixChart) bmMixChart.destroy();
+  if (bmBreakevenChart) bmBreakevenChart.destroy();
+  initBusinessCharts();
+}
+
+function updateGrowthRadarLanguage() {
+  if (!document.getElementById("growthRadarChart")) return;
+  if (growthRadarChart) growthRadarChart.destroy();
+  initGrowthRadar();
+}
+
 // Language buttons
 document.addEventListener("DOMContentLoaded", () => {
   // Year in footer
@@ -423,6 +599,8 @@ document.addEventListener("DOMContentLoaded", () => {
       applyTranslations(lang);
       updateChartsLanguage();
       updateMetricsLanguage();
+      updateBusinessChartsLanguage();
+      updateGrowthRadarLanguage();
       if (document.getElementById("world-map")) {
         initMap();
         renderCountryList();
@@ -460,6 +638,14 @@ document.addEventListener("DOMContentLoaded", () => {
     renderCountryList();
   }
 
+  if (document.getElementById("bmRevCostChart")) {
+    initBusinessCharts();
+  }
+
+  if (document.getElementById("growthRadarChart")) {
+    initGrowthRadar();
+  }
+
   setupMapToggle();
 
   document.querySelectorAll(".logo-link").forEach(link => {
@@ -485,6 +671,223 @@ if (wpForm) {
 let performanceChart;
 let yearlyBarChart;
 let mapTooltip;
+let bmRevCostChart;
+let bmMixChart;
+let bmBreakevenChart;
+let growthRadarChart;
+
+function initBusinessCharts() {
+  const labels = ["Q1", "Q2", "Q3", "Q4"];
+  const revenueMgmt = [180, 220, 270, 320];
+  const revenuePerf = [0, 60, 90, 120];
+  const revenueToken = [25, 35, 45, 55];
+  const costsFixed = [140, 140, 140, 140];
+  const costsVariable = [40, 60, 80, 100];
+
+  const dict = translations[currentLang];
+
+  const revCostCtx = document.getElementById("bmRevCostChart");
+  if (revCostCtx) {
+    bmRevCostChart = new Chart(revCostCtx, {
+      type: "bar",
+      data: {
+        labels,
+        datasets: [
+          { label: dict["bm-chart-rev-mgmt"], data: revenueMgmt, backgroundColor: "#d6a84e" },
+          { label: dict["bm-chart-rev-perf"], data: revenuePerf, backgroundColor: "#c8c9cf" },
+          { label: dict["bm-chart-rev-token"], data: revenueToken, backgroundColor: "#8fb7ff" },
+          { label: dict["bm-chart-cost-fixed"], data: costsFixed, backgroundColor: "#1f2937" },
+          { label: dict["bm-chart-cost-var"], data: costsVariable, backgroundColor: "#4b5563" }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { position: "bottom" } },
+        scales: {
+          x: { stacked: true },
+          y: { stacked: true, beginAtZero: true, title: { display: true, text: dict["bm-chart-axis-k"] } }
+        }
+      }
+    });
+  }
+
+  const mixCtx = document.getElementById("bmMixChart");
+  if (mixCtx) {
+    bmMixChart = new Chart(mixCtx, {
+      type: "doughnut",
+      data: {
+        labels: [dict["bm-chart-rev-mgmt"], dict["bm-chart-rev-perf"], dict["bm-chart-rev-token"]],
+        datasets: [
+          {
+            data: [45, 35, 20],
+            backgroundColor: ["#d6a84e", "#c8c9cf", "#8fb7ff"],
+            borderWidth: 0
+          }
+        ]
+      },
+      options: {
+        plugins: {
+          legend: { position: "bottom" },
+          tooltip: { callbacks: { label: (ctx) => `${ctx.label}: ${ctx.parsed}%` } }
+        }
+      }
+    });
+  }
+
+  const beCtx = document.getElementById("bmBreakevenChart");
+  if (beCtx) {
+    bmBreakevenChart = new Chart(beCtx, {
+      type: "line",
+      data: {
+        labels: ["0", "20", "40", "60", "80", "100"],
+        datasets: [
+          {
+            label: dict["bm-chart-scenario-low"],
+            data: [-90, -40, -10, 20, 30, 35],
+            borderColor: "#8fb7ff",
+            tension: 0.2
+          },
+          {
+            label: dict["bm-chart-scenario-base"],
+            data: [-70, -20, 20, 50, 80, 100],
+            borderColor: "#d6a84e",
+            tension: 0.2
+          },
+          {
+            label: dict["bm-chart-scenario-high"],
+            data: [-50, 10, 60, 110, 150, 190],
+            borderColor: "#4ade80",
+            tension: 0.2
+          }
+        ]
+      },
+      options: {
+        plugins: {
+          legend: { position: "bottom" }
+        },
+        scales: {
+          x: { title: { display: true, text: dict["bm-chart-axis-aum"] } },
+          y: { title: { display: true, text: dict["bm-chart-axis-margin"] } }
+        }
+      }
+    });
+  }
+}
+
+async function initGrowthRadar() {
+  const el = document.getElementById("growthRadarChart");
+  if (!el) return;
+
+  const response = await fetch("./metrics.json");
+  const metrics = await response.json();
+
+  const dict = translations[currentLang];
+  // Placeholder benchmark values to be replaced with real benchmark metrics later.
+  const benchmark = {
+    Return: 0.075,
+    Volatility: 0.15,
+    Sharpe: 0.65,
+    Max_dd: 0.22,
+    Calmar: 0.35
+  };
+
+  const ascendingMetrics = ["Return", "Sharpe", "Calmar"];
+  const descendingMetrics = ["Volatility", "Max_dd"];
+  const metricsToPlot = Object.keys(benchmark);
+
+  const normalizeVsBenchmark = (value, metric) => {
+    const base = benchmark[metric];
+    if (ascendingMetrics.includes(metric)) return value / base;
+    if (descendingMetrics.includes(metric)) return base / value;
+    return value / base;
+  };
+
+  const labels = metricsToPlot.map((key) => {
+    switch (key) {
+      case "Return":
+        return dict["metric-cagr"];
+      case "Volatility":
+        return dict["metric-vol"];
+      case "Sharpe":
+        return dict["metric-sharpe"];
+      case "Max_dd":
+        return dict["metric-dd"];
+      case "Calmar":
+        return dict["metric-calmar"];
+      default:
+        return key;
+    }
+  });
+
+  const strategyData = metricsToPlot.map((key) => normalizeVsBenchmark(metrics[key], key));
+  const benchmarkData = metricsToPlot.map(() => 1);
+
+  growthRadarChart = new Chart(el, {
+    type: "radar",
+    data: {
+      labels,
+      datasets: [
+        {
+          label: dict["growth-radar-strategy"],
+          data: strategyData,
+          borderColor: "#D6A84E",
+          backgroundColor: "rgba(214, 168, 78, 0.15)",
+          borderWidth: 1.5,
+          pointRadius: 2,
+          pointBackgroundColor: "#D6A84E",
+          customData: metricsToPlot.map((key) => ({ raw: metrics[key], base: benchmark[key], metric: key }))
+        },
+        {
+          label: dict["growth-radar-benchmark"],
+          data: benchmarkData,
+          borderColor: "#C8C9CF",
+          backgroundColor: "rgba(200, 201, 207, 0.15)",
+          borderWidth: 1.5,
+          pointRadius: 2,
+          pointBackgroundColor: "#C8C9CF",
+          customData: metricsToPlot.map((key) => ({ raw: benchmark[key], base: benchmark[key], metric: key }))
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: "bottom" },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => {
+              const cd = ctx.dataset.customData && ctx.dataset.customData[ctx.dataIndex];
+              if (!cd) return `${ctx.dataset.label}: ${ctx.formattedValue}`;
+              const percentMetric = ["Return", "Volatility", "Max_dd"];
+              const rawFormatted = percentMetric.includes(cd.metric)
+                ? `${(cd.raw * 100).toFixed(1)}%`
+                : cd.raw.toFixed(2);
+              const benchmarkFormatted = percentMetric.includes(cd.metric)
+                ? `${(cd.base * 100).toFixed(1)}%`
+                  : cd.base.toFixed(2);
+              const labelText = currentLang === "fr" ? "Valeur" : "Value";
+              const benchText = currentLang === "fr" ? "Benchmark" : "Benchmark";
+              return `${ctx.dataset.label}: ${rawFormatted} (${benchText} ${benchmarkFormatted})`;
+            }
+          }
+        }
+      },
+      scales: {
+        r: {
+          beginAtZero: true,
+          suggestedMax: 1.2,
+          angleLines: { color: "rgba(255,255,255,0.1)" },
+          grid: { color: "rgba(255,255,255,0.1)" },
+          ticks: {
+            display: false
+          },
+          pointLabels: { font: { size: 12 } }
+        }
+      }
+    }
+  });
+}
 
 const countryMatrix = [
   ["DE", "Germany", "Allemagne", "Oui", "Non"],
