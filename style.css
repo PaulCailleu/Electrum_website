@@ -583,6 +583,17 @@ textarea:focus {
   margin-bottom: 24px;
 }
 
+.bm-chart {
+  width: 100% !important;
+  height: clamp(240px, 42vw, 460px);
+  max-height: 460px;
+}
+
+.bm-chart.tall {
+  height: clamp(280px, 48vw, 520px);
+  max-height: 520px;
+}
+
 .token-definition {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;

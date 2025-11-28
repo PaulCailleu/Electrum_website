@@ -712,6 +712,7 @@ function initBusinessCharts() {
       },
       options: {
         responsive: true,
+        maintainAspectRatio: false,
         plugins: { legend: { position: "bottom" } },
         scales: {
           x: { stacked: true },
@@ -736,6 +737,9 @@ function initBusinessCharts() {
         ]
       },
       options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: "72%",
         plugins: {
           legend: { position: "bottom" },
           tooltip: { callbacks: { label: (ctx) => `${ctx.label}: ${ctx.parsed}%` } }
@@ -772,6 +776,8 @@ function initBusinessCharts() {
         ]
       },
       options: {
+        responsive: true,
+        maintainAspectRatio: false,
         plugins: {
           legend: { position: "bottom" }
         },
