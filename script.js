@@ -586,6 +586,16 @@ function updateGrowthRadarLanguage() {
   initGrowthRadar();
 }
 
+function updatePipelineDiagram() {
+  const img = document.getElementById("pipeline-diagram-img");
+  const link = document.getElementById("pipeline-diagram-link");
+  if (!img || !link) return;
+  const isFr = currentLang === "fr";
+  const suffix = isFr ? "fr" : "en";
+  img.src = `assets/pipeline_tech_${suffix}.png`;
+  link.href = `diagrams/pipeline/Pipeline_tech_${suffix}.pdf`;
+}
+
 // Language buttons
 document.addEventListener("DOMContentLoaded", () => {
   // Year in footer
@@ -611,6 +621,7 @@ document.addEventListener("DOMContentLoaded", () => {
       updateMetricsLanguage();
       updateBusinessChartsLanguage();
       updateGrowthRadarLanguage();
+      updatePipelineDiagram();
       if (document.getElementById("world-map")) {
         initMap();
         renderCountryList();
@@ -655,6 +666,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (document.getElementById("growthRadarChart")) {
     initGrowthRadar();
   }
+
+  updatePipelineDiagram();
 
   setupMapToggle();
 
