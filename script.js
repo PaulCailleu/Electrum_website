@@ -716,11 +716,41 @@ function initBusinessCharts() {
       data: {
         labels,
         datasets: [
-          { label: dict["bm-chart-rev-mgmt"], data: revenueMgmt, backgroundColor: "#d6a84e" },
-          { label: dict["bm-chart-rev-perf"], data: revenuePerf, backgroundColor: "#c8c9cf" },
-          { label: dict["bm-chart-rev-token"], data: revenueToken, backgroundColor: "#8fb7ff" },
-          { label: dict["bm-chart-cost-fixed"], data: costsFixed, backgroundColor: "#1f2937" },
-          { label: dict["bm-chart-cost-var"], data: costsVariable, backgroundColor: "#4b5563" }
+          {
+            label: dict["bm-chart-rev-mgmt"],
+            data: revenueMgmt,
+            backgroundColor: "#d6a84e",
+            borderColor: "rgba(15, 27, 43, 0.9)",
+            borderWidth: 1
+          },
+          {
+            label: dict["bm-chart-rev-perf"],
+            data: revenuePerf,
+            backgroundColor: "#c8c9cf",
+            borderColor: "rgba(15, 27, 43, 0.9)",
+            borderWidth: 1
+          },
+          {
+            label: dict["bm-chart-rev-token"],
+            data: revenueToken,
+            backgroundColor: "#8fb7ff",
+            borderColor: "rgba(15, 27, 43, 0.9)",
+            borderWidth: 1
+          },
+          {
+            label: dict["bm-chart-cost-fixed"],
+            data: costsFixed,
+            backgroundColor: "#1f2937",
+            borderColor: "rgba(15, 27, 43, 0.9)",
+            borderWidth: 1
+          },
+          {
+            label: dict["bm-chart-cost-var"],
+            data: costsVariable,
+            backgroundColor: "#4b5563",
+            borderColor: "rgba(15, 27, 43, 0.9)",
+            borderWidth: 1
+          }
         ]
       },
       options: {
@@ -745,7 +775,8 @@ function initBusinessCharts() {
           {
             data: [45, 35, 20],
             backgroundColor: ["#d6a84e", "#c8c9cf", "#8fb7ff"],
-            borderWidth: 0
+            borderColor: "rgba(15, 27, 43, 0.9)",
+            borderWidth: 1.5
           }
         ]
       },
