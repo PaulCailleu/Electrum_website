@@ -298,6 +298,13 @@ body {
   min-height: 240px;
 }
 
+.link-card.disabled {
+  pointer-events: none;
+  cursor: default;
+  border-color: rgba(255, 255, 255, 0.08);
+  opacity: 0.85;
+}
+
 .pill {
   align-self: flex-start;
   padding: 4px 10px;
@@ -316,6 +323,10 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+}
+
+.link-card.disabled .link-cta {
+  color: var(--text-muted);
 }
 
 .grid-3 {

@@ -29,6 +29,7 @@ const translations = {
     "solution-yield-title": "Electrum Yield",
     "solution-yield-desc": "A defensive allocation targeting recurring cash flows from curated yield opportunities and conservative hedging.",
     "solution-cta": "View details",
+    "solution-coming-soon": "Coming soon",
 
     "bm-title": "Business model snapshot",
     "bm-intro": "Quick economics you can edit: how Electrum earns, what the fixed base looks like, and how token rails contribute.",
@@ -177,7 +178,7 @@ const translations = {
     "map-note": "Indicative only: update according to your legal and distribution rules.",
 
     "pipeline-title": "Tokenization architecture",
-    "pipeline-intro": "Illustrative flow you can refine later: from investor onboarding to token lifecycle and reporting.",
+    "pipeline-intro": "Technical tokenization pipeline: users simply swap their stablecoins for tokenized fund shares and we handle the rest.",
     "pipeline-1-pill": "Onboarding",
     "pipeline-1-title": "KYC/AML & eligibility",
     "pipeline-1-desc": "Investors onboard via compliant KYC/AML, suitability checks, and wallet whitelisting.",
@@ -190,7 +191,7 @@ const translations = {
     "pipeline-4-pill": "Controls & reporting",
     "pipeline-4-title": "Risk, compliance, audit trail",
     "pipeline-4-desc": "Role-based controls, custody segregation, on-chain proofs, and investor reporting (factsheet + dashboard).",
-    "pipeline-pdf-note": "Architecture diagram (click to open the full-resolution PDF in a new tab).",
+    "pipeline-pdf-note": "New architecture scheme (click to open the full-resolution PDF in a new tab).",
 
     "token-title": "Tokenization & Investor Access",
     "token-intro":
@@ -198,15 +199,15 @@ const translations = {
     "token-what-title": "What is tokenization?",
     "token-what-text":
       "Tokenization is the process of transforming a real-world asset (financial or otherwise) into a digital “token” recorded on a blockchain. This token represents ownership, a right, or a share of that asset, and can be exchanged, transferred, or held in a secure and transparent way.",
-    "token-1-title": "Fractional access",
+    "token-1-title": "On-chain transparency",
     "token-1-text":
-      "Tokenized shares allow minimum tickets to be significantly reduced compared to traditional fund structures, while keeping a professional-level framework.",
+      "Holdings, flows, and collateral are fully visible and auditable on-chain, providing an extra layer of trust versus traditional registries—ideal for security and risk management. You don’t need to take our word for it: you can verify live what we’re doing.",
     "token-2-title": "Improved liquidity",
     "token-2-text":
-      "Under the chosen setup, investors can benefit from more frequent liquidity windows and streamlined subscription / redemption processes.",
-    "token-3-title": "On-chain transparency",
+      "Tokens can be exchanged 24/7 as long as the liquidity pool absorbs the volume; swaps and transfers settle instantly.",
+    "token-3-title": "Fractional access",
     "token-3-text":
-      "Holdings and flows can be audited on-chain, providing an additional layer of transparency versus traditional off-chain registries. Assets and positions are visible all the time thanks to an oracle.",
+      "Tokenized shares allow minimum tickets to be significantly reduced compared to traditional fund structures, while keeping a professional-level framework.",
 
     "team-title": "Origin & Governance",
     "team-intro":
@@ -299,6 +300,7 @@ const translations = {
     "solution-yield-title": "Electrum Yield",
     "solution-yield-desc": "Allocation défensive ciblant des cash-flows récurrents via des opportunités de rendement sélectionnées et des couvertures prudentes.",
     "solution-cta": "Voir le détail",
+    "solution-coming-soon": "Bientôt disponible",
 
     "bm-title": "Modèle économique en bref",
     "bm-intro": "Vue rapide et modifiable : sources de revenus, base de coûts et rôle des briques on-chain dans l’économie du fonds.",
@@ -447,7 +449,7 @@ const translations = {
     "map-note": "A titre indicatif : à mettre à jour selon vos règles juridiques et commerciales.",
 
     "pipeline-title": "Architecture de la tokenisation",
-    "pipeline-intro": "Parcours indicatif à affiner : de l’onboarding investisseur au cycle de vie du token et au reporting.",
+    "pipeline-intro": "Schéma du pipeline technique de la tokenisation : les utilisateurs échangent simplement leurs stablecoins contre des parts tokenisées du fonds et nous gérons le reste.",
     "pipeline-1-pill": "Onboarding",
     "pipeline-1-title": "KYC/AML & éligibilité",
     "pipeline-1-desc": "Les investisseurs passent le KYC/AML, tests d’adéquation et whitelistage de portefeuille.",
@@ -460,7 +462,7 @@ const translations = {
     "pipeline-4-pill": "Contrôles & reporting",
     "pipeline-4-title": "Risque, conformité, audit",
     "pipeline-4-desc": "Contrôles par rôles, ségrégation en conservation, preuves on-chain, reporting investisseur (factsheet + dashboard).",
-    "pipeline-pdf-note": "Diagramme d’architecture (cliquez pour ouvrir le PDF en pleine résolution dans un nouvel onglet).",
+    "pipeline-pdf-note": "Nouveau schéma d’architecture (cliquez pour ouvrir le PDF en pleine résolution dans un nouvel onglet).",
 
     "token-title": "Tokenisation & accès investisseur",
     "token-intro":
@@ -468,15 +470,15 @@ const translations = {
     "token-what-title": "Qu’est-ce que la tokenisation ?",
     "token-what-text":
       "La tokenisation est le processus qui consiste à transformer un actif réel (financier ou non) en un “token” numérique inscrit sur une blockchain. Ce token représente une propriété, un droit, ou une part de cet actif, et peut être échangé, transféré ou détenu de manière sécurisée et transparente.",
-    "token-1-title": "Accès fractionné",
+    "token-1-title": "Transparence on-chain",
     "token-1-text":
-      "La tokenisation permet de réduire significativement le ticket d’entrée par rapport à un fonds traditionnel, tout en conservant un cadre de type professionnel.",
+      "Flux, positions et collatéral sont intégralement visibles et auditables on-chain, ajoutant une couche de confiance par rapport aux registres off-chain—idéal pour la sécurité et la gestion du risque. Vous n’avez pas à nous faire confiance : vous pouvez vérifier directement ce que nous faisons.",
     "token-2-title": "Liquidité améliorée",
     "token-2-text":
-      "Selon la structure retenue, les investisseurs peuvent bénéficier de fenêtres de liquidité plus fréquentes et de processus de souscription / rachat simplifiés.",
-    "token-3-title": "Transparence on-chain",
+      "Le token peut être échangé 24/7 tant que la pool de liquidité absorbe le volume ; les échanges et transferts sont instantanés.",
+    "token-3-title": "Accès fractionné",
     "token-3-text":
-      "Une partie des flux et des positions peut être auditée on-chain, offrant un niveau supplémentaire de transparence par rapport aux registres purement off-chain. Les actifs et les positions sont visibles à tout instant grâce à un oracle.",
+      "La tokenisation permet de réduire significativement le ticket d’entrée par rapport à un fonds traditionnel, tout en conservant un cadre de type professionnel.",
 
     "team-title": "Origine & gouvernance",
     "team-intro":
