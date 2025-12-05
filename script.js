@@ -13,7 +13,7 @@ const translations = {
 
     "hero-title": "Electrum Fund – The Future of Tokenized Investment",
     "hero-subtitle":
-      "A Swiss tokenized investment fund combining institutional-grade strategies with the transparency and efficiency of blockchain infrastructure.",
+      "A Swiss tokenized investment fund that combines institutional rigor and perfomance with the transparency of the blockchain.",
     "btn-whitepaper": "Download Whitepaper",
     "btn-contact": "Contact Investor Relations",
     "hero-disclaimer":
@@ -24,10 +24,10 @@ const translations = {
       "Choose between two complementary vehicles depending on your objectives. Growth focuses on opportunistic upside with risk overlays, while Yield prioritizes stable carry and capital protection.",
     "solution-growth-pill": "Dynamic Upside",
     "solution-growth-title": "Electrum Growth",
-    "solution-growth-desc": "Systematic exposure to digital assets with macro overlays and strict drawdown controls to capture asymmetric upside.",
-    "solution-yield-pill": "Income",
+    "solution-growth-desc": "Diversified multi-asset portfolio with macro filters and rigorous risk controls, embracing volatility to compound long-term growth.",
+    "solution-yield-pill": "Yield",
     "solution-yield-title": "Electrum Yield",
-    "solution-yield-desc": "A defensive allocation targeting recurring cash flows from curated yield opportunities and conservative hedging.",
+    "solution-yield-desc": "Yield product designed to preserve value against inflation while avoiding market volatility; built to remunerate short-term cash at rates above the risk-free benchmark.",
     "solution-cta": "View details",
     "solution-coming-soon": "Coming soon",
 
@@ -191,7 +191,7 @@ const translations = {
     "pipeline-4-pill": "Controls & reporting",
     "pipeline-4-title": "Risk, compliance, audit trail",
     "pipeline-4-desc": "Role-based controls, custody segregation, on-chain proofs, and investor reporting (factsheet + dashboard).",
-    "pipeline-pdf-note": "New architecture scheme (click to open the full-resolution PDF in a new tab).",
+    "pipeline-pdf-note": "Architecture scheme (click to open the full-resolution PDF in a new tab).",
 
     "token-title": "Tokenization & Investor Access",
     "token-intro":
@@ -214,14 +214,14 @@ const translations = {
       "Electrum Fund is being structured in Switzerland with a strong focus on risk management, regulatory alignment and institutional partnerships.",
     "story-title": "Our story",
     "story-text-1":
-      "Electrum was created to bridge the gap between traditional finance and digital assets. The objective is to offer a disciplined, research-driven strategy packaged in an accessible, tokenized vehicle.",
+      "Electrum was created to bridge the gap between traditional finance and digital assets. The objective is to offer a disciplined, research-driven strategy packaged in an accessible and fluid, tokenized vehicle.",
     "story-text-2":
       "The investment process combines systematic models, macro scenarios and risk overlays to seek asymmetric return profiles while prioritizing capital preservation.",
     "governance-title": "Swiss governance framework",
     "governance-text-1":
-      "The fund is intended to operate within a Swiss legal framework, working with regulated providers for custody, administration and audit.",
+      "The fund operates under a Swiss legal framework with regulated providers for custody, administration and audit, leveraging a dynamic, innovation-friendly ecosystem for crypto, tokenization and broader financial innovation.",
     "governance-text-2":
-      "Compliance and investor protection are central pillars of the project, including KYC/AML procedures and clear risk disclosures.",
+      "Switzerland pairs a flexible yet robust rulebook with strong international trust: compliance, KYC/AML and clear risk disclosures sit alongside a jurisdiction known for reliability and investor confidence.",
     "name-title": "Why “Electrum”?",
     "name-text-1":
       "Electrum is a naturally occurring alloy of gold and silver. The name reflects the blend of traditional finance rigor (gold) with the agility and transparency of digital assets (silver).",
@@ -284,7 +284,7 @@ const translations = {
 
     "hero-title": "Electrum Fund – Le futur de l’investissement tokenisé",
     "hero-subtitle":
-      "Un fonds d’investissement tokenisé basé en Suisse, qui combine des stratégies de type institutionnel avec la transparence et l’efficacité de l’infrastructure blockchain.",
+      "Un fonds d’investissement tokenisé basé en Suisse, qui combine la performance et la rigueur institutionnelle avec la transparence de la blockchain.",
     "btn-whitepaper": "Télécharger le white paper",
     "btn-contact": "Contacter l’équipe",
     "hero-disclaimer":
@@ -295,10 +295,10 @@ const translations = {
       "Deux véhicules complémentaires selon vos objectifs. Growth vise une performance opportuniste avec contrôle du risque, Yield privilégie la génération de revenus et la protection du capital.",
     "solution-growth-pill": "Dynamique",
     "solution-growth-title": "Electrum Growth",
-    "solution-growth-desc": "Exposition systématique aux actifs digitaux avec filtres macro et règles de protection pour capter des profils asymétriques.",
-    "solution-yield-pill": "Revenus",
+    "solution-growth-desc": "Portefeuille multi-actifs diversifié avec filtres macro et contrôle du risque rigoureux, assumant de la volatilité pour viser la croissance long terme.",
+    "solution-yield-pill": "Rendement",
     "solution-yield-title": "Electrum Yield",
-    "solution-yield-desc": "Allocation défensive ciblant des cash-flows récurrents via des opportunités de rendement sélectionnées et des couvertures prudentes.",
+    "solution-yield-desc": "Produit de rendement conçu pour préserver la valeur face à l’inflation tout en évitant la volatilité des marchés. Electrum Yield est destiné à la rémunération du cash à plus court terme à un taux supérieur au taux sans risque.",
     "solution-cta": "Voir le détail",
     "solution-coming-soon": "Bientôt disponible",
 
@@ -462,7 +462,7 @@ const translations = {
     "pipeline-4-pill": "Contrôles & reporting",
     "pipeline-4-title": "Risque, conformité, audit",
     "pipeline-4-desc": "Contrôles par rôles, ségrégation en conservation, preuves on-chain, reporting investisseur (factsheet + dashboard).",
-    "pipeline-pdf-note": "Nouveau schéma d’architecture (cliquez pour ouvrir le PDF en pleine résolution dans un nouvel onglet).",
+    "pipeline-pdf-note": "Schéma d’architecture (cliquez pour ouvrir le PDF en pleine résolution dans un nouvel onglet).",
 
     "token-title": "Tokenisation & accès investisseur",
     "token-intro":
@@ -485,14 +485,14 @@ const translations = {
       "Electrum Fund est structuré en Suisse avec un fort accent sur la gestion du risque, l’alignement réglementaire et les partenariats institutionnels.",
     "story-title": "Notre histoire",
     "story-text-1":
-      "Electrum est né de la volonté de créer un pont crédible entre la finance traditionnelle et les actifs numériques, via une stratégie disciplinée et fondée sur la recherche.",
+      "Electrum est né de la volonté de créer un pont crédible entre la finance traditionnelle et les actifs numériques. L'objectif est d'offrir une stratégie disciplinée et fondée sur la recherche, concentrée en un véhicule tokénisé fluide et accessible.",
     "story-text-2":
       "Le processus d’investissement combine modèles systématiques, scénarios macro et gestion des risques afin de rechercher des profils de rendement asymétriques tout en plaçant la préservation du capital au centre.",
     "governance-title": "Cadre de gouvernance suisse",
     "governance-text-1":
-      "Le fonds a vocation à opérer dans un cadre juridique suisse, en s’appuyant sur des prestataires réglementés pour la conservation, l’administration et l’audit.",
+      "Le fonds opère dans un cadre juridique suisse avec des prestataires réglementés pour la conservation, l’administration et l’audit, en s’appuyant sur un écosystème très dynamique et innovant en matière de crypto, de tokenisation et d’innovation financière.",
     "governance-text-2":
-      "La conformité et la protection des investisseurs sont au cœur du projet, incluant des procédures KYC/AML et une présentation claire des risques.",
+      "La Suisse combine un cadre réglementaire souple et solide avec une réputation internationale de fiabilité : conformité, KYC/AML et transparence des risques vont de pair avec une juridiction qui inspire confiance aux investisseurs.",
     "name-title": "Pourquoi “Electrum” ?",
     "name-text-1":
       "L’électrum est un alliage naturel d’or et d’argent. Le nom symbolise la rencontre entre la rigueur de la finance traditionnelle (l’or) et l’agilité/transparence des actifs digitaux (l’argent).",

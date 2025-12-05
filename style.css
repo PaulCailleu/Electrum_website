@@ -299,10 +299,15 @@ body {
 }
 
 .link-card.disabled {
-  pointer-events: none;
   cursor: default;
-  border-color: rgba(255, 255, 255, 0.08);
-  opacity: 0.85;
+  border-color: var(--border-soft);
+}
+
+.link-card.disabled:hover {
+  border-color: var(--accent-gold);
+  box-shadow:
+    0 0 12px rgba(214,168,78,0.25),
+    0 0 32px rgba(214,168,78,0.15);
 }
 
 .pill {
@@ -326,7 +331,7 @@ body {
 }
 
 .link-card.disabled .link-cta {
-  color: var(--text-muted);
+  color: var(--accent-gold);
 }
 
 .grid-3 {
