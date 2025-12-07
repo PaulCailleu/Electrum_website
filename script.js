@@ -166,8 +166,8 @@ const translations = {
     "roadmap-4-title": "Scale & iterate",
     "roadmap-4-desc": "Expand allocations, add hedging overlays, and broaden distribution with compliant channels.",
 
-    "map-title": "Market coverage (illustrative)",
-    "map-intro": "Hover over the map to see the current status by country. Colors are placeholders you can adjust later.",
+    "map-title": "Where crypto is authorized",
+    "map-intro": "Hover to see country status.",
     "map-legend-full": "Allowed (full)",
     "map-legend-partial": "Allowed (partial)",
     "map-legend-none": "Not allowed",
@@ -175,7 +175,7 @@ const translations = {
     "map-view-list": "List",
     "map-list-country": "Country",
     "map-list-status": "Status",
-    "map-note": "Indicative only: update according to your legal and distribution rules.",
+    "map-note": "Status as of end-2025; local crypto rules can shift rapidly.",
 
     "pipeline-title": "Tokenization architecture",
     "pipeline-intro": "Technical tokenization pipeline: users simply swap their stablecoins for tokenized fund shares and we handle the rest.",
@@ -224,9 +224,9 @@ const translations = {
       "Switzerland pairs a flexible yet robust rulebook with strong international trust: compliance, KYC/AML and clear risk disclosures sit alongside a jurisdiction known for reliability and investor confidence.",
     "name-title": "Why “Electrum”?",
     "name-text-1":
-      "Electrum is a naturally occurring alloy of gold and silver. The name reflects the blend of traditional finance rigor (gold) with the agility and transparency of digital assets (silver).",
+      "Electrum is a natural alloy of gold and silver that formed some of the earliest coins—a nod to monetary innovation and enduring stores of value.",
     "name-text-2":
-      "The dual-metal idea also nods to diversification: combining different strengths to build a resilient, balanced investment approach.",
+      "The name signals long-term value preservation and diversification: durable metals combined to build a resilient, balanced investment approach.",
 
     "wp-title": "Whitepaper & Documentation",
     "wp-intro":
@@ -437,8 +437,8 @@ const translations = {
     "roadmap-4-title": "Montée en puissance",
     "roadmap-4-desc": "Augmenter les allocations, ajouter des overlays de couverture, élargir la distribution en conformité.",
 
-    "map-title": "Couverture marchés (indicatif)",
-    "map-intro": "Survolez la carte pour voir le statut par pays. Les couleurs sont provisoires et à ajuster.",
+    "map-title": "Pays où la crypto est autorisée",
+    "map-intro": "Survolez pour voir le statut par pays.",
     "map-legend-full": "Autorisé (complet)",
     "map-legend-partial": "Autorisé (partiel)",
     "map-legend-none": "Non autorisé",
@@ -446,7 +446,7 @@ const translations = {
     "map-view-list": "Liste",
     "map-list-country": "Pays",
     "map-list-status": "Statut",
-    "map-note": "A titre indicatif : à mettre à jour selon vos règles juridiques et commerciales.",
+    "map-note": "Statut fin 2025 ; les règles crypto peuvent évoluer rapidement.",
 
     "pipeline-title": "Architecture de la tokenisation",
     "pipeline-intro": "Schéma du pipeline technique de la tokenisation : les utilisateurs échangent simplement leurs stablecoins contre des parts tokenisées du fonds et nous gérons le reste.",
@@ -495,9 +495,9 @@ const translations = {
       "La Suisse combine un cadre réglementaire souple et solide avec une réputation internationale de fiabilité : conformité, KYC/AML et transparence des risques vont de pair avec une juridiction qui inspire confiance aux investisseurs.",
     "name-title": "Pourquoi “Electrum” ?",
     "name-text-1":
-      "L’électrum est un alliage naturel d’or et d’argent. Le nom symbolise la rencontre entre la rigueur de la finance traditionnelle (l’or) et l’agilité/transparence des actifs digitaux (l’argent).",
+      "L’électrum est un alliage naturel d’or et d’argent qui a servi aux premières pièces, symbole d’innovation monétaire et de réserve de valeur historique.",
     "name-text-2":
-      "Cette dualité évoque aussi la diversification : combiner des forces différentes pour bâtir une approche d’investissement résiliente et équilibrée.",
+      "Le nom évoque la préservation de la valeur dans le temps et la diversification : des métaux durables combinés pour bâtir une approche d’investissement résiliente et équilibrée.",
 
     "wp-title": "White paper & documentation",
     "wp-intro":
@@ -951,64 +951,151 @@ async function initGrowthRadar() {
 }
 
 const countryMatrix = [
-  ["DE", "Germany", "Allemagne", "Oui", "Non"],
-  ["AT", "Austria", "Autriche", "Oui", "Non"],
-  ["BE", "Belgium", "Belgique", "Oui", "Non"],
-  ["BG", "Bulgaria", "Bulgarie", "Oui", "Non"],
-  ["CY", "Cyprus", "Chypre", "Oui", "Non"],
-  ["HR", "Croatia", "Croatie", "Oui", "Non"],
-  ["DK", "Denmark", "Danemark", "Oui", "Non"],
-  ["ES", "Spain", "Espagne", "Oui", "Non"],
-  ["EE", "Estonia", "Estonie", "Oui", "Non"],
-  ["FI", "Finland", "Finlande", "Oui", "Non"],
-  ["FR", "France", "France", "Oui", "Non"],
-  ["GR", "Greece", "Grèce", "Oui", "Non"],
-  ["HU", "Hungary", "Hongrie", "Oui", "Non"],
-  ["IE", "Ireland", "Irlande", "Oui", "Non"],
-  ["IT", "Italy", "Italie", "Oui", "Non"],
-  ["LV", "Latvia", "Lettonie", "Oui", "Non"],
-  ["LT", "Lithuania", "Lituanie", "Oui", "Non"],
-  ["LU", "Luxembourg", "Luxembourg", "Oui", "Non"],
-  ["MT", "Malta", "Malte", "Oui", "Non"],
-  ["NL", "Netherlands", "Pays-Bas", "Oui", "Non"],
-  ["PL", "Poland", "Pologne", "Non", "Non"],
-  ["PT", "Portugal", "Portugal", "Oui", "Non"],
-  ["CZ", "Czech Republic", "République Tchèque", "Oui", "Non"],
-  ["RO", "Romania", "Roumanie", "Oui", "Non"],
-  ["GB", "United Kingdom", "Royaume-Uni", "Oui", "Non"],
-  ["SK", "Slovakia", "Slovaquie", "Oui", "Non"],
-  ["SI", "Slovenia", "Slovénie", "Oui", "Non"],
-  ["SE", "Sweden", "Suède", "Oui", "Non"],
-  ["US", "United States", "États-Unis", "Oui", "Non"],
-  ["CA", "Canada", "Canada", "Oui", "Non"],
-  ["BR", "Brazil", "Brésil", "Oui", "Non"],
-  ["MX", "Mexico", "Mexique", "Oui", "Non"],
-  ["AR", "Argentina", "Argentine", "Oui", "Non"],
-  ["SV", "El Salvador", "El Salvador", "Oui", "Oui"],
-  ["BO", "Bolivia", "Bolivie", "Non", "Non"],
-  ["CN", "China", "Chine", "Non", "Non"],
-  ["IN", "India", "Inde", "Oui", "Non"],
-  ["JP", "Japan", "Japon", "Oui", "Non"],
-  ["HK", "Hong Kong", "Hong Kong", "Oui", "Oui"],
-  ["SG", "Singapore", "Singapour", "Oui", "Non"],
-  ["AU", "Australia", "Australie", "Oui", "Oui"],
-  ["KR", "South Korea", "Corée du Sud", "Non", "Non"],
-  ["ID", "Indonesia", "Indonésie", "Non", "Non"],
-  ["MY", "Malaysia", "Malaisie", "Non", "Non"],
-  ["TH", "Thailand", "Thaïlande", "Non", "Non"],
-  ["AE", "United Arab Emirates", "Émirats Arabes Unis", "Oui", "Oui"],
-  ["SA", "Saudi Arabia", "Arabie Saoudite", "Non", "Non"],
-  ["QA", "Qatar", "Qatar", "Non", "Non"],
-  ["KW", "Kuwait", "Koweït", "Non", "Non"],
-  ["BH", "Bahrain", "Bahreïn", "Oui", "Non"],
-  ["IL", "Israel", "Israël", "Oui", "Non"],
+  // Europe (UE)
+  ["DE", "Germany", "Allemagne", "Oui", "Oui"],
+  ["AT", "Austria", "Autriche", "Oui", "Oui"],
+  ["BE", "Belgium", "Belgique", "Oui", "Oui"],
+  ["BG", "Bulgaria", "Bulgarie", "Oui", "Oui"],
+  ["CY", "Cyprus", "Chypre", "Oui", "Oui"],
+  ["HR", "Croatia", "Croatie", "Oui", "Oui"],
+  ["DK", "Denmark", "Danemark", "Oui", "Oui"],
+  ["ES", "Spain", "Espagne", "Oui", "Oui"],
+  ["EE", "Estonia", "Estonie", "Oui", "Oui"],
+  ["FI", "Finland", "Finlande", "Oui", "Oui"],
+  ["FR", "France", "France", "Oui", "Oui"],
+  ["GR", "Greece", "Grèce", "Oui", "Oui"],
+  ["HU", "Hungary", "Hongrie", "Oui", "Oui"],
+  ["IE", "Ireland", "Irlande", "Oui", "Oui"],
+  ["IT", "Italy", "Italie", "Oui", "Oui"],
+  ["LV", "Latvia", "Lettonie", "Oui", "Oui"],
+  ["LT", "Lithuania", "Lituanie", "Oui", "Oui"],
+  ["LU", "Luxembourg", "Luxembourg", "Oui", "Oui"],
+  ["MT", "Malta", "Malte", "Oui", "Oui"],
+  ["NL", "Netherlands", "Pays-Bas", "Oui", "Oui"],
+  ["PL", "Poland", "Pologne", "Oui", "Oui"],
+  ["PT", "Portugal", "Portugal", "Oui", "Oui"],
+  ["CZ", "Czech Republic", "République Tchèque", "Oui", "Oui"],
+  ["RO", "Romania", "Roumanie", "Oui", "Oui"],
+  ["SK", "Slovakia", "Slovaquie", "Oui", "Oui"],
+  ["SI", "Slovenia", "Slovénie", "Oui", "Oui"],
+  ["SE", "Sweden", "Suède", "Oui", "Oui"],
+
+  // Europe (hors UE)
+  ["GB", "United Kingdom", "Royaume-Uni", "Oui", "Oui"],
+  ["CH", "Switzerland", "Suisse", "Oui", "Oui"],
+  ["NO", "Norway", "Norvège", "Oui", "Oui"],
+  ["IS", "Iceland", "Islande", "Oui", "Oui"],
+  ["LI", "Liechtenstein", "Liechtenstein", "Oui", "Oui"],
+  ["AL", "Albania", "Albanie", "Oui", "Oui"],
+  ["RS", "Serbia", "Serbie", "Oui", "Oui"],
+  ["BA", "Bosnia and Herzegovina", "Bosnie-Herzégovine", "Oui", "Oui"],
+  ["ME", "Montenegro", "Monténégro", "Oui", "Oui"],
+  ["XK", "Kosovo", "Kosovo", "Oui", "Oui"],
+  ["MK", "North Macedonia", "Macédoine du Nord", "Non", "Non"],
+  ["MD", "Moldova", "Moldavie", "Oui", "Oui"],
+  ["UA", "Ukraine", "Ukraine", "Oui", "Oui"],
   ["TR", "Turkey", "Turquie", "Oui", "Oui"],
-  ["EG", "Egypt", "Égypte", "Non", "Non"],
-  ["MA", "Morocco", "Maroc", "Non", "Non"],
+  ["GE", "Georgia", "Géorgie", "Oui", "Oui"],
+  ["AM", "Armenia", "Arménie", "Oui", "Oui"],
+
+  // Amériques
+  ["US", "United States", "États-Unis", "Oui", "Oui"],
+  ["CA", "Canada", "Canada", "Oui", "Oui"],
+  ["MX", "Mexico", "Mexique", "Oui", "Oui"],
+  ["PA", "Panama", "Panama", "Oui", "Oui"],
+  ["CR", "Costa Rica", "Costa Rica", "Oui", "Oui"],
+  ["GT", "Guatemala", "Guatemala", "Oui", "Oui"],
+  ["HN", "Honduras", "Honduras", "Oui", "Oui"],
+  ["NI", "Nicaragua", "Nicaragua", "Oui", "Oui"],
+  ["SV", "El Salvador", "El Salvador", "Oui", "Oui"],
+  ["BZ", "Belize", "Belize", "Oui", "Oui"],
+  ["BS", "Bahamas", "Bahamas", "Oui", "Oui"],
+  ["BB", "Barbados", "Barbade", "Oui", "Oui"],
+  ["JM", "Jamaica", "Jamaïque", "Oui", "Oui"],
+  ["TT", "Trinidad and Tobago", "Trinité-et-Tobago", "Oui", "Oui"],
+  ["DO", "Dominican Republic", "République dominicaine", "Oui", "Oui"],
+  ["GD", "Grenada", "Grenade", "Oui", "Oui"],
+  ["LC", "Saint Lucia", "Sainte-Lucie", "Oui", "Oui"],
+  ["VC", "Saint Vincent and the Grenadines", "Saint-Vincent-et-les-Grenadines", "Oui", "Oui"],
+  ["AG", "Antigua and Barbuda", "Antigua-et-Barbuda", "Oui", "Oui"],
+  ["BR", "Brazil", "Brésil", "Oui", "Oui"],
+  ["AR", "Argentina", "Argentine", "Oui", "Oui"],
+  ["CL", "Chile", "Chili", "Oui", "Oui"],
+  ["CO", "Colombia", "Colombie", "Oui", "Oui"],
+  ["PE", "Peru", "Pérou", "Oui", "Oui"],
+  ["PY", "Paraguay", "Paraguay", "Oui", "Oui"],
+  ["UY", "Uruguay", "Uruguay", "Oui", "Oui"],
+  ["EC", "Ecuador", "Équateur", "Oui", "Oui"],
+  ["GY", "Guyana", "Guyana", "Oui", "Oui"],
+  ["SR", "Suriname", "Suriname", "Oui", "Oui"],
+  ["BO", "Bolivia", "Bolivie", "Oui", "Oui"],
+
+  // Asie / Moyen-Orient
+  ["AE", "United Arab Emirates", "Émirats Arabes Unis", "Oui", "Oui"],
+  ["BH", "Bahrain", "Bahreïn", "Oui", "Oui"],
+  ["SA", "Saudi Arabia", "Arabie Saoudite", "Oui", "Oui"],
+  ["QA", "Qatar", "Qatar", "Oui", "Oui"],
+  ["IL", "Israel", "Israël", "Oui", "Oui"],
+  ["JO", "Jordan", "Jordanie", "Oui", "Oui"],
+  ["LB", "Lebanon", "Liban", "Oui", "Oui"],
+  ["IQ", "Iraq", "Irak", "Oui", "Oui"],
+  ["KZ", "Kazakhstan", "Kazakhstan", "Oui", "Oui"],
+  ["UZ", "Uzbekistan", "Ouzbékistan", "Oui", "Oui"],
+  ["TJ", "Tajikistan", "Tadjikistan", "Oui", "Oui"],
+  ["KG", "Kyrgyzstan", "Kirghizistan", "Oui", "Oui"],
+  ["JP", "Japan", "Japon", "Oui", "Oui"],
+  ["KR", "South Korea", "Corée du Sud", "Oui", "Oui"],
+  ["TW", "Taiwan", "Taïwan", "Oui", "Oui"],
+  ["HK", "Hong Kong", "Hong Kong", "Oui", "Oui"],
+  ["IN", "India", "Inde", "Oui", "Oui"],
+  ["PK", "Pakistan", "Pakistan", "Oui", "Oui"],
+  ["LK", "Sri Lanka", "Sri Lanka", "Oui", "Oui"],
+  ["SG", "Singapore", "Singapour", "Oui", "Oui"],
+  ["MY", "Malaysia", "Malaisie", "Oui", "Oui"],
+  ["ID", "Indonesia", "Indonésie", "Oui", "Oui"],
+  ["VN", "Vietnam", "Vietnam", "Oui", "Oui"],
+  ["PH", "Philippines", "Philippines", "Oui", "Oui"],
+  ["TH", "Thailand", "Thaïlande", "Oui", "Oui"],
+  ["MM", "Myanmar", "Myanmar", "Oui", "Oui"],
+  ["KH", "Cambodia", "Cambodge", "Oui", "Oui"],
+  ["LA", "Laos", "Laos", "Oui", "Oui"],
+  ["CN", "China", "Chine", "Non", "Non"],
+  ["NP", "Nepal", "Népal", "Non", "Non"],
+  ["BD", "Bangladesh", "Bangladesh", "Non", "Non"],
+
+  // Afrique
+  ["ZA", "South Africa", "Afrique du Sud", "Oui", "Oui"],
+  ["NG", "Nigeria", "Nigéria", "Oui", "Oui"],
+  ["KE", "Kenya", "Kenya", "Oui", "Oui"],
+  ["GH", "Ghana", "Ghana", "Oui", "Oui"],
+  ["UG", "Uganda", "Ouganda", "Oui", "Oui"],
+  ["TZ", "Tanzania", "Tanzanie", "Oui", "Oui"],
+  ["ET", "Ethiopia", "Éthiopie", "Oui", "Oui"],
+  ["MA", "Morocco", "Maroc", "Oui", "Oui"],
   ["DZ", "Algeria", "Algérie", "Non", "Non"],
   ["TN", "Tunisia", "Tunisie", "Non", "Non"],
-  ["NG", "Nigeria", "Nigéria", "Non", "Non"],
-  ["ZA", "South Africa", "Afrique du Sud", "Oui", "Oui"]
+  ["EG", "Egypt", "Égypte", "Non", "Non"],
+  ["CI", "Côte d’Ivoire", "Côte d’Ivoire", "Oui", "Oui"],
+  ["SN", "Senegal", "Sénégal", "Oui", "Oui"],
+  ["CM", "Cameroon", "Cameroun", "Oui", "Oui"],
+  ["GA", "Gabon", "Gabon", "Oui", "Oui"],
+  ["ER", "Eritrea", "Érythrée", "Oui", "Oui"],
+  ["ZM", "Zambia", "Zambie", "Oui", "Oui"],
+  ["ZW", "Zimbabwe", "Zimbabwe", "Oui", "Oui"],
+  ["MW", "Malawi", "Malawi", "Oui", "Oui"],
+  ["RW", "Rwanda", "Rwanda", "Oui", "Oui"],
+  ["BW", "Botswana", "Botswana", "Oui", "Oui"],
+  ["NA", "Namibia", "Namibie", "Oui", "Oui"],
+  ["MZ", "Mozambique", "Mozambique", "Oui", "Oui"],
+  ["AO", "Angola", "Angola", "Oui", "Oui"],
+
+  // Océanie
+  ["AU", "Australia", "Australie", "Oui", "Oui"],
+  ["NZ", "New Zealand", "Nouvelle-Zélande", "Oui", "Oui"],
+  ["FJ", "Fiji", "Fidji", "Oui", "Oui"],
+  ["PG", "Papua New Guinea", "Papouasie-Nouvelle-Guinée", "Oui", "Oui"],
+  ["WS", "Samoa", "Samoa", "Oui", "Oui"],
+  ["TO", "Tonga", "Tonga", "Oui", "Oui"]
 ];
 
 async function initPerformanceChart() {
@@ -1220,12 +1307,9 @@ function initMap() {
       paths.forEach((path) => {
         const code = path.getAttribute("data-id");
         const entry = countryMatrix.find((c) => c[0] === code);
-        const status =
-          entry && entry[3] === "Oui" && entry[4] === "Oui"
-            ? "full"
-            : entry && entry[3] === "Oui"
-            ? "partial"
-            : "none";
+        const banned = ["MK", "CN", "NP", "BD", "EG", "DZ", "TN", "MA"];
+        const restricted = ["PK", "IQ", "JO", "MM", "NG"];
+        const status = banned.includes(code) ? "none" : restricted.includes(code) ? "partial" : "full";
 
         const fill = statusColors[status];
         if (fill) path.style.fill = fill;
@@ -1272,8 +1356,9 @@ function renderCountryList() {
   }
 
   const rows = countryMatrix.map(([code, nameEn, nameFr, allow, extra]) => {
-    const status =
-      allow === "Oui" && extra === "Oui" ? "full" : allow === "Oui" ? "partial" : "none";
+    const banned = ["MK", "CN", "NP", "BD", "EG", "DZ", "TN", "MA"];
+    const restricted = ["PK", "IQ", "JO", "MM", "NG"];
+    const status = banned.includes(code) ? "none" : restricted.includes(code) ? "partial" : "full";
     const name =
       currentLang === "fr"
         ? nameFr || (regionNames && regionNames.of(code)) || code
