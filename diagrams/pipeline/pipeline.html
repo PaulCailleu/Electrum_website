@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Electrum Pipeline Diagram</title>
+
+    <!-- Mermaid library -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+
+    <style>
+        body {
+            background: #0a0f2f;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h1 {
+            font-weight: 300;
+            text-align: center;
+            color: #d4af37;
+            margin-bottom: 40px;
+        }
+
+        .mermaid {
+            background: #0f1a40;
+            padding: 20px;
+            border-radius: 12px;
+        }
+    </style>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: "dark",
+            flowchart: {
+                curve: "basis"
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+<h1>Electrum Pipeline Overview</h1>
+
+<div class="mermaid">
+
+flowchart LR
+    %% --- Node classes (color logic can be customized later) ---
+    classDef actor fill:#0a0f2f,stroke:#d4af37,stroke-width:2px,color:white;
+    classDef infra fill:#0f1a40,stroke:#c0c0c0,stroke-width:1px,color:white;
+
+    %% --- Main nodes ---
+    A[Brokers]:::actor
+    B[Deposit Bank]:::infra
+    C[NAV Calculation]:::infra
+    D[Onboarding Platform]:::actor
+    E[Pro Investors]:::actor
+    F[CEX]:::actor
+    G[Retail Investors]:::actor
+    W[Token]:::actor
+    X[Token]:::actor
+    Y[Token]:::actor
+    Z[Token]:::actor
+
+    %% --- Relations Brokers / Deposit Bank ---
+    A <-->|Assets| B
+    B -->|Orders| A
+
+    %% --- NAV Engine ---
+    B -->|Exposure| C
+    A -->|Prices| C
+
+    %% --- Onboarding Platform connections ---
+    D <-->|Stablecoins| B
+
+    %% --- Pro Investors <-> Onboarding Platform ---
+    E <-->|Stablecoins| D
+    W --> E
+    W --> D
+
+
+    %% --- CEX <-> Onboarding Platform ---
+    F <-->|Stablecoins| D
+    X --> F
+    X --> D
+
+    %% --- Retail Investors <-> CEX ---
+    G <-->|Stablecoins| F
+    Y --> G
+    Y --> F
+
+    %% --- Pro Investors <-> CEX ---
+    E <-->|Stablecoins| F
+    Z --> E
+    Z --> F
+
+    %% --- Oracle price <-> Tokens ---
+    C --> |Oracle| W
+    C --> |Oracle| X
+    C --> |Oracle| Y
+    C --> |Oracle| Z
+    
+
+</div>
+
+</body>
+</html>

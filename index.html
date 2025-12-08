@@ -38,6 +38,7 @@
     <nav class="main-nav">
       <a href="#hero" data-i18n="nav-home"></a>
       <a href="#solutions" data-i18n="nav-solutions"></a>
+      <a href="#business-model" data-i18n="nav-business"></a>
       <a href="#tokenization" data-i18n="nav-tokenization"></a>
       <a href="#pipeline" data-i18n="nav-pipeline"></a>
       <a href="#roadmap" data-i18n="nav-roadmap"></a>
@@ -82,11 +83,45 @@
         <p data-i18n="solution-growth-desc"></p>
         <span class="link-cta" data-i18n="solution-cta"></span>
       </a>
-      <a class="card link-card" href="yield.html">
+      <div class="card link-card disabled">
         <div class="pill" data-i18n="solution-yield-pill"></div>
         <h3 data-i18n="solution-yield-title"></h3>
         <p data-i18n="solution-yield-desc"></p>
-        <span class="link-cta" data-i18n="solution-cta"></span>
+        <span class="link-cta" data-i18n="solution-coming-soon"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUSINESS MODEL -->
+  <section id="business-model" class="section alt">
+    <div class="section-header">
+      <h2 data-i18n="bm-title"></h2>
+      <p data-i18n="bm-intro"></p>
+    </div>
+    <div class="grid-3">
+      <div class="card soft">
+        <div class="pill" data-i18n="bm-revenues-pill"></div>
+        <h3 data-i18n="bm-revenues-title"></h3>
+        <ul class="bullet-list">
+          <li data-i18n="bm-revenues-item-1"></li>
+          <li data-i18n="bm-revenues-item-2"></li>
+          <li data-i18n="bm-revenues-item-3"></li>
+        </ul>
+      </div>
+      <div class="card soft">
+        <div class="pill" data-i18n="bm-costs-pill"></div>
+        <h3 data-i18n="bm-costs-title"></h3>
+        <ul class="bullet-list">
+          <li data-i18n="bm-costs-item-1"></li>
+          <li data-i18n="bm-costs-item-2"></li>
+          <li data-i18n="bm-costs-item-3"></li>
+        </ul>
+      </div>
+      <a class="card link-card" href="business.html">
+        <div class="pill" data-i18n="bm-deepdive-pill"></div>
+        <h3 data-i18n="bm-deepdive-title"></h3>
+        <p data-i18n="bm-deepdive-desc"></p>
+        <span class="link-cta" data-i18n="bm-deepdive-cta"></span>
       </a>
     </div>
   </section>
@@ -96,6 +131,13 @@
     <div class="section-header">
       <h2 data-i18n="token-title"></h2>
       <p data-i18n="token-intro"></p>
+    </div>
+
+    <div class="token-definition">
+      <div>
+        <h3 data-i18n="token-what-title"></h3>
+        <p data-i18n="token-what-text"></p>
+      </div>
     </div>
 
     <div class="grid-3">
@@ -115,39 +157,17 @@
   </section>
 
   <!-- TECH PIPELINE -->
-  <section id="pipeline" class="section">
+  <section id="pipeline" class="section alt">
     <div class="section-header">
       <h2 data-i18n="pipeline-title"></h2>
       <p data-i18n="pipeline-intro"></p>
     </div>
-    <div class="pipeline-flow">
-      <div class="node">
-        <div class="node-head">
-          <span class="node-pill" data-i18n="pipeline-1-pill"></span>
-          <h3 data-i18n="pipeline-1-title"></h3>
-        </div>
-        <p data-i18n="pipeline-1-desc"></p>
-      </div>
-      <div class="node">
-        <div class="node-head">
-          <span class="node-pill" data-i18n="pipeline-2-pill"></span>
-          <h3 data-i18n="pipeline-2-title"></h3>
-        </div>
-        <p data-i18n="pipeline-2-desc"></p>
-      </div>
-      <div class="node">
-        <div class="node-head">
-          <span class="node-pill" data-i18n="pipeline-3-pill"></span>
-          <h3 data-i18n="pipeline-3-title"></h3>
-        </div>
-        <p data-i18n="pipeline-3-desc"></p>
-      </div>
-      <div class="node">
-        <div class="node-head">
-          <span class="node-pill" data-i18n="pipeline-4-pill"></span>
-          <h3 data-i18n="pipeline-4-title"></h3>
-        </div>
-        <p data-i18n="pipeline-4-desc"></p>
+    <div class="pipeline-diagram card soft">
+      <div class="pipeline-diagram-note" data-i18n="pipeline-pdf-note"></div>
+      <div class="pipeline-visual">
+        <a id="pipeline-diagram-link" href="diagrams/pipeline/Pipeline_tech_en.pdf" target="_blank" rel="noopener">
+          <img id="pipeline-diagram-img" src="assets/pipeline_tech_en.png" alt="Tokenization architecture diagram" class="pipeline-image" />
+        </a>
       </div>
     </div>
   </section>
@@ -187,12 +207,25 @@
       <h2 data-i18n="map-title"></h2>
       <p data-i18n="map-intro"></p>
     </div>
+    <div class="map-toggle">
+      <button class="btn small-btn view-toggle active" data-view="map" data-i18n="map-view-map"></button>
+      <button class="btn small-btn view-toggle" data-view="list" data-i18n="map-view-list"></button>
+    </div>
     <div class="map-legend">
-      <span class="legend-dot eligible"></span><span data-i18n="map-legend-eligible"></span>
-      <span class="legend-dot review"></span><span data-i18n="map-legend-review"></span>
-      <span class="legend-dot restricted"></span><span data-i18n="map-legend-restricted"></span>
+      <span class="legend-dot full"></span><span data-i18n="map-legend-full"></span>
+      <span class="legend-dot partial"></span><span data-i18n="map-legend-partial"></span>
+      <span class="legend-dot none"></span><span data-i18n="map-legend-none"></span>
     </div>
     <div id="world-map" class="worldmap-container"></div>
+    <div id="world-list" class="worldmap-list hidden">
+      <div class="country-table">
+        <div class="country-table-head">
+          <span data-i18n="map-list-country"></span>
+          <span data-i18n="map-list-status"></span>
+        </div>
+        <div class="country-table-body" id="country-table-body"></div>
+      </div>
+    </div>
     <p class="small" data-i18n="map-note"></p>
   </section>
 
@@ -203,7 +236,7 @@
       <h2 data-i18n="team-title"></h2>
       <p data-i18n="team-intro"></p>
     </div>
-    <div class="grid-2">
+    <div class="grid-3">
       <div class="card">
         <h3 data-i18n="story-title"></h3>
         <p data-i18n="story-text-1"></p>
@@ -213,6 +246,11 @@
         <h3 data-i18n="governance-title"></h3>
         <p data-i18n="governance-text-1"></p>
         <p data-i18n="governance-text-2"></p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="name-title"></h3>
+        <p data-i18n="name-text-1"></p>
+        <p data-i18n="name-text-2"></p>
       </div>
     </div>
   </section>

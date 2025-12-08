@@ -1,0 +1,56 @@
+{
+  "nodes": [
+    { "id": "Brokers" },
+    { "id": "Deposit Bank" },
+    { "id": "NAV Calculation" },
+    { "id": "Onboarding Platform" },
+    { "id": "Pro Investors" },
+    { "id": "CEX" },
+    { "id": "Retail Investors" },
+
+    { "id": "Token W" },
+    { "id": "Token X" },
+    { "id": "Token Y" },
+    { "id": "Token Z" }
+  ],
+
+  "links": [
+    { "source": "Brokers", "target": "Deposit Bank", "label": "Assets" },
+    { "source": "Deposit Bank", "target": "Brokers", "label": "Orders" },
+
+    { "source": "Deposit Bank", "target": "NAV Calculation", "label": "Exposure" },
+    { "source": "Brokers", "target": "NAV Calculation", "label": "Prices" },
+
+    { "source": "Onboarding Platform", "target": "Deposit Bank", "label": "Stablecoins" },
+    { "source": "Deposit Bank", "target": "Onboarding Platform", "label": "Stablecoins" },
+
+    { "source": "Pro Investors", "target": "Onboarding Platform", "label": "Stablecoins" },
+    { "source": "Onboarding Platform", "target": "Pro Investors", "label": "Stablecoins" },
+
+    { "source": "Token W", "target": "Pro Investors", "label": "Token" },
+    { "source": "Token W", "target": "Onboarding Platform", "label": "Token" },
+
+    { "source": "CEX", "target": "Onboarding Platform", "label": "Stablecoins" },
+    { "source": "Onboarding Platform", "target": "CEX", "label": "Stablecoins" },
+
+    { "source": "Token X", "target": "CEX", "label": "Token" },
+    { "source": "Token X", "target": "Onboarding Platform", "label": "Token" },
+
+    { "source": "Retail Investors", "target": "CEX", "label": "Stablecoins" },
+    { "source": "CEX", "target": "Retail Investors", "label": "Stablecoins" },
+
+    { "source": "Token Y", "target": "Retail Investors", "label": "Token" },
+    { "source": "Token Y", "target": "CEX", "label": "Token" },
+
+    { "source": "Pro Investors", "target": "CEX", "label": "Stablecoins" },
+    { "source": "CEX", "target": "Pro Investors", "label": "Stablecoins" },
+
+    { "source": "Token Z", "target": "Pro Investors", "label": "Token" },
+    { "source": "Token Z", "target": "CEX", "label": "Token" },
+
+    { "source": "NAV Calculation", "target": "Token W", "label": "Oracle" },
+    { "source": "NAV Calculation", "target": "Token X", "label": "Oracle" },
+    { "source": "NAV Calculation", "target": "Token Y", "label": "Oracle" },
+    { "source": "NAV Calculation", "target": "Token Z", "label": "Oracle" }
+  ]
+}

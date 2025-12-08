@@ -1,0 +1,42 @@
+flowchart LR
+    %% --- Définition de classes (optionnel, pour styling plus tard) ---
+    classDef actor fill:#0a0f2f,stroke:#d4af37,stroke-width:2px,color:white;
+    classDef infra fill:#0f1a40,stroke:#c0c0c0,stroke-width:1px,color:white;
+    classDef flowstroke stroke:#ffffff;
+
+    %% --- Nœuds principaux ---
+    A[Brokers]:::actor
+    B[Deposit Bank]:::infra
+    C[NAV Calculation]:::infra
+    D[Onboarding Platform]:::actor
+    E[Pro Investors]:::actor
+    F[CEX]:::actor
+    G[Retail Investors]:::actor
+
+    %% --- Relations Brokers / Deposit Bank ---
+    A <-->|Assets| B
+    B -->|Orders| A
+
+    %% --- NAV Engine ---
+    B -->|Exposure| C
+    A -->|Prices| C
+
+    %% --- Onboarding Platform connections ---
+    D <-->|Stablecoins| B
+
+    %% --- Pro Investors <-> Onboarding ---
+    E <-->|Stablecoins| D
+    E <-->|Tokens| D
+
+    %% --- CEX <-> Onboarding Platform ---
+    F <-->|Stablecoins| D
+    F <-->|Tokens| D
+
+    %% --- Retail Investors <-> CEX ---
+    G <-->|Stablecoins| F
+    G <-->|Tokens| F
+
+    %% --- Pro Investors <-> CEX ---
+    E <-->|Stablecoins| F
+    E <-->|Tokens| F
+
