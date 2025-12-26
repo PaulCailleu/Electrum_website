@@ -10,6 +10,7 @@ const translations = {
     "nav-team": "About",
     "nav-whitepaper": "Whitepaper",
     "nav-contact": "Contact",
+    "nav-partners": "Partners",
 
     "hero-title": "Electrum Fund – The Future of Tokenized Investment",
     "hero-subtitle":
@@ -73,6 +74,16 @@ const translations = {
     "growth-radar-strategy": "Electrum Growth",
     "growth-radar-benchmark": "Benchmark",
     "growth-radar-target": "Target",
+
+    "partners-hero-title": "Partners & associates",
+    "partners-hero-subtitle": "Access the roadmap, business model, and key metrics for your due diligence. Content is illustrative and can be tailored.",
+    "partners-hero-note": "Demo view: replace with final docs and figures under NDA or in your data room.",
+    "partners-cta-contact": "Contact the team",
+    "partners-cta-docs": "View documentation",
+    "partners-cta-title": "Ready to collaborate?",
+    "partners-cta-desc": "Let’s discuss integration, roles, and joint milestones.",
+    "partners-bm-charts-title": "Business visuals (demo)",
+    "partners-bm-charts-intro": "Illustrative charts for review: revenues vs costs, mix, and sensitivity.",
 
     "strategy-title": "Strategy & Backtested Performance",
     "strategy-intro":
@@ -252,8 +263,7 @@ const translations = {
     "label-name": "Name",
     "label-message": "Message",
     "btn-send": "Send message",
-    "contact-note":
-      "This is a demo contact form. In production, it should be connected to a secure email or CRM solution.",
+    "contact-note": "",
     "contact-direct-title": "Direct contact",
     "contact-email-label": "Email: ",
     "contact-linkedin-label": "LinkedIn: ",
@@ -281,6 +291,7 @@ const translations = {
     "nav-team": "À propos",
     "nav-whitepaper": "Livre blanc",
     "nav-contact": "Contact",
+    "nav-partners": "Partenaires",
 
     "hero-title": "Electrum Fund – Le futur de l’investissement tokenisé",
     "hero-subtitle":
@@ -344,6 +355,16 @@ const translations = {
     "growth-radar-strategy": "Electrum Growth",
     "growth-radar-benchmark": "Benchmark",
     "growth-radar-target": "Cible",
+
+    "partners-hero-title": "Partenaires & associés",
+    "partners-hero-subtitle": "Accédez à la feuille de route, au modèle économique et aux métriques clés pour vos due diligences. Contenus modulables selon vos besoins.",
+    "partners-hero-note": "Demo : remplacez ces sections par vos documents et chiffres finaux (NDA / data room).",
+    "partners-cta-contact": "Contacter l’équipe",
+    "partners-cta-docs": "Voir la documentation",
+    "partners-cta-title": "Prêt à collaborer ?",
+    "partners-cta-desc": "Discutons intégration, répartition des rôles et jalons communs.",
+    "partners-bm-charts-title": "Visuels business (démo)",
+    "partners-bm-charts-intro": "Illustrations pour vos revues : revenus vs coûts, mix, sensibilité.",
 
     "strategy-title": "Stratégie & performance backtestée",
     "strategy-intro":
@@ -523,8 +544,7 @@ const translations = {
     "label-name": "Nom",
     "label-message": "Message",
     "btn-send": "Envoyer",
-    "contact-note":
-      "Ce formulaire est une maquette. En production, il devra être relié à un système d’email ou à un CRM sécurisé.",
+    "contact-note": "",
     "contact-direct-title": "Contact direct",
     "contact-email-label": "Email : ",
     "contact-linkedin-label": "LinkedIn : ",
@@ -635,11 +655,18 @@ document.addEventListener("DOMContentLoaded", () => {
   if (contactForm) {
     contactForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      alert(
+      const name = encodeURIComponent(contactForm.querySelector("#name")?.value || "");
+      const email = encodeURIComponent(contactForm.querySelector("#email")?.value || "");
+      const message = encodeURIComponent(contactForm.querySelector("#message")?.value || "");
+      const subject =
         currentLang === "en"
-          ? "Demo contact form: in production, this should send an email or create a ticket."
-          : "Formulaire de contact de démonstration : en production, il devra envoyer un email ou créer un ticket."
-      );
+          ? "Electrum Fund – contact request"
+          : "Electrum Fund – demande de contact";
+      const body =
+        currentLang === "en"
+          ? `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+          : `Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+      window.location.href = `mailto:paul.cailleu@electrum-fund.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });
   }
 
