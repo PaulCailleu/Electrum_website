@@ -265,9 +265,14 @@ const translations = {
     "btn-send": "Send message",
     "contact-note": "",
     "contact-direct-title": "Direct contact",
-    "contact-email-label": "Email: ",
-    "contact-linkedin-label": "LinkedIn: ",
+    "contact-email-label": "Company email: ",
+    "contact-linkedin-label": "Company LinkedIn: ",
     "contact-location": "Planned domicile: Switzerland (details to be confirmed).",
+    "contact-person-role": "Founder & CEO",
+    "contact-person-role-2": "Head of Investment Strategy",
+    "contact-person-email-label": "Email: ",
+    "contact-person-linkedin-label": "LinkedIn: ",
+    "contact-person-bio": "Bio to be added (investment strategy lead, tokenization, institutional partnerships).",
 
     "footer-disclaimer-1":
       "No information on this website constitutes investment advice, an offer, or a solicitation to subscribe to any financial product.",
@@ -546,9 +551,14 @@ const translations = {
     "btn-send": "Envoyer",
     "contact-note": "",
     "contact-direct-title": "Contact direct",
-    "contact-email-label": "Email : ",
-    "contact-linkedin-label": "LinkedIn : ",
+    "contact-email-label": "Email entreprise : ",
+    "contact-linkedin-label": "LinkedIn entreprise : ",
     "contact-location": "Domiciliation prévue : Suisse (détails à confirmer).",
+    "contact-person-role": "Fondateur & CEO",
+    "contact-person-role-2": "Head of Investment Strategy",
+    "contact-person-email-label": "Email perso : ",
+    "contact-person-linkedin-label": "LinkedIn perso : ",
+    "contact-person-bio": "Bio à ajouter (pilotage de la stratégie d’investissement, tokenisation, partenariats institutionnels).",
 
     "footer-disclaimer-1":
       "Les informations présentées sur ce site ne constituent ni un conseil en investissement, ni une offre, ni une sollicitation au public.",

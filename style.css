@@ -984,3 +984,64 @@ html {
 .hidden {
   display: none;
 }
+
+/* Contact cards */
+.divider {
+  border: 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  margin: 12px 0 16px;
+}
+
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.contact-cards.grid-3-tight {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.contact-card {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 16px;
+  align-items: center;
+}
+
+.contact-avatar {
+  width: 120px;
+  height: 160px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(214,168,78,0.25), rgba(200,201,207,0.12)), rgba(5,9,20,0.8);
+  border: 1px solid rgba(255,255,255,0.08);
+  overflow: hidden;
+}
+
+.contact-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contact-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contact-name {
+  font-weight: 600;
+}
+
+.contact-role.sub {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.contact-bio {
+  color: var(--text-muted);
+  margin-top: 4px;
+}
