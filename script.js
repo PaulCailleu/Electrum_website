@@ -76,8 +76,9 @@ const translations = {
     "growth-radar-target": "Target",
 
     "partners-hero-title": "Partners & associates",
-    "partners-hero-subtitle": "Access the roadmap, business model, and key metrics for your due diligence. Content is illustrative and can be tailored.",
-    "partners-hero-note": "Demo view: replace with final docs and figures under NDA or in your data room.",
+    "partners-hero-subtitle": "Access the roadmap, business model, key metrics and team for your due diligence.",
+    "partners-hero-note":
+      "Electrum Fund is an investment product with risk of capital loss. This website does not constitute investment advice or an offer to the public.",
     "partners-cta-contact": "Contact the team",
     "partners-cta-docs": "View documentation",
     "partners-cta-title": "Ready to collaborate?",
@@ -259,12 +260,12 @@ const translations = {
 
     "contact-title": "Contact",
     "contact-intro":
-      "For professional or institutional enquiries, please use the form below or reach out directly by email.",
+      "For personal introductions, use the links below to reach the team directly.",
     "label-name": "Name",
     "label-message": "Message",
     "btn-send": "Send message",
     "contact-note": "",
-    "contact-direct-title": "Direct contact",
+    "contact-direct-title": "Team",
     "contact-email-label": "Company email: ",
     "contact-linkedin-label": "Company LinkedIn: ",
     "contact-location": "Planned domicile: Switzerland (details to be confirmed).",
@@ -272,7 +273,7 @@ const translations = {
     "contact-person-role-2": "Head of Investment Strategy",
     "contact-person-email-label": "Email: ",
     "contact-person-linkedin-label": "LinkedIn: ",
-    "contact-person-bio": "Bio to be added (investment strategy lead, tokenization, institutional partnerships).",
+    "contact-person-bio": "Physicist by training, I apply a scientific approach to markets, anchored in real economic mechanisms and risk transfers. I came to finance through crypto, developed a broader passion for capital markets, and I’m interested in how blockchain can enhance the financial system, transparency, and capital efficiency.",
 
     "footer-disclaimer-1":
       "No information on this website constitutes investment advice, an offer, or a solicitation to subscribe to any financial product.",
@@ -362,8 +363,9 @@ const translations = {
     "growth-radar-target": "Cible",
 
     "partners-hero-title": "Partenaires & associés",
-    "partners-hero-subtitle": "Accédez à la feuille de route, au modèle économique et aux métriques clés pour vos due diligences. Contenus modulables selon vos besoins.",
-    "partners-hero-note": "Demo : remplacez ces sections par vos documents et chiffres finaux (NDA / data room).",
+    "partners-hero-subtitle": "Accédez à la feuille de route, au modèle économique, aux métriques clés et à l’équipe pour vos due diligences.",
+    "partners-hero-note":
+      "Electrum Fund est un produit d’investissement comportant un risque de perte en capital. Ce site ne constitue ni un conseil en investissement ni une offre au public.",
     "partners-cta-contact": "Contacter l’équipe",
     "partners-cta-docs": "Voir la documentation",
     "partners-cta-title": "Prêt à collaborer ?",
@@ -545,12 +547,12 @@ const translations = {
 
     "contact-title": "Contact",
     "contact-intro":
-      "Pour toute demande professionnelle ou institutionnelle, utilisez le formulaire ci-dessous ou contactez-nous directement par email.",
+      "Pour une mise en relation personnelle, utilisez les liens ci-dessous pour contacter directement l’équipe.",
     "label-name": "Nom",
     "label-message": "Message",
     "btn-send": "Envoyer",
     "contact-note": "",
-    "contact-direct-title": "Contact direct",
+    "contact-direct-title": "L’équipe",
     "contact-email-label": "Email entreprise : ",
     "contact-linkedin-label": "LinkedIn entreprise : ",
     "contact-location": "Domiciliation prévue : Suisse (détails à confirmer).",
@@ -558,7 +560,7 @@ const translations = {
     "contact-person-role-2": "Head of Investment Strategy",
     "contact-person-email-label": "Email perso : ",
     "contact-person-linkedin-label": "LinkedIn perso : ",
-    "contact-person-bio": "Bio à ajouter (pilotage de la stratégie d’investissement, tokenisation, partenariats institutionnels).",
+    "contact-person-bio": "Physicien de formation, j’aborde les marchés avec une méthode scientifique, ancrée dans les mécanismes économiques réels et les transferts de risque. Arrivé à la finance par les marchés crypto, j’ai élargi ma passion aux marchés de capitaux et à la manière dont la blockchain peut améliorer le système financier, la transparence et l’efficience du capital.",
 
     "footer-disclaimer-1":
       "Les informations présentées sur ce site ne constituent ni un conseil en investissement, ni une offre, ni une sollicitation au public.",
