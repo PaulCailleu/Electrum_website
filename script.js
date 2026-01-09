@@ -56,7 +56,7 @@ const translations = {
     "bm-chart-mix-title": "Revenue mix (example)",
     "bm-chart-mix-note": "Sample split between management, performance, and token rails.",
     "bm-chart-breakeven-title": "Margin sensitivity vs AUM",
-    "bm-chart-breakeven-note": "Illustrative scenarios; breakeven around 50–60m AUM in this placeholder.",
+    "bm-chart-breakeven-note": "Break-even for the base case is around 30–35m AUM.",
     "bm-chart-rev-mgmt": "Mgmt fees",
     "bm-chart-rev-services": "Services",
     "bm-chart-rev-token": "Token rails",
@@ -344,7 +344,7 @@ const translations = {
     "bm-chart-mix-title": "Mix de revenus (exemple)",
     "bm-chart-mix-note": "Répartition indicative entre gestion, performance et rails tokenisés.",
     "bm-chart-breakeven-title": "Sensibilité de marge vs AUM",
-    "bm-chart-breakeven-note": "Scénarios illustratifs ; break-even autour de 50–60 M$ d’AUM dans ce placeholder.",
+    "bm-chart-breakeven-note": "Break-even du scénario central autour de 30–35 M$ d’AUM.",
     "bm-chart-rev-mgmt": "Frais de gestion",
     "bm-chart-rev-services": "Services",
     "bm-chart-rev-token": "Rails token",
@@ -744,11 +744,22 @@ let growthRadarChart;
 
 function initBusinessCharts() {
   const labels = ["Q1", "Q2", "Q3", "Q4", "Q5", "Q6"];
-  const revenueMgmt = [180, 220, 270, 320, 360, 410];
-  const revenueServices = [10, 20, 30, 40, 55, 70];
-  const revenueToken = [25, 35, 45, 55, 65, 80];
-  const costsFixed = [140, 140, 140, 140, 150, 160];
-  const costsVariable = [40, 60, 80, 100, 115, 130];
+  const aumStart = 30_000_000;
+  const aumGrowthQ = 0.08;
+  const mgmtFeeQ = 0.015 / 4;
+  const spreadLiquidityBpsQ = 2;
+  const spreadPoolBpsQ = 2;
+  const servicesBpsQ = 2;
+  const servicesStartIdx = 4;
+  const fixedCostQ = 125_000;
+  const variableCostBpsQ = 4;
+
+  const aum = labels.map((_, idx) => aumStart * Math.pow(1 + aumGrowthQ, idx));
+  const revenueMgmt = aum.map((v) => v * mgmtFeeQ);
+  const revenueToken = aum.map((v) => v * ((spreadLiquidityBpsQ + spreadPoolBpsQ) / 10_000));
+  const revenueServices = aum.map((v, idx) => (idx >= servicesStartIdx ? v * (servicesBpsQ / 10_000) : 0));
+  const costsFixed = labels.map(() => fixedCostQ);
+  const costsVariable = aum.map((v) => v * (variableCostBpsQ / 10_000));
 
   const dict = translations[currentLang];
 
@@ -850,7 +861,11 @@ function initBusinessCharts() {
         labels: [dict["bm-chart-rev-mgmt"], dict["bm-chart-rev-services"], dict["bm-chart-rev-token"]],
         datasets: [
           {
-            data: [45, 35, 20],
+            data: [
+              revenueMgmt.reduce((acc, v) => acc + v, 0),
+              revenueServices.reduce((acc, v) => acc + v, 0),
+              revenueToken.reduce((acc, v) => acc + v, 0)
+            ],
             backgroundColor: ["#d6a84e", "#c8c9cf", "#8fb7ff"],
             borderColor: "rgba(15, 27, 43, 0.9)",
             borderWidth: 1.5
@@ -871,6 +886,41 @@ function initBusinessCharts() {
 
   const beCtx = document.getElementById("bmBreakevenChart");
   if (beCtx) {
+    const aumBuckets = [0, 20, 40, 60, 80, 100]; // USD millions
+    const toK = (val) => Math.round((val / 1000) * 10) / 10;
+    const baseRevenue = (aumM, mgmtAnnual, spreadBpsQ, servicesBpsQ) => {
+      const aum = aumM * 1_000_000;
+      const mgmtQ = mgmtAnnual / 4;
+      const spreads = aum * (spreadBpsQ / 10_000);
+      const services = aum * (servicesBpsQ / 10_000);
+      return aum * mgmtQ + spreads + services;
+    };
+    const baseCosts = (aumM, fixedQ, variableBpsQ) => {
+      const aum = aumM * 1_000_000;
+      return fixedQ + aum * (variableBpsQ / 10_000);
+    };
+    const netSeries = (mgmtAnnual, fixedQ, variableBpsQ) =>
+      aumBuckets.map((aumM) => {
+        const revenue = baseRevenue(aumM, mgmtAnnual, 4, 2);
+        const costs = baseCosts(aumM, fixedQ, variableBpsQ);
+        return toK(revenue - costs);
+      });
+
+    const scenarioLow = netSeries(0.015, 150_000, 10);
+    const scenarioBase = netSeries(0.015, 125_000, 4);
+    const scenarioHigh = netSeries(0.02, 125_000, 4);
+    const breakEvenIndex = (() => {
+      for (let i = 0; i < scenarioBase.length - 1; i += 1) {
+        const v0 = scenarioBase[i];
+        const v1 = scenarioBase[i + 1];
+        if ((v0 <= 0 && v1 >= 0) || (v0 >= 0 && v1 <= 0)) {
+          const t = (0 - v0) / (v1 - v0);
+          return i + t;
+        }
+      }
+      return null;
+    })();
+
     bmBreakevenChart = new Chart(beCtx, {
       type: "line",
       data: {
@@ -878,19 +928,19 @@ function initBusinessCharts() {
         datasets: [
           {
             label: dict["bm-chart-scenario-low"],
-            data: [-90, -40, -10, 20, 30, 35],
+            data: scenarioLow,
             borderColor: "#8fb7ff",
             tension: 0.2
           },
           {
             label: dict["bm-chart-scenario-base"],
-            data: [-70, -20, 20, 50, 80, 100],
+            data: scenarioBase,
             borderColor: "#d6a84e",
             tension: 0.2
           },
           {
             label: dict["bm-chart-scenario-high"],
-            data: [-50, 10, 60, 110, 150, 190],
+            data: scenarioHigh,
             borderColor: "#4ade80",
             tension: 0.2
           }
@@ -900,13 +950,43 @@ function initBusinessCharts() {
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
-          legend: { position: "bottom" }
+          legend: { position: "bottom" },
+          breakevenLine: {
+            index: breakEvenIndex
+          }
         },
         scales: {
           x: { title: { display: true, text: dict["bm-chart-axis-aum"] } },
           y: { title: { display: true, text: dict["bm-chart-axis-margin"] } }
         }
-      }
+      },
+      plugins: [
+        {
+          id: "breakevenLine",
+          afterDatasetsDraw(chart, _args, options) {
+            const idx = options.index;
+            if (idx === null || idx === undefined) return;
+            const xScale = chart.scales.x;
+            const yScale = chart.scales.y;
+            const leftIdx = Math.floor(idx);
+            const rightIdx = Math.min(leftIdx + 1, xScale.ticks.length - 1);
+            const x0 = xScale.getPixelForTick(leftIdx);
+            const x1 = xScale.getPixelForTick(rightIdx);
+            const t = idx - leftIdx;
+            const x = x0 + (x1 - x0) * t;
+            const ctx = chart.ctx;
+            ctx.save();
+            ctx.strokeStyle = "rgba(214, 168, 78, 0.45)";
+            ctx.setLineDash([6, 6]);
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.moveTo(x, yScale.top);
+            ctx.lineTo(x, yScale.bottom);
+            ctx.stroke();
+            ctx.restore();
+          }
+        }
+      ]
     });
   }
 }

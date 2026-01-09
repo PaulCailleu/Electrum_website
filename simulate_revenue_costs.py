@@ -147,20 +147,20 @@ def main() -> None:
         st.header("Assumptions")
         years = st.slider("Years", min_value=1, max_value=10, value=5, step=1)
         aum_start = st.number_input("AUM start (USD)", min_value=1_000_000, value=50_000_000, step=1_000_000)
-        aum_growth_q = st.slider("AUM growth per quarter", 0.0, 0.25, 0.06, 0.005)
+        aum_growth_q = st.slider("AUM growth per quarter", 0.0, 0.25, 0.06, 0.001, format="%.3f")
 
         st.subheader("Revenues")
-        mgmt_fee_annual = st.slider("Management fee (annual)", 0.005, 0.03, 0.018, 0.001)
-        liquidity_spread_bps_q = st.slider("Liquidity window spread (bps / quarter)", 0.0, 30.0, 8.0, 0.5)
-        pool_spread_bps_q = st.slider("Pool spread (bps / quarter)", 0.0, 30.0, 5.0, 0.5)
+        mgmt_fee_annual = st.slider("Management fee (annual)", 0.005, 0.03, 0.018, 0.001, format="%.3f")
+        liquidity_spread_bps_q = st.slider("Liquidity window spread (bps / quarter)", 0.0, 30.0, 8.0, 0.1, format="%.1f")
+        pool_spread_bps_q = st.slider("Pool spread (bps / quarter)", 0.0, 30.0, 5.0, 0.1, format="%.1f")
 
         st.subheader("Services")
         services_start_q = st.slider("Services start (quarter index)", 0, years * 4 - 1, 9, 1)
-        services_bps_q = st.slider("Services revenue (bps / quarter)", 0.0, 10.0, 2.0, 0.25)
+        services_bps_q = st.slider("Services revenue (bps / quarter)", 0.0, 10.0, 2.0, 0.1, format="%.1f")
 
         st.subheader("Costs")
         fixed_cost_q = st.number_input("Fixed cost per quarter (USD)", min_value=0, value=350_000, step=25_000)
-        variable_cost_bps_q = st.slider("Variable cost (bps / quarter)", 0.0, 20.0, 6.0, 0.5)
+        variable_cost_bps_q = st.slider("Variable cost (bps / quarter)", 0.0, 20.0, 6.0, 0.1, format="%.1f")
 
     assumptions = Assumptions(
         years=years,
