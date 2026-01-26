@@ -106,6 +106,7 @@ def plot(results: dict) -> go.Figure:
     return fig
 
 
+
 def plot_vs_aum(a: Assumptions) -> go.Figure:
     aum_values = np.linspace(a.aum_start * 0.5, a.aum_start * 3.0, 40)
     mgmt_fee_q = a.mgmt_fee_annual / 4.0
