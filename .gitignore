@@ -1,2 +1,6 @@
 # *.json
 # *.png
+.vscode
+.venv/
+__pycache__/
+*.pyc
